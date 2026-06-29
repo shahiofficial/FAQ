@@ -5,10 +5,18 @@ A single-page, mobile-first pre-trip info page. Images live in `images/`, so
 
 ## Structure
 ```
-index.html        # the page (all content in the <script> CONFIG/QUESTIONS/PHOTOS)
-images/           # logo + card photos
+index.html        # main page — practical pre-trip info + Kaity chatbot
+explore.html      # "Explore Malaysia" page — see / eat / take home (linked by a button)
+images/           # logo + photos (shared by both pages)
+server/worker.js  # optional AI proxy for Kaity
 README.md
 ```
+
+## Explore page photos
+Open `explore.html`, find the `EXPLORE` list in the script, and set each item's
+`img` to a filename you drop in `images/` (e.g. `img:"pool.jpg"`). Blank `""`
+shows a placeholder. Suggested names: pool, klcc, jalan-alor, bukit-bintang,
+coconut, nasi-lemak, roti-canai, teh-tarik, magnet, chocolate, white-coffee.
 
 ## Image source switch
 Top of the `<script>` in `index.html`:

@@ -161,6 +161,14 @@
     .qcard,.tl{break-inside:avoid}
     .pass,footer,.qcard{box-shadow:none}
   }
+  /* ---------- explore CTA ---------- */
+  .explore-cta{display:flex;align-items:center;gap:14px;margin-top:38px;padding:20px 22px;border-radius:var(--r-l);background:linear-gradient(135deg,var(--teal),var(--green));color:#fff;text-decoration:none;box-shadow:var(--sh-h);transition:transform .15s}
+  .explore-cta:hover{transform:translateY(-2px)}
+  .ex-txt{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+  .ex-eyebrow{font-family:var(--f-label);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+  .ex-title{font-family:var(--f-display);font-size:25px;letter-spacing:.01em}
+  .ex-sub{font-size:13px;color:rgba(255,255,255,.88)}
+  .ex-arrow{font-size:28px;flex:0 0 auto;line-height:1}
   /* ---------- Kaity chatbot ---------- */
   .cbot-launch{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:900;display:flex;align-items:center;gap:10px}
   .cbot-label{background:var(--card);border:1px solid var(--line);color:var(--teal-d);font-family:var(--f-body);font-weight:600;font-size:13px;padding:8px 13px;border-radius:999px;box-shadow:0 6px 18px rgba(5,42,48,.16);white-space:nowrap;cursor:pointer}
@@ -282,6 +290,16 @@
   </div>
   <div class="faq" id="faq"></div>
   <div class="empty" id="empty">No match. Try another word, or just scroll the cards above.</div>
+
+  <!-- ===== EXPLORE CTA ===== -->
+  <a class="explore-cta" href="explore.html">
+    <div class="ex-txt">
+      <span class="ex-eyebrow">Now for the fun part</span>
+      <span class="ex-title">Explore Malaysia</span>
+      <span class="ex-sub">Places to see, food to try &amp; souvenirs to take home</span>
+    </div>
+    <span class="ex-arrow">&#8594;</span>
+  </a>
 
   <!-- ===== FOOTER ===== -->
   <footer>
