@@ -30,8 +30,28 @@ All content is in three objects near the top of the `<script>`:
 - `PHOTOS`   — maps each card to an image filename in `images/` (`""` = placeholder).
 - `QUESTIONS`— the FAQ cards (icon, tag, question, answer HTML).
 
+## AI Kaity (optional upgrade)
+The chatbot works offline by default (keyword matching over the FAQ). To make
+Kaity understand free-form questions, deploy the proxy in `server/worker.js`
+and point the page at it. The API key stays server-side — never in the page.
+
+1. Install Wrangler: `npm i -g wrangler` then `wrangler login`.
+2. From `server/`, deploy: `wrangler deploy worker.js --name kaity`.
+3. Set the key as a secret: `wrangler secret put ANTHROPIC_API_KEY`.
+4. Copy the Worker URL and set it in `index.html` → `CONFIG.aiEndpoint`.
+   Leave it `""` to stay fully offline.
+
+Notes:
+- The FAQ knowledge is baked into `worker.js` (`KNOWLEDGE`). Re-paste it if your
+  FAQ changes, or have the client send it.
+- Model is `claude-haiku-4-5-20251001` (fast/cheap) — see docs.claude.com.
+- `Access-Control-Allow-Origin` is `*`; tighten to your site origin for production.
+- If the AI call fails, Kaity automatically falls back to the offline matcher.
+
+Other hosts: the same logic works as a Vercel/Netlify function or any small
+server — just expose a POST endpoint that returns `{ reply }`.
+
 ## Still to add
 - Real phone numbers in `CONFIG` (advisorPhone, guidePhone).
-- White logo for the dark footer: drop `kt-white.png` in `images/`,
-  set `logoWhite: "kt-white.png"` in CONFIG.
-- Day 3 boating photo: add to `images/` and set `"Day 3"` in PHOTOS.
+- `images/kt-white.png` is an auto-generated placeholder — swap in the
+  official white logo when ready (filename stays the same).
