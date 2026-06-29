@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Kairali Trails · Malaysia Pre-Trip Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/nyght-serif" rel="stylesheet">
+<style>
+  :root{
+    /* ----- official Kairali Trails tokens ----- */
+    --teal:#0496a5; --teal-d:#037885; --green:#24fbaa; --cyan:#29ffff;
+    --blue:#1e98f7; --orange:#f3792a; --yellow:#fefdbb;
+    --dark:#052a30; --dark-2:#0a3a42; --off:#f4fcfd; --muted:#5a9aa5;
+    --ink:#0e2e34; --line:#d7eef1; --card:#ffffff;
+    --r-s:8px; --r-m:16px; --r-l:24px;
+    --sh:0 4px 24px rgba(4,150,165,.12); --sh-h:0 14px 40px rgba(4,150,165,.22);
+    --f-display:'Tanker','Poppins',system-ui,sans-serif;
+    --f-serif:'Nyght Serif',Georgia,'Times New Roman',serif;
+    --f-body:'Poppins',system-ui,sans-serif;
+    --f-label:'DM Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{margin:0;font-family:var(--f-body);color:var(--ink);background:var(--off);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+  img{max-width:100%}
+  button{font-family:inherit}
+  .wrap{max-width:780px;margin:0 auto;
+    padding:0 max(18px,env(safe-area-inset-right)) calc(90px + env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left))}
+
+  /* eyebrow / labels */
+  .eyebrow{font-family:var(--f-label);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--teal);font-weight:500;display:flex;align-items:center;gap:12px;margin:42px 0 14px}
+  .eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  /* ---------- brand bar ---------- */
+  .brandbar{display:flex;align-items:center;justify-content:space-between;padding:20px 0 12px}
+  .logo{font-family:var(--f-display);font-size:23px;letter-spacing:.005em;color:var(--teal-d);line-height:.9}
+  .logo b{color:var(--green);-webkit-text-stroke:.3px var(--teal-d)}
+  .logo span{display:block;font-family:var(--f-label);font-weight:400;font-size:9px;letter-spacing:.46em;color:var(--muted);margin-top:3px;text-transform:uppercase}
+  .printbtn{font-family:var(--f-body);font-weight:600;font-size:13px;border:1.5px solid var(--teal);background:transparent;color:var(--teal);padding:9px 16px;border-radius:999px;cursor:pointer;transition:.15s}
+  .printbtn:hover{background:var(--teal);color:#fff}
+
+  /* ---------- boarding pass hero ---------- */
+  .pass{position:relative;margin-top:14px;border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sh-h);
+    background:linear-gradient(140deg,var(--dark),var(--dark-2) 55%,var(--teal-d))}
+  .pass::before{content:"";position:absolute;inset:0;opacity:.10;
+    background-image:linear-gradient(135deg,transparent 46%,#fff 47% 48%,transparent 49%),linear-gradient(45deg,transparent 46%,#fff 47% 48%,transparent 49%);
+    background-size:36px 36px}
+  .pass-top{position:relative;padding:28px 28px 22px;color:#eafcfb}
+  .skyline{position:absolute;right:18px;bottom:14px;width:124px;opacity:.30}
+  .pass-route{display:flex;align-items:center;gap:14px;position:relative;z-index:1}
+  .pass-code{font-family:var(--f-display);font-size:33px;line-height:1;letter-spacing:.01em}
+  .pass-plane{flex:1;display:flex;align-items:center;gap:6px;color:rgba(234,252,251,.5)}
+  .pass-plane .ln{flex:1;height:1.5px;background:repeating-linear-gradient(90deg,rgba(234,252,251,.5) 0 6px,transparent 6px 12px)}
+  .pass-eyebrow{font-family:var(--f-label);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin:22px 0 8px;position:relative;z-index:1}
+  .pass-dest{font-family:var(--f-display);font-size:42px;letter-spacing:.01em;margin:0;position:relative;z-index:1;color:#fff}
+  .pass-sub{font-family:var(--f-serif);font-style:italic;color:rgba(234,252,251,.82);font-size:16px;position:relative;z-index:1;max-width:64%;margin-top:2px}
+  .perf{position:relative;height:0;border-top:2px dashed rgba(234,252,251,.30)}
+  .perf::before,.perf::after{content:"";position:absolute;top:-14px;width:26px;height:26px;border-radius:50%;background:var(--off)}
+  .perf::before{left:-13px}.perf::after{right:-13px}
+  .pass-stub{position:relative;padding:18px 28px 26px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;z-index:1}
+  .stat .k{font-family:var(--f-label);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
+  .stat .v{font-family:var(--f-body);font-weight:700;font-size:16px;color:#eafcfb}
+  .stat .v small{display:block;font-weight:400;font-size:11px;color:rgba(234,252,251,.62);margin-top:2px}
+
+  /* ---------- advisor note ---------- */
+  .advisor{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);padding:16px 18px;margin-top:16px;box-shadow:var(--sh)}
+  .advisor .av{width:44px;height:44px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;font-family:var(--f-display);font-size:20px;color:#052a30;background:var(--green)}
+  .advisor .nm{font-family:var(--f-body);font-weight:600;color:var(--teal-d);font-size:15px}
+  .advisor .rl{font-family:var(--f-label);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .advisor p{margin:0;font-size:13.5px;color:var(--muted)}
+
+  /* ---------- timeline ---------- */
+  .timeline{position:relative;padding-left:30px}
+  .timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--green),var(--teal))}
+  .tl{position:relative;margin-bottom:16px}
+  .tl:last-child{margin-bottom:0}
+  .tl::before{content:"";position:absolute;left:-26px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--green)}
+  .tl .when{font-family:var(--f-label);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);font-weight:500}
+  .tl .what{font-weight:600;color:var(--ink);font-size:14.5px;margin-top:1px}
+  .tl .det{font-size:13px;color:var(--muted)}
+
+  /* ---------- checklist ---------- */
+  .checklist{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .check{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 15px;cursor:pointer;font-weight:500;font-size:14px;color:var(--ink);transition:.15s;user-select:none}
+  .check .box{width:20px;height:20px;border-radius:6px;border:2px solid var(--line);flex:0 0 auto;display:grid;place-items:center;transition:.15s}
+  .check .box svg{width:12px;height:12px;opacity:0;transform:scale(.5);transition:.15s}
+  .check.done{background:#eafffb;color:var(--muted)}
+  .check.done .label{text-decoration:line-through}
+  .check.done .box{background:var(--green);border-color:var(--green)}
+  .check.done .box svg{opacity:1;transform:scale(1)}
+
+  /* ---------- search ---------- */
+  .search{position:relative;margin:4px 0}
+  .search input{width:100%;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:14px 16px 14px 44px;font-family:var(--f-body);font-size:15px;color:var(--ink)}
+  .search input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(4,150,165,.12)}
+  .search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
+
+  /* ---------- FAQ ---------- */
+  .faq{display:flex;flex-direction:column;gap:11px;margin-top:12px}
+  .qcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;box-shadow:var(--sh);transition:.18s}
+  .qcard.open{border-color:var(--teal)}
+  .qhead{display:flex;align-items:center;gap:14px;padding:15px 18px;cursor:pointer;user-select:none}
+  .qicon{width:42px;height:42px;border-radius:11px;background:var(--off);display:grid;place-items:center;flex:0 0 auto;font-size:21px;transition:.18s}
+  .qcard.open .qicon{background:var(--green)}
+  .qtitle{flex:1;font-family:var(--f-body);font-weight:600;font-size:15.5px;color:var(--ink);line-height:1.35}
+  .qcard.open .qtitle{color:var(--teal-d)}
+  .qtag{font-family:var(--f-label);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .chev{width:22px;height:22px;color:var(--muted);transition:.2s;flex:0 0 auto}
+  .qcard.open .chev{transform:rotate(180deg);color:var(--teal)}
+  .qbody{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .qbody-inner{padding:0 18px 20px}
+  .qbody-inner .pic{height:150px;border-radius:12px;margin-bottom:14px;background:var(--off);display:grid;place-items:center;color:var(--muted);font-family:var(--f-label);font-size:10.5px;letter-spacing:.06em;text-align:center;border:1.5px dashed var(--line);padding:10px}
+  /* photo with image */
+  .qbody-inner .pic.has-img{position:relative;padding:0;border-style:solid;cursor:zoom-in;overflow:hidden}
+  .qbody-inner .pic.has-img img{width:100%;height:100%;object-fit:cover;border-radius:11px;display:block}
+  /* document-style graphics (menus, infographics) shown in full, not cropped */
+  .qbody-inner .pic.doc{height:200px;background:#fff}
+  .qbody-inner .pic.doc img{object-fit:contain}
+  .enlarge{position:absolute;right:8px;bottom:8px;background:rgba(5,42,48,.82);color:#fff;font-family:var(--f-label);font-size:10px;letter-spacing:.04em;padding:5px 9px;border-radius:999px;display:flex;align-items:center;gap:5px;pointer-events:none}
+  /* lightbox */
+  .lb{position:fixed;inset:0;background:rgba(5,42,48,.94);z-index:999;display:none;align-items:center;justify-content:center;padding:env(safe-area-inset-top) 12px env(safe-area-inset-bottom);overflow:auto;-webkit-overflow-scrolling:touch}
+  .lb.open{display:flex}
+  .lb img{max-width:100%;height:auto;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb-close{position:fixed;top:max(14px,env(safe-area-inset-top));right:16px;width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center;z-index:1000}
+  .lb-hint{position:fixed;bottom:max(16px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-family:var(--f-label);font-size:11px;letter-spacing:.06em;pointer-events:none}
+  .qbody-inner p{margin:0 0 10px;font-size:14.5px;color:var(--muted)}
+  .qbody-inner p:last-child{margin-bottom:0}
+  .qbody-inner ul{margin:0 0 10px;padding-left:18px}
+  .qbody-inner li{font-size:14.5px;color:var(--muted);margin-bottom:5px}
+  .qbody-inner strong{color:var(--ink);font-weight:600}
+  .pill{display:inline-block;font-family:var(--f-body);font-size:12.5px;background:#eafffb;color:var(--teal-d);border-radius:7px;padding:2px 9px;font-weight:700;margin:0 1px}
+  .note{background:var(--yellow);border-radius:var(--r-s);padding:10px 13px;font-size:13.5px;color:var(--ink);margin:6px 0 0}
+  .empty{display:none;text-align:center;color:var(--muted);font-size:14px;padding:30px 0}
+
+  /* ---------- footer ---------- */
+  footer{margin-top:46px;background:linear-gradient(140deg,var(--dark),var(--teal-d));border-radius:var(--r-l);padding:28px;color:#eafcfb;position:relative;overflow:hidden}
+  footer h3{font-family:var(--f-display);margin:0 0 5px;font-size:24px;color:#fff;letter-spacing:.01em}
+  footer .tag{font-family:var(--f-serif);font-style:italic;margin:0 0 16px;color:rgba(234,252,251,.78);font-size:15px;max-width:76%}
+  .contacts{display:flex;flex-wrap:wrap;gap:10px;position:relative;z-index:1}
+  .contact{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:11px 14px;min-width:160px}
+  .contact .role{font-family:var(--f-label);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+  .contact .who{font-weight:600;font-size:14px;margin-top:3px}
+  .contact .num{font-family:var(--f-body);font-size:13px;color:rgba(234,252,251,.85);margin-top:1px}
+
+  @media(max-width:560px){
+    .pass-stub{grid-template-columns:1fr 1fr;gap:16px}
+    .checklist{grid-template-columns:1fr}
+    .pass-dest{font-size:34px}.pass-code{font-size:28px}
+    .pass-sub,footer .tag{max-width:100%}
+    .skyline{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+  @media print{
+    body{background:#fff}
+    .printbtn,.search{display:none!important}
+    .qbody{max-height:none!important}
+    .qcard,.tl{break-inside:avoid}
+    .pass,footer,.qcard{box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brandbar">
+    <div id="brandLogo"></div>
+    <button class="printbtn" onclick="window.print()">Save as PDF</button>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <div class="pass">
+    <div class="pass-top">
+      <svg class="skyline" viewBox="0 0 200 90" fill="none" stroke="#eafcfb" stroke-width="2">
+        <path d="M88 88V40l6-10 6 10v48M84 50h20M82 60h24M80 70h28M76 80h36"/>
+        <path d="M112 88V40l6-10 6 10v48M108 50h20M106 60h24M104 70h28M100 80h36"/>
+        <path d="M0 88h200M30 88V62h16v26M150 88V58h18v30M178 88V70h12v18"/>
+      </svg>
+      <div class="pass-route">
+        <span class="pass-code">DEL</span>
+        <span class="pass-plane"><span class="ln"></span>&#9992;<span class="ln"></span></span>
+        <span class="pass-code">KUL</span>
+      </div>
+      <div class="pass-eyebrow">&#127476;&#127486; Welcome aboard &middot; Boarding soon</div>
+      <h1 class="pass-dest">Malaysia</h1>
+      <div class="pass-sub">Kuala Lumpur &middot; everything you need before you fly, in one place.</div>
+    </div>
+    <div class="perf"></div>
+    <div class="pass-stub">
+      <div class="stat"><div class="k">Currency</div><div class="v">MYR<small>Ringgit</small></div></div>
+      <div class="stat"><div class="k">Plug</div><div class="v">Type G<small>240V</small></div></div>
+      <div class="stat"><div class="k">Time</div><div class="v">GMT+8<small>+2&frac12;h vs IST</small></div></div>
+      <div class="stat"><div class="k">Baggage</div><div class="v">30 kg<small>check-in</small></div></div>
+    </div>
+  </div>
+
+  <!-- ===== ADVISOR ===== -->
+  <div class="advisor">
+    <div class="av" id="advisorAv">A</div>
+    <div>
+      <div class="nm" id="advisorNm">Afrin</div>
+      <div class="rl">Your Service Advisor</div>
+      <p>I'm managing every arrangement for your trip. As your dates approach I'll call you personally &mdash; and you can reach out anytime. Looking forward to making this smooth and enjoyable.</p>
+    </div>
+  </div>
+
+  <!-- ===== TIMELINE ===== -->
+  <div class="eyebrow">When your documents arrive</div>
+  <div class="timeline">
+    <div class="tl"><div class="when">Once tickets are issued</div><div class="what">Flight tickets</div><div class="det">Sent across by our ticketing team.</div></div>
+    <div class="tl"><div class="when">2 days before arrival</div><div class="what">Hotel confirmation</div><div class="det">Confirmed accommodation details for Kuala Lumpur.</div></div>
+    <div class="tl"><div class="when">1 day before departure</div><div class="what">Accommodation voucher + deposit info</div><div class="det">Voucher, security deposit details, and any extra info you'll need.</div></div>
+    <div class="tl"><div class="when">Day of departure</div><div class="what">Malaysian pass</div><div class="det">Your entry pass, sent on the day you fly.</div></div>
+  </div>
+
+  <!-- ===== CHECKLIST ===== -->
+  <div class="eyebrow">Before you zip the bag</div>
+  <div class="checklist" id="checklist"></div>
+
+  <!-- ===== FAQ ===== -->
+  <div class="eyebrow">Everything you asked (and didn't)</div>
+  <div class="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="search" type="text" placeholder="Search — try 'adapter', 'deposit' or 'SIM'…" oninput="filterFaq(this.value)">
+  </div>
+  <div class="faq" id="faq"></div>
+  <div class="empty" id="empty">No match. Try another word, or just scroll the cards above.</div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <svg class="skyline" viewBox="0 0 200 90" fill="none" stroke="#eafcfb" stroke-width="2">
+      <path d="M88 88V40l6-10 6 10v48M84 50h20M82 60h24M80 70h28M76 80h36"/>
+      <path d="M112 88V40l6-10 6 10v48M108 50h20M106 60h24M104 70h28M100 80h36"/>
+      <path d="M0 88h200M30 88V62h16v26M150 88V58h18v30"/>
+    </svg>
+    <h3>Still have a doubt?</h3>
+    <p class="tag">Reach your Service Advisor anytime, or your on-ground guide once you land.</p>
+    <div class="contacts" id="contacts"></div>
+  </footer>
+</div>
+
+<!-- fullscreen image viewer (pinch-zoom enabled) -->
+<div class="lb" id="lb" onclick="closeLightbox(event)">
+  <button class="lb-close" onclick="closeLightbox(event)" aria-label="Close">&times;</button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-hint">Pinch to zoom &middot; tap to close</div>
+</div>
+
+<script>
+/* ============================================================
+   ┌─────────────────────────────────────────────────────────┐
+   │  CONFIG — fill these in. This is the only block you edit  │
+   │  to add the logo, real phone numbers and photos.         │
+   └─────────────────────────────────────────────────────────┘
+   PHOTOS: put the image file next to this .html file, then
+   write its filename below (e.g. "hotlink.jpg"). Leave "" to
+   keep the grey placeholder. Keys match each card's tag.
+   ============================================================ */
+const IMG_BASE = "images/";  // GitHub Pages: "images/"  |  jsDelivr: "https://cdn.jsdelivr.net/gh/USER/REPO@main/images/"
+
+const CONFIG = {
+  logoDark:  "kt-logo.png",   // embedded Kairali Trails logo
+  logoWhite: "",   // e.g. "kt-white.png" (shown in footer, on dark)
+  advisorName:  "Afrin",
+  advisorPhone: "+91 00000 00000",
+  guideName:    "Ragu",
+  guidePhone:   "+60 00 0000 0000"
+};
+const PHOTOS = {
+  "Baggage":      "baggage.jpg",   // AirAsia cabin baggage allowance
+  "Money":        "money.jpg",   // Ringgit + cards
+  "Power":        "plug.jpg",   // Type G socket + universal adapter
+  "Connectivity": "hotlink.jpg",   // Hotlink storefront photo
+  "Arrival":      "airport.jpg",   // rep + pillar B + name board
+  "Day 3":        "",   // boating / island day
+  "Dress code":   "temple.jpg",   // temple dress-code banner
+  "Food":         "menu.jpg"    // breakfast menu
+};
+
+/* ============================================================
+   CONTENT — all Malaysia info lives in these two lists.
+   ============================================================ */
+const CHECKLIST = [
+  "Passport (6+ mo validity)","MDAC arrival card done","Universal / Type G adapter",
+  "MYR cash + forex card","INR cash to convert at KLIA","Itinerary saved offline"
+];
+
+const QUESTIONS = [
+  { icon:"\uD83E\uDDF3", tag:"Baggage", q:"How much luggage can I carry?", pic:"PHOTO \u00b7 luggage / baggage allowance",
+    a:`<p>Check-in allowance is <span class="pill">30 kg</span> plus one cabin bag per person. Confirm your exact figure on the ticket once issued.</p>
+       <p>Keep liquids, aerosols and gels in containers <strong>100 ml or smaller</strong> unless they're in tamper-evident duty-free bags. Power banks go in <strong>cabin baggage only</strong>, never check-in.</p>` },
+  { icon:"\uD83D\uDCB1", tag:"Money", q:"How much cash should I carry, and how do I exchange it?", pic:"PHOTO \u00b7 MYR currency / forex card",
+    a:`<p>Please <strong>complete your currency exchange before you travel</strong>. As a guide, for 2 passengers the equivalent of <span class="pill">\u20b925,000</span> in MYR is advisable \u2014 adjust to your own preference.</p>
+       <p>Carry a mix: <strong>MYR cash</strong>, a <strong>forex card</strong>, and an <strong>international credit or debit card</strong> for hassle-free transactions. You can also carry some <strong>INR cash and convert it to MYR at the Indian airport</strong> before you fly.</p>` },
+  { icon:"\uD83D\uDD0C", tag:"Power", q:"What adapter / plug do I need?", pic:"PHOTO \u00b7 Type G plug (please confirm)",
+    a:`<p>Malaysia uses the <span class="pill">Type G</span> socket (UK-style, three rectangular pins) at <strong>240V</strong> \u2014 different from India.</p>
+       <p>Carry a <strong>universal travel adapter</strong> and you're covered. Most phone and laptop chargers handle 240V fine; double-check any hair dryer or shaver before plugging in.</p>` },
+  { icon:"\uD83D\uDCF6", tag:"Connectivity", q:"How do I get a SIM / internet?", pic:"PHOTO \u00b7 Hotlink SIM shop after immigration",
+    a:`<p>After arriving in Malaysia, you can buy a SIM from the official <strong>Hotlink</strong> SIM card shop located right after immigration. They offer convenient <strong>1-week data plans</strong>, so you stay connected throughout your trip.</p>` },
+  { icon:"\uD83D\uDEEC", tag:"Arrival", q:"Where do I meet the team at the airport?", pic:"PHOTO \u00b7 name board + Hotlink shop",
+    a:`<p>Your arrival point is <strong>KLIA Terminal 2 (klia2)</strong>. An airport representative will be waiting in the arrival area near the <strong>Hotlink SIM card shop</strong>, by <strong>pillar B</strong>, holding a &ldquo;Welcome Kairali Trails&rdquo; placard.</p>
+       <p>Our coordinator will also update you in advance about the receiving and pickup procedure, to ensure a smooth arrival. If you don't spot the board right away, don't worry &mdash; the coordinators are online to assist.</p>` },
+  { icon:"\uD83D\uDE90", tag:"Transfers", q:"How do pickups and transfers work?",
+    a:`<p>Guests arrive on different flights at different times. Freshen up, grab a snack, or explore KLIA \u2014 your transfer happens <strong>once all group members have arrived</strong>.</p>
+       <p>Itinerary and timings are fixed once booking is complete and can't be customised. Please follow the given timings \u2014 <strong>drivers cannot wait</strong>, and any missed pickup is the guest's responsibility.</p>` },
+  { icon:"\u23F0", tag:"Day 3", q:"What do I need for the Day 3 boating trip?", pic:"PHOTO \u00b7 boating / island day",
+    a:`<p><strong>Be ready at your scheduled pickup time.</strong> Delays can mean a missed pickup and a skipped destination \u2014 this matters most on <strong>Day 3</strong>.</p>
+       <p>Carry these for the water:</p>
+       <ul><li>Swimwear</li><li>Slippers (highly recommended)</li><li>Waterproof phone cover</li><li>Sunscreen</li><li>Sunglasses</li><li>Some cash</li></ul>` },
+  { icon:"\uD83D\uDED5", tag:"Dress code", q:"Is there a dress code for temples?", pic:"PHOTO \u00b7 Batu Caves / temple",
+    a:`<p>Dress modestly at temples and religious sites such as <strong>Batu Caves</strong>. Avoid sleeveless tops, short skirts and shorts; keep <strong>shoulders and knees covered</strong>.</p>
+       <p>A lightweight scarf or cover-up is highly recommended. If you arrive without one, wraps can usually be <strong>rented at the entrance</strong> for a small (often refundable) fee.</p>` },
+  { icon:"\uD83C\uDFE8", tag:"Hotels", q:"What's the security deposit at the hotel?",
+    a:`<p>Hotels collect a refundable <strong>security deposit</strong> in the lobby as assurance against property damage \u2014 returned to you at checkout:</p>
+       <ul><li>Deface \u2014 <span class="pill">300 RM</span> per room</li><li>Ceylonz \u2014 <span class="pill">300 RM</span> per room</li><li>Pacific Express \u2014 <span class="pill">300 RM</span> per room</li></ul>
+       <p>Please keep accommodation clean and well-maintained \u2014 any damage or rule violation may be charged by the property.</p>` },
+  { icon:"\uD83C\uDF73", tag:"Food", q:"Is breakfast included?", pic:"PHOTO \u00b7 breakfast menu",
+    a:`<p>Breakfast is included <strong>only with the Signature package</strong>. If you're on the Signature package, a breakfast menu has been shared with you.</p>` },
+  { icon:"\uD83D\uDDFA\uFE0F", tag:"Itinerary", q:"Where's my day-by-day plan?",
+    a:`<p>Your detailed <strong>4-day general itinerary</strong> has been shared as a PDF \u2014 please save it offline before you fly.</p>
+       <div class="note">Timings may change with the situation. Your coordinator will share updated timings before departure for each destination.</div>` },
+  { icon:"\uD83D\uDEC2", tag:"Airport", q:"When should I reach the airport?",
+    a:`<p>Check your flight timings and reach the airport <strong>at least 3 hours before departure</strong> for smooth boarding. Elderly passengers can request special assistance from airport ground staff for a comfortable, stress-free experience.</p>` },
+  { icon:"\uD83D\uDC8D", tag:"Gold", q:"Can I carry gold / jewellery?",
+    a:`<p>Yes \u2014 keep gold and jewellery in your <strong>cabin (carry-on) bag, never in check-in</strong>, to avoid loss or theft. It counts within your cabin weight allowance.</p>
+       <p>Carry your <strong>original purchase invoices</strong>. For high-value pieces, declare them at the <strong>Indian Customs counter before immigration</strong> when leaving and ask for an <strong>Export Certificate</strong> \u2014 this lets you bring them back to India duty-free.</p>
+       <div class="note">Duty-free limits on the way back depend on how long you were abroad and are set by Indian Customs. Anything above your allowance must be declared. Please confirm the current limits before you travel, or ask us.</div>` },
+  { icon:"\uD83D\uDC8E", tag:"Safety", q:"How do I keep my valuables safe?",
+    a:`<p>Keep money, jewellery, electronics and important documents <strong>safely with you at all times</strong>. Any loss of personal belongings is the passenger's responsibility, and the company is not liable.</p>` }
+];
+
+/* ===== engine ===== */
+// Logo (top): real PNG if provided, else on-brand text wordmark
+document.getElementById("brandLogo").innerHTML = CONFIG.logoDark
+  ? `<img src="${IMG_BASE+CONFIG.logoDark}" alt="Kairali Trails" style="height:38px;display:block">`
+  : `<div class="logo">Kairali<b>.</b><span>Trails — Pre-trip companion</span></div>`;
+
+// Advisor name + avatar initial
+document.getElementById("advisorNm").textContent = CONFIG.advisorName;
+document.getElementById("advisorAv").textContent = (CONFIG.advisorName||"A").trim().charAt(0).toUpperCase();
+
+// Footer: optional white logo + contacts
+document.getElementById("contacts").innerHTML =
+  (CONFIG.logoWhite?`<img src="${IMG_BASE+CONFIG.logoWhite}" alt="Kairali Trails" style="height:34px;display:block;width:100%;margin-bottom:14px;object-fit:contain;object-position:left">`:"")
+  + `<div class="contact"><div class="role">Service Advisor</div><div class="who">${CONFIG.advisorName} &middot; Kairali Trails</div><div class="num">${CONFIG.advisorPhone}</div></div>
+     <div class="contact"><div class="role">On-ground guide</div><div class="who">${CONFIG.guideName} &middot; in your WhatsApp group</div><div class="num">${CONFIG.guidePhone}</div></div>`;
+
+// Photo slot: real image if a filename is set in PHOTOS, else placeholder
+// Graphics that should be shown in full (not cropped) — menus, infographics, banners
+const DOC_IMAGES = ["Baggage","Dress code","Food"];
+function renderPic(item){
+  if(!item.pic) return "";
+  const src=PHOTOS[item.tag];
+  if(!src) return `<div class="pic">${item.pic}</div>`;
+  const doc = DOC_IMAGES.includes(item.tag) ? " doc" : "";
+  return `<div class="pic has-img${doc}" onclick="openLightbox('${item.tag}')">
+            <img src="${IMG_BASE+src}" alt="${item.tag}" loading="lazy" onload="recalc(this)">
+            <span class="enlarge">&#9974; Tap to enlarge</span>
+          </div>`;
+}
+
+document.getElementById("checklist").innerHTML = CHECKLIST.map(t=>`
+  <div class="check" onclick="this.classList.toggle('done')">
+    <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#052a30" stroke-width="3.5"><path d="M5 12l5 5L20 6"/></svg></span>
+    <span class="label">${t}</span>
+  </div>`).join("");
+
+document.getElementById("faq").innerHTML = QUESTIONS.map((item,i)=>`
+  <div class="qcard" data-text="${(item.q+' '+item.tag+' '+item.a).toLowerCase().replace(/<[^>]+>/g,'')}">
+    <div class="qhead" onclick="toggle(${i})">
+      <div class="qicon">${item.icon}</div>
+      <div style="flex:1"><div class="qtitle">${item.q}</div><div class="qtag">${item.tag}</div></div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="qbody"><div class="qbody-inner">${renderPic(item)}${item.a}</div></div>
+  </div>`).join("");
+
+function toggle(i){
+  const card=document.querySelectorAll(".qcard")[i], body=card.querySelector(".qbody");
+  if(card.classList.contains("open")){card.classList.remove("open");body.style.maxHeight=null;}
+  else{card.classList.add("open");body.style.maxHeight=body.scrollHeight+"px";}
+}
+function filterFaq(q){
+  q=q.trim().toLowerCase(); let shown=0;
+  document.querySelectorAll(".qcard").forEach(card=>{
+    const m=!q||card.dataset.text.includes(q);
+    card.style.display=m?"":"none"; if(m)shown++;
+  });
+  document.getElementById("empty").style.display=shown?"none":"block";
+}
+// keep an opened card's height correct once an image finishes decoding
+function recalc(img){
+  const body=img.closest(".qbody");
+  if(body && body.parentElement.classList.contains("open")) body.style.maxHeight=body.scrollHeight+"px";
+}
+// fullscreen image viewer
+function openLightbox(tag){
+  const src=PHOTOS[tag]; if(!src) return;
+  document.getElementById("lbImg").src=IMG_BASE+src;
+  document.getElementById("lb").classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeLightbox(e){
+  if(e) e.stopPropagation();
+  document.getElementById("lb").classList.remove("open");
+  document.getElementById("lbImg").src="";
+  document.body.style.overflow="";
+}
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeLightbox(); });
+</script>
+</body>
+</html>
