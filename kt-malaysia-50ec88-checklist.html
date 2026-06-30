@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Kairali Trails · Malaysia Packing Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/nyght-serif" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0496a5; --teal-d:#037885; --green:#24fbaa; --blue:#1e98f7; --orange:#f3792a;
+    --dark:#052a30; --dark-2:#0a3a42; --off:#f4fcfd; --muted:#5a9aa5;
+    --ink:#0e2e34; --line:#d7eef1; --card:#ffffff;
+    --r-s:8px; --r-m:16px; --r-l:24px;
+    --sh:0 4px 24px rgba(4,150,165,.12); --sh-h:0 14px 40px rgba(4,150,165,.22);
+    --f-display:'Tanker','Poppins',system-ui,sans-serif;
+    --f-serif:'Nyght Serif',Georgia,serif;
+    --f-body:'Poppins',system-ui,sans-serif;
+    --f-label:'DM Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:var(--f-body);color:var(--ink);background:var(--off);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%}
+  .wrap{max-width:780px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left)) calc(70px + env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-right))}
+
+  .topbar{display:flex;align-items:center;justify-content:flex-start;padding:18px 0 6px}
+  .topbar img.logo{height:34px;display:block}
+
+  .hero{position:relative;border-radius:var(--r-l);overflow:hidden;margin-top:6px;box-shadow:var(--sh-h);background:linear-gradient(135deg,var(--dark),var(--teal-d) 60%,var(--teal));color:#eafcfb;padding:28px 26px}
+  .hero::before{content:"";position:absolute;inset:0;opacity:.10;background-image:linear-gradient(135deg,transparent 46%,#fff 47% 48%,transparent 49%),linear-gradient(45deg,transparent 46%,#fff 47% 48%,transparent 49%);background-size:36px 36px}
+  .hero .eb{position:relative;font-family:var(--f-label);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+  .hero h1{position:relative;font-family:var(--f-display);font-size:34px;margin:0;letter-spacing:.01em;color:#fff}
+  .hero p{position:relative;font-family:var(--f-serif);font-style:italic;color:rgba(234,252,251,.82);font-size:15.5px;margin:4px 0 0}
+
+  /* progress */
+  .prog{position:sticky;top:0;z-index:10;background:var(--off);padding:12px 0 10px;margin-top:8px}
+  .prog .row{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+  .prog .txt{font-family:var(--f-label);font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+  .prog .reset{font-family:var(--f-body);font-size:12px;color:var(--teal-d);background:none;border:none;cursor:pointer;font-weight:600}
+  .prog .bar{height:8px;background:var(--line);border-radius:999px;overflow:hidden}
+  .prog .fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--green));width:0%;transition:width .3s}
+
+  .cat-h{display:flex;align-items:center;justify-content:space-between;margin:24px 0 10px}
+  .cat-h .nm{font-family:var(--f-display);font-size:20px;color:var(--ink);letter-spacing:.01em;display:flex;align-items:center;gap:9px}
+  .cat-h .ct{font-family:var(--f-label);font-size:11px;color:var(--muted);letter-spacing:.05em}
+  .ck-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .ck{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;font-family:var(--f-body);font-size:14px;color:var(--ink);transition:.12s}
+  .ck:hover{border-color:var(--teal)}
+  .ck .bx{width:22px;height:22px;border-radius:6px;border:2px solid var(--muted);flex:0 0 auto;display:grid;place-items:center;transition:.12s}
+  .ck .bx svg{width:14px;height:14px;opacity:0}
+  .ck .lb{flex:1}
+  .ck.done .bx{background:var(--teal);border-color:var(--teal)}
+  .ck.done .bx svg{opacity:1}
+  .ck.done .lb{text-decoration:line-through;color:var(--muted)}
+
+  /* phrases */
+  .sec-h{font-family:var(--f-display);font-size:23px;color:var(--ink);letter-spacing:.01em;margin:34px 0 4px}
+  .sec-lead{color:var(--muted);font-size:13.5px;margin:0 0 14px}
+  .ph-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .phr{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:var(--sh)}
+  .phr .e{font-size:19px;line-height:1}
+  .phr .en{font-weight:600;color:var(--ink);font-size:13.5px;margin-top:6px}
+  .phr .ms{color:var(--teal-d);font-size:13.5px;margin-top:1px;font-weight:500}
+
+  footer{margin-top:42px;background:linear-gradient(135deg,var(--dark),var(--teal-d));border-radius:var(--r-l);padding:26px;color:#eafcfb;text-align:center}
+  footer img{height:30px;margin:0 auto 12px;display:block}
+  footer p{margin:0;font-family:var(--f-serif);font-style:italic;color:rgba(234,252,251,.78);font-size:14.5px}
+
+  @media(max-width:560px){.hero h1{font-size:28px}}
+  @media(max-width:430px){.ck-grid{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar"><img class="logo" src="images/kt-logo.png" alt="Kairali Trails"></div>
+
+  <div class="hero">
+    <div class="eb">🇲🇾 Pack smart</div>
+    <h1>Packing Checklist</h1>
+    <p>Tick things off as you pack — your progress is saved on this device.</p>
+  </div>
+
+  <div class="prog">
+    <div class="row">
+      <span class="txt" id="progTxt">0 of 0 packed</span>
+      <button class="reset" onclick="resetAll()">Reset</button>
+    </div>
+    <div class="bar"><div class="fill" id="progFill"></div></div>
+  </div>
+
+  <div id="lists"></div>
+
+  <h2 class="sec-h">Handy Malay phrases</h2>
+  <p class="sec-lead">A few words that go a long way with the locals.</p>
+  <div class="ph-grid" id="phrases"></div>
+
+  <footer>
+    <img src="images/kt-white.png" alt="Kairali Trails">
+    <p>Have a wonderful trip with Kairali Trails.</p>
+  </footer>
+</div>
+
+<script>
+const CHECKLIST_DATA = [
+  { icon:"👕", title:"Clothing", items:["T-Shirts / Tops","Shorts","Pants / Jeans","Dresses / Skirts","Underwear","Socks","Sleepwear","Swimwear","Flip-Flops / Slippers","Walking Shoes / Sneakers","Sandals","Hat / Cap","Sunglasses"] },
+  { icon:"🧴", title:"Toiletries", items:["Toothbrush","Toothpaste","Shampoo","Conditioner","Soap / Body Wash","Face Wash","Moisturizer","Sunscreen (SPF 30+)","Lip Balm","Hair Brush / Comb","Hair Products","Feminine Hygiene Products"] },
+  { icon:"💊", title:"Health & Medicines", items:["Prescription Medicines","Pain Reliever","Motion Sickness Tablets","Anti-Diarrheal Medicine","Allergy Medicine","Hand Sanitizer","Wet Wipes"] },
+  { icon:"📱", title:"Electronics", items:["Mobile Phone","Phone Charger","Power Bank","Adapter","Earphones / Headphones","Smartwatch Charger","Camera","Camera Charger","Memory Card","Laptop (Optional)","Laptop Charger","SIM Ejector Pin"] },
+  { icon:"✈️", title:"Flight Essentials", items:["Neck Pillow","Eye Mask","Earplugs","Reusable Water Bottle","Snacks","Pen","Book / eReader","Download Movies / Music"] },
+  { icon:"🎒", title:"Daily Essentials", items:["Backpack / Day Bag","Wallet","Cash (Small Amount)","Credit / Debit Cards","Zip-Lock Bags","Laundry Bag","Waterproof Phone Pouch","Dry Bag","Waterproof Sandals"] },
+  { icon:"📷", title:"Optional", items:["Selfie Stick","Portable Fan","Travel Lock","Luggage Tag","Translation App Downloaded"] }
+];
+
+const PHRASES = [
+  { e:"👋", en:"Hello", ms:"Hai / Helo" },
+  { e:"😊", en:"How are you?", ms:"Apa khabar?" },
+  { e:"🤝", en:"Nice to meet you", ms:"Gembira berjumpa dengan anda" },
+  { e:"😔", en:"Sorry", ms:"Maaf" },
+  { e:"🙏", en:"Thank you", ms:"Terima Kasih" },
+  { e:"🆘", en:"Help", ms:"Tolong" },
+  { e:"📍", en:"Where is…?", ms:"Di mana…?" },
+  { e:"💰", en:"How much?", ms:"Berapa harga?" },
+  { e:"🚻", en:"Toilet", ms:"Tandas" },
+  { e:"🚕", en:"Taxi", ms:"Teksi" },
+  { e:"✈️", en:"Airport", ms:"Lapangan Terbang" },
+  { e:"🛄", en:"Arrival", ms:"Ketibaan" },
+  { e:"🚪", en:"Exit", ms:"Keluar" },
+  { e:"🌶️", en:"No spicy", ms:"Tak Pedas" }
+];
+
+const STORE_KEY = "kt-checklist-malaysia";
+let checked = {};
+try { checked = JSON.parse(localStorage.getItem(STORE_KEY) || "{}") || {}; } catch(e) { checked = {}; }
+function save(){ try { localStorage.setItem(STORE_KEY, JSON.stringify(checked)); } catch(e){} }
+
+const CHK='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg>';
+
+document.getElementById("lists").innerHTML = CHECKLIST_DATA.map((cat,ci)=>{
+  const rows = cat.items.map((label,ii)=>{
+    const id = "c"+ci+"-i"+ii;
+    const on = checked[id] ? " done" : "";
+    const safe = label.replace(/</g,"&lt;");
+    return `<button class="ck${on}" id="${id}" onclick="toggle('${id}')"><span class="bx">${CHK}</span><span class="lb">${safe}</span></button>`;
+  }).join("");
+  return `<div class="cat-h"><div class="nm">${cat.icon} ${cat.title}</div><div class="ct" id="ct-${ci}"></div></div><div class="ck-grid">${rows}</div>`;
+}).join("");
+
+document.getElementById("phrases").innerHTML = PHRASES.map(p=>
+  `<div class="phr"><span class="e">${p.e}</span><div class="en">${p.en}</div><div class="ms">${p.ms}</div></div>`).join("");
+
+function toggle(id){
+  checked[id] = !checked[id];
+  save();
+  const el = document.getElementById(id);
+  if(el) el.classList.toggle("done", !!checked[id]);
+  updateProgress();
+}
+function resetAll(){
+  checked = {}; save();
+  document.querySelectorAll(".ck.done").forEach(el=>el.classList.remove("done"));
+  updateProgress();
+}
+function updateProgress(){
+  let total=0, done=0;
+  CHECKLIST_DATA.forEach((cat,ci)=>{
+    let cdone=0;
+    cat.items.forEach((label,ii)=>{ total++; if(checked["c"+ci+"-i"+ii]){done++; cdone++;} });
+    const c=document.getElementById("ct-"+ci); if(c) c.textContent = cdone+"/"+cat.items.length;
+  });
+  document.getElementById("progTxt").textContent = done+" of "+total+" packed";
+  document.getElementById("progFill").style.width = (total? Math.round(done/total*100):0)+"%";
+}
+updateProgress();
+</script>
+</body>
+</html>
