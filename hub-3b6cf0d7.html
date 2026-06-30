@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Kairali Trails · Trip Hub (private)</title>
+<link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--teal:#0496a5;--teal-d:#037885;--green:#24fbaa;--dark:#052a30;--off:#f4fcfd;--muted:#5a9aa5;--ink:#0e2e34;--line:#d7eef1;--card:#fff;
+    --sh:0 4px 24px rgba(4,150,165,.12);--sh-h:0 14px 40px rgba(4,150,165,.22);
+    --f-display:'Tanker','Poppins',sans-serif;--f-body:'Poppins',system-ui,sans-serif;--f-label:'DM Sans',sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--off);font-family:var(--f-body);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:24px 18px 70px}
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .logo{font-family:var(--f-display);font-size:22px;background:linear-gradient(90deg,var(--teal),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .private{font-family:var(--f-label);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--orange,#f3792a);padding:4px 9px;border-radius:999px}
+  h1{font-family:var(--f-display);font-size:30px;margin:18px 0 2px;letter-spacing:.01em}
+  .lead{color:var(--muted);font-size:13.5px;margin:0 0 20px;line-height:1.6}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .c{display:flex;align-items:center;gap:13px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;text-decoration:none;color:inherit;box-shadow:var(--sh);transition:.15s}
+  a.c:hover{transform:translateY(-2px);box-shadow:var(--sh-h);border-color:var(--teal)}
+  .c.soon{opacity:.6;cursor:default}
+  .flag{font-size:30px;flex:0 0 auto}
+  .nm{font-family:var(--f-body);font-weight:600;font-size:15.5px;color:var(--ink)}
+  .st{font-family:var(--f-label);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+  .st.live{color:var(--teal-d)}
+  .st.soon{color:var(--muted)}
+  .note{margin-top:22px;background:#fffdf0;border:1px solid #f0e6b8;border-radius:12px;padding:13px 15px;font-size:12.5px;color:#6b5d1e;line-height:1.55}
+  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <span class="logo">Kairali Trails</span>
+    <span class="private">Private · do not share</span>
+  </div>
+  <h1>Trip Hub</h1>
+  <p class="lead">Your internal launcher. Tap a country to open its customer page, then copy that link to send the traveller. Customers only ever receive their own country link — these pages don't link to each other or back here.</p>
+
+  <div class="grid">
+    <a class="c" href="kt-malaysia-50ec88.html"><span class="flag">🇲🇾</span><span><span class="nm">Malaysia</span><span class="st live">● Live</span></span></a>
+    <div class="c soon"><span class="flag">🇹🇭</span><span><span class="nm">Phuket, Thailand</span><span class="st soon">Coming soon</span></span></div>
+    <div class="c soon"><span class="flag">🇮🇩</span><span><span class="nm">Bali, Indonesia</span><span class="st soon">Coming soon</span></span></div>
+    <div class="c soon"><span class="flag">🇻🇳</span><span><span class="nm">Vietnam</span><span class="st soon">Coming soon</span></span></div>
+    <div class="c soon"><span class="flag">🇲🇻</span><span><span class="nm">Maldives</span><span class="st soon">Coming soon</span></span></div>
+  </div>
+
+  <div class="note">🔒 Each country link uses a random, unguessable address. Keep this hub link to yourself — it's the only page that lists every package. New countries get added here as you send their content.</div>
+</div>
+</body>
+</html>

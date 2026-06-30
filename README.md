@@ -3,14 +3,27 @@
 A single-page, mobile-first pre-trip info page. Images live in `images/`, so
 `index.html` stays ~30 KB.
 
-## Structure
+## Structure (multi-country, isolated links)
 ```
-index.html        # main page — practical pre-trip info + Kaity chatbot
-explore.html      # "Explore Malaysia" page — see / eat / take home (linked by a button)
-images/           # logo + photos (shared by both pages)
-server/worker.js  # optional AI proxy for Kaity
+index.html                       # neutral landing — leaks no package links
+hub-3b6cf0d7.html      # PRIVATE owner hub — lists every country (never share this)
+kt-malaysia-50ec88.html     # Malaysia — the link you send the customer
+kt-malaysia-50ec88-explore.html  # Malaysia "Explore" page (opened by a button on the main page)
+images/                          # logo + photos (shared)
+server/worker.js                 # optional AI proxy for Kaity
 README.md
 ```
+
+## How the isolation works
+- Each country has a random, **unguessable** filename — customers can't guess another package.
+- Customer pages link **only within their own country** (main ↔ explore). They never
+  link to the hub or to any other country, so one package can't reach another.
+- The **hub** is the only page that lists all countries. Keep its link private.
+- `index.html` is a neutral landing in case someone hits the bare domain.
+
+## Adding a new country
+Send the country's content (like Malaysia) and it becomes:
+`kt-<country>-<random>.html` (+ `-explore`), added as a Live card on the hub.
 
 ## Explore page photos
 Open `explore.html`, find the `EXPLORE` list in the script, and set each item's
