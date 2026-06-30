@@ -62,15 +62,15 @@
   .perf{position:relative;height:0;border-top:2px dashed rgba(234,252,251,.30)}
   .perf::before,.perf::after{content:"";position:absolute;top:-14px;width:26px;height:26px;border-radius:50%;background:var(--off)}
   .perf::before{left:-13px}.perf::after{right:-13px}
-  .pass-stub{position:relative;padding:18px 28px 26px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;z-index:1}
+  .pass-stub{position:relative;padding:18px 28px 26px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 18px;z-index:1}
   .stat .k{font-family:var(--f-label);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
   .stat .v{font-family:var(--f-body);font-weight:700;font-size:16px;color:#eafcfb}
   .stat .v small{display:block;font-weight:400;font-size:11px;color:rgba(234,252,251,.62);margin-top:2px}
-  .clocks{display:flex;gap:10px;margin-top:16px;position:relative;z-index:1}
-  .clk{flex:1;min-width:0;background:rgba(255,255,255,.10);border:1px solid rgba(234,252,251,.20);border-radius:12px;padding:9px 12px}
-  .pass.has-photo .clk{background:rgba(255,255,255,.14)}
-  .clk .city{display:block;font-family:var(--f-label);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .clk .time{font-family:var(--f-body);font-weight:700;font-size:18px;color:#fff;font-variant-numeric:tabular-nums}
+  .clocks{display:flex;gap:8px;margin-top:18px;max-width:340px;position:relative;z-index:1}
+  .clk{flex:1;min-width:0;background:rgba(255,255,255,.10);border:1px solid rgba(234,252,251,.20);border-radius:10px;padding:7px 11px 8px}
+  .pass.has-photo .clk{background:rgba(255,255,255,.15)}
+  .clk .city{display:block;font-family:var(--f-label);font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--green);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .clk .time{font-family:var(--f-body);font-weight:700;font-size:15px;color:#fff;font-variant-numeric:tabular-nums}
   .pass.has-photo::before{opacity:0}
   .pass.has-photo .skyline{display:none}
 
@@ -261,6 +261,7 @@
       <div class="stat"><div class="k">Currency</div><div class="v">THB<small>Thai Baht</small></div></div>
       <div class="stat"><div class="k">Plug</div><div class="v">A&middot;B&middot;C<small>220V</small></div></div>
       <div class="stat"><div class="k">Baggage</div><div class="v">20 kg<small>check-in</small></div></div>
+      <div class="stat"><div class="k">Approx flight</div><div class="v">3h 40m<small>approx</small></div></div>
     </div>
   </div>
 
@@ -427,7 +428,7 @@ document.getElementById("footLogo").innerHTML = CONFIG.logoWhite ? `<img src="${
     if(p){p.style.backgroundImage=`linear-gradient(140deg,rgba(5,42,48,.82),rgba(5,42,48,.5)),url('${IMG_BASE+CONFIG.heroImage}')`;p.style.backgroundSize="cover";p.style.backgroundPosition="center";p.classList.add('has-photo');}
   }
   const dc=document.getElementById('clkDestCity'); if(dc)dc.innerHTML=CONFIG.destFlag+' '+CONFIG.tzCity;
-  function fmt(tz){try{return new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true}).format(new Date());}catch(e){return '--:--';}}
+  function fmt(tz){try{return new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit',hour12:true}).format(new Date());}catch(e){return '--:--';}}
   function tick(){const a=document.getElementById('clkIN');const b=document.getElementById('clkDEST');if(a)a.textContent=fmt('Asia/Kolkata');if(b)b.textContent=fmt(CONFIG.tz);}
   tick(); setInterval(tick,1000);
 })();
