@@ -100,26 +100,37 @@
    EDIT HERE — add photos by putting the file in images/ and
    writing its name in `img`. Leave "" to show a placeholder.
    ============================================================ */
-const IMG_BASE = "images/";   // same as the main page (GitHub Pages: "images/" | jsDelivr URL)
+const IMG_BASE = "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportmalaysia/";   // this country's Supabase folder
 function imgURL(v){return v&&/^https?:\/\//.test(v)?v:(IMG_BASE+v);}
 
 const EXPLORE = [
   { key:"see", label:"See & do", title:"See & do", lead:"Great ways to spend your free time and evenings.", items:[
-    { ic:"🏊", ti:"Swim in the infinity pool", no:"Most serviced apartments have a rooftop infinity pool with a city view — lovely at sunset.", tg:"Free time", img:"" },
-    { ic:"🌃", ti:"KLCC Park fountain show", no:"Free Lake Symphony water-and-light show by the Twin Towers each evening.", tg:"Night · Free", img:"" },
-    { ic:"🍢", ti:"Jalan Alor food street", no:"Buzzing open-air street-food lane in Bukit Bintang after dark.", tg:"Night", img:"" },
-    { ic:"🛍️", ti:"Bukit Bintang", no:"Shopping, cafes and nightlife — easy to explore on foot.", tg:"Free time", img:"" }
+    { ic:"🏊", ti:"Swim in the infinity pool", no:"Most serviced apartments have a rooftop infinity pool with a city view — lovely at sunset.", tg:"Free time", img:"pool.jpg" },
+    { ic:"🌃", ti:"KLCC Park fountain show", no:"Free Lake Symphony water-and-light show by the Twin Towers each evening.", tg:"Night · Free", img:"klcc.jpg" },
+    { ic:"🍢", ti:"Jalan Alor food street", no:"Buzzing open-air street-food lane in Bukit Bintang after dark.", tg:"Night", img:"jalan-alor.jpg" },
+    { ic:"🛍️", ti:"Bukit Bintang", no:"Shopping, cafes and nightlife — easy to explore on foot.", tg:"Free time", img:"bukit-bintang.jpg" },
+    { ic:"🏪", ti:"Pop into a 7-Eleven", no:"Malaysia's 24/7 corner store — snacks, drinks and travel bits on every street.", tg:"Anytime", img:"7-eleven.jpg" },
+    { ic:"☕", ti:"Hole-in-the-Wall café", no:"Hidden alley café in KL — order your drink through a literal hole in the wall.", tg:"Free time", img:"hole-in-the-wall.jpg" },
+    { ic:"🛒", ti:"Don Don Donki, Lot 10", no:"Japan's 24/7 megastore — 3 floors of snacks, beauty and groceries at Bukit Bintang.", tg:"24/7", img:"don-don-donki.jpg" }
   ]},
   { key:"eat", label:"Eat", title:"Must-try food", lead:"Flavours you shouldn't leave Malaysia without.", items:[
-    { ic:"🥥", ti:"Fresh coconut juice", no:"Cool and refreshing — a must in the Malaysian heat.", tg:"", img:"" },
-    { ic:"🍚", ti:"Nasi Lemak", no:"Malaysia's beloved coconut-rice dish with sambal.", tg:"", img:"" },
-    { ic:"🫓", ti:"Roti Canai", no:"Flaky flatbread with dhal or curry, great for breakfast.", tg:"", img:"" },
-    { ic:"🧋", ti:"Teh Tarik", no:"Frothy pulled milk tea, a local favourite.", tg:"", img:"" }
+    { ic:"🥥", ti:"Fresh coconut juice", no:"Cool and refreshing — a must in the Malaysian heat.", tg:"", img:"coconut.jpg" },
+    { ic:"🍚", ti:"Nasi Lemak", no:"Malaysia's beloved coconut-rice dish with sambal.", tg:"", img:"nasi-lemak.jpg" },
+    { ic:"🫓", ti:"Roti Canai", no:"Flaky flatbread with dhal or curry, great for breakfast.", tg:"", img:"roti-canai.jpg" },
+    { ic:"🧋", ti:"Teh Tarik", no:"Frothy pulled milk tea, a local favourite.", tg:"", img:"teh-tarik.jpg" },
+    { ic:"🥤", ti:"Iced Milo", no:"Malaysia's beloved iced chocolate-malt drink, topped with extra Milo powder — cold and sweet.", tg:"", img:"milo.jpg" },
+    { ic:"🍦", ti:"Mixue strawberry sundae", no:"Wildly popular budget ice-cream & tea chain — the strawberry sundae is a fan favourite.", tg:"", img:"mixue.jpg" },
+    { ic:"🍗", ti:"Uncle Chin's Chicken Rice", no:"The cult AirAsia Santan in-flight meal — pre-book it before you fly.", tg:"In-flight", img:"uncle-chins.jpg" },
+    { ic:"☕", ti:"Santan Coconut Latte", no:"AirAsia's coconut latte and buko pandan — a fun onboard treat.", tg:"In-flight", img:"santan-drinks.jpg" },
+    { ic:"🍔", ti:"Ramly Burger", no:"Jalan Alor's legendary griddled street burger, wrapped in egg.", tg:"", img:"ramly-burger.jpg" },
+    { ic:"🍮", ti:"Street Soufflé", no:"Jiggly torched soufflé from the night-market stalls (around RM20).", tg:"", img:"souffle.jpg" },
+    { ic:"👑", ti:"Durian", no:"The king of fruits — bold, creamy and unforgettable. Try it once!", tg:"", img:"durian.jpg" },
+    { ic:"🍖", ti:"Satay", no:"Char-grilled skewers with rich peanut sauce — a Malaysian classic.", tg:"", img:"satay.jpg" }
   ]},
   { key:"buy", label:"Take home", title:"Take home", lead:"Easy-to-pack souvenirs and gifts.", items:[
-    { ic:"🧲", ti:"Malaysian fridge magnet", no:"A fun magnet or magnet-fidget souvenir — light and easy to pack.", tg:"", img:"" },
-    { ic:"🍫", ti:"Local chocolates", no:"Beryl's and other Malaysian chocolates make easy gifts.", tg:"", img:"" },
-    { ic:"☕", ti:"White coffee sachets", no:"Famous Ipoh-style white coffee to take back home.", tg:"", img:"" }
+    { ic:"🍫", ti:"Beryl's Chocolates", no:"A beloved Malaysian brand — try the tiramisu and almond varieties.", tg:"", img:"beryls.jpg" },
+    { ic:"🧲", ti:"Malaysia fridge magnet", no:"A fun, light souvenir — landmark magnets are everywhere.", tg:"", img:"magnet.jpg" },
+    { ic:"☕", ti:"White coffee sachets", no:"Famous Ipoh-style white coffee to brew back home.", tg:"", img:"white-coffee.jpg" }
   ]}
 ];
 

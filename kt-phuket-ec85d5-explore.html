@@ -100,30 +100,30 @@
    EDIT HERE — add photos by putting the file in images/ and
    writing its name in `img`. Leave "" to show a placeholder.
    ============================================================ */
-const IMG_BASE = "images/";   // same as the main page (GitHub Pages: "images/" | jsDelivr URL)
+const IMG_BASE = "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/";   // this country's Supabase folder
 function imgURL(v){return v&&/^https?:\/\//.test(v)?v:(IMG_BASE+v);}
 
 const EXPLORE = [
   { key:"see", label:"See & do", title:"See & do", lead:"Beaches, islands and lively evenings.", items:[
-    { ic:"🏝️", ti:"Phi Phi Islands", no:"Iconic turquoise bays and snorkelling on the Day 3 speedboat tour.", tg:"Day tour", img:"" },
-    { ic:"⛰️", ti:"James Bond Island", no:"The famous limestone karst in Phang Nga Bay.", tg:"Day tour", img:"" },
-    { ic:"🌃", ti:"Patong nightlife", no:"Buzzing streets, street food and shopping on the Day 1 night tour.", tg:"Night", img:"" },
-    { ic:"🛕", ti:"Chalong Temple", no:"Phuket's most revered temple — dress modestly to visit.", tg:"Free time", img:"" },
-    { ic:"🧘", ti:"Big Buddha", no:"Hilltop marble statue with sweeping island views.", tg:"Free time", img:"" },
-    { ic:"🏖️", ti:"Phuket beaches", no:"Relax at Patong, Kata or Karon between tours.", tg:"Free time", img:"" }
+    { ic:"🏝️", ti:"Phi Phi Islands", no:"Iconic turquoise bays and snorkelling on the Day 3 speedboat tour.", tg:"Day tour", img:"phi-phi.jpg" },
+    { ic:"⛰️", ti:"James Bond Island", no:"The famous limestone karst in Phang Nga Bay.", tg:"Day tour", img:"james-bond.jpg" },
+    { ic:"🌃", ti:"Patong nightlife", no:"Buzzing streets, street food and shopping on the Day 1 night tour.", tg:"Night", img:"patong.jpg" },
+    { ic:"🛕", ti:"Chalong Temple", no:"Phuket's most revered temple — dress modestly to visit.", tg:"Free time", img:"chalong.jpg" },
+    { ic:"🧘", ti:"Big Buddha", no:"Hilltop marble statue with sweeping island views.", tg:"Free time", img:"big-buddha.jpg" },
+    { ic:"🏖️", ti:"Phuket beaches", no:"Relax at Patong, Kata or Karon between tours.", tg:"Free time", img:"beaches.jpg" }
   ]},
   { key:"eat", label:"Eat", title:"Must-try food", lead:"Flavours you shouldn't leave Thailand without.", items:[
-    { ic:"🍜", ti:"Pad Thai", no:"Thailand's signature stir-fried noodles.", tg:"", img:"" },
-    { ic:"🍲", ti:"Tom Yum soup", no:"Hot-and-sour shrimp soup, bursting with flavour.", tg:"", img:"" },
-    { ic:"🥭", ti:"Mango sticky rice", no:"Sweet mango with coconut sticky rice — a must.", tg:"", img:"" },
-    { ic:"🥥", ti:"Fresh coconut", no:"Cool coconut water straight from the shell.", tg:"", img:"" },
-    { ic:"🍢", ti:"Street food", no:"Skewers, satay and snacks along the Patong streets.", tg:"", img:"" }
+    { ic:"🍜", ti:"Pad Thai", no:"Thailand's signature stir-fried noodles.", tg:"", img:"pad-thai.jpg" },
+    { ic:"🍲", ti:"Tom Yum soup", no:"Hot-and-sour shrimp soup, bursting with flavour.", tg:"", img:"tom-yum.jpg" },
+    { ic:"🥭", ti:"Mango sticky rice", no:"Sweet mango with coconut sticky rice — a must.", tg:"", img:"mango-sticky-rice.jpg" },
+    { ic:"🥥", ti:"Fresh coconut", no:"Cool coconut water straight from the shell.", tg:"", img:"coconut.jpg" },
+    { ic:"🍢", ti:"Street food", no:"Skewers, satay and snacks along the Patong streets.", tg:"", img:"street-food.jpg" }
   ]},
   { key:"buy", label:"Take home", title:"Take home", lead:"Easy-to-pack souvenirs and gifts.", items:[
-    { ic:"🧲", ti:"Phuket fridge magnet", no:"A fun magnet souvenir — light and easy to pack.", tg:"", img:"" },
-    { ic:"🥥", ti:"Dried fruit & snacks", no:"Thai dried mango and local snacks make great gifts.", tg:"", img:"" },
-    { ic:"👖", ti:"Elephant pants", no:"Comfy printed trousers — a classic Thailand buy.", tg:"", img:"" },
-    { ic:"🧴", ti:"Thai herbal balm", no:"Tiger balm and herbal inhalers, popular take-homes.", tg:"", img:"" }
+    { ic:"🧲", ti:"Phuket fridge magnet", no:"A fun magnet souvenir — light and easy to pack.", tg:"", img:"magnet.jpg" },
+    { ic:"🥥", ti:"Dried fruit & snacks", no:"Thai dried mango and local snacks make great gifts.", tg:"", img:"dried-fruit.jpg" },
+    { ic:"👖", ti:"Elephant pants", no:"Comfy printed trousers — a classic Thailand buy.", tg:"", img:"elephant-pants.jpg" },
+    { ic:"🧴", ti:"Thai herbal balm", no:"Tiger balm and herbal inhalers, popular take-homes.", tg:"", img:"herbal-balm.jpg" }
   ]}
 ];
 
