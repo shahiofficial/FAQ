@@ -54,9 +54,17 @@
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .xcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;box-shadow:var(--sh);transition:.15s}
   .xcard:hover{transform:translateY(-2px);box-shadow:var(--sh-h)}
-  .xcard .ph{position:relative;aspect-ratio:1/1;background:var(--off);display:grid;place-items:center}
-  .xcard .ph span{font-family:var(--f-label);font-size:10.5px;letter-spacing:.06em;color:var(--muted);text-align:center;padding:10px}
-  .xcard .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .xcard .ph{position:relative;aspect-ratio:1/1;background:linear-gradient(140deg,var(--teal-d),var(--teal));display:grid;place-items:center;overflow:hidden}
+  .xcard .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 28% 22%,rgba(36,251,170,.38),transparent 60%);pointer-events:none}
+  .ph-ph{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:9px;padding:14px;text-align:center}
+  .ph-ic{font-size:44px;line-height:1;filter:drop-shadow(0 3px 8px rgba(0,0,0,.28))}
+  .ph-tt{font-family:var(--f-label);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.92);font-weight:500;max-width:90%}
+  .xcard .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+  .xmeta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:11px}
+  .xmeta .tg{margin-top:0}
+  .xpill{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-label);font-size:10px;letter-spacing:.03em;font-weight:500;color:var(--teal-d);background:rgba(4,150,165,.1);border:1px solid rgba(4,150,165,.22);padding:5px 10px;border-radius:999px;text-decoration:none}
+  .xpill:active,.xpill:hover{background:rgba(4,150,165,.18)}
+  .flight-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-label);font-size:9px;letter-spacing:.05em;font-weight:600;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,var(--orange),#ff9d4d);padding:5px 11px;border-radius:999px;box-shadow:0 4px 12px rgba(243,121,42,.32)}
   .xcard .bd{padding:14px}
   .xcard .ti{font-family:var(--f-display);font-size:17px;color:var(--ink);letter-spacing:.01em;display:flex;align-items:center;gap:8px}
   .xcard .ti .ic{font-size:18px}
@@ -106,20 +114,20 @@ function imgURL(v){return v&&/^https?:\/\//.test(v)?v:(IMG_BASE+v);}
 const EXPLORE = [
   { key:"see", label:"See & do", title:"See & do", lead:"Great ways to spend your free time and evenings.", items:[
     { ic:"🏊", ti:"Swim in the infinity pool", no:"Most serviced apartments have a rooftop infinity pool with a city view — lovely at sunset.", tg:"Free time", img:"pool.jpg" },
-    { ic:"🌃", ti:"KLCC Park fountain show", no:"Free Lake Symphony water-and-light show by the Twin Towers each evening.", tg:"Night · Free", img:"klcc.jpg" },
-    { ic:"🍢", ti:"Jalan Alor food street", no:"Buzzing open-air street-food lane in Bukit Bintang after dark.", tg:"Night", img:"jalan-alor.jpg" },
-    { ic:"🛍️", ti:"Bukit Bintang", no:"Shopping, cafes and nightlife — easy to explore on foot.", tg:"Free time", img:"bukit-bintang.jpg" },
-    { ic:"🏪", ti:"Pop into a 7-Eleven", no:"Malaysia's 24/7 corner store — snacks, drinks and travel bits on every street.", tg:"Anytime", img:"7-eleven.jpg" },
-    { ic:"☕", ti:"Hole-in-the-Wall café", no:"Hidden alley café in KL — order your drink through a literal hole in the wall.", tg:"Free time", img:"hole-in-the-wall.jpg" },
-    { ic:"🛒", ti:"Don Don Donki, Lot 10", no:"Japan's 24/7 megastore — 3 floors of snacks, beauty and groceries at Bukit Bintang.", tg:"24/7", img:"don-don-donki.jpg" }
+    { ic:"🌃", ti:"KLCC Park fountain show", no:"Free Lake Symphony water-and-light show by the Twin Towers each evening.", tg:"Night · Free", img:"klcc.jpg", map:"KLCC Park Lake Symphony Fountain Kuala Lumpur" },
+    { ic:"🍢", ti:"Jalan Alor food street", no:"Buzzing open-air street-food lane in Bukit Bintang after dark.", tg:"Night", img:"jalan-alor.jpg", map:"Jalan Alor Food Street Kuala Lumpur" },
+    { ic:"🛍️", ti:"Bukit Bintang", no:"Shopping, cafes and nightlife — easy to explore on foot.", tg:"Free time", img:"bukit-bintang.jpg", map:"Bukit Bintang Kuala Lumpur" },
+    { ic:"🏪", ti:"Pop into a 7-Eleven", no:"Malaysia's 24/7 corner store — snacks, drinks and travel bits on every street.", tg:"Anytime", img:"7-eleven.jpg", map:"7-Eleven" },
+    { ic:"☕", ti:"Hole-in-the-Wall café", no:"Hidden alley café in KL — order your drink through a literal hole in the wall.", tg:"Free time", img:"hole-in-the-wall.jpg", map:"Hole in the Wall cafe Kuala Lumpur" },
+    { ic:"🛒", ti:"Don Don Donki, Lot 10", no:"Japan's 24/7 megastore — 3 floors of snacks, beauty and groceries at Bukit Bintang.", tg:"24/7", img:"don-don-donki.jpg", map:"Don Don Donki Lot 10 Bukit Bintang" }
   ]},
   { key:"eat", label:"Eat", title:"Must-try food", lead:"Flavours you shouldn't leave Malaysia without.", items:[
     { ic:"🍚", ti:"Nasi Lemak", no:"Malaysia's beloved coconut-rice dish with sambal.", tg:"", img:"nasi-lemak.jpg" },
     { ic:"🥤", ti:"Iced Milo", no:"Malaysia's beloved iced chocolate-malt drink, topped with extra Milo powder — cold and sweet.", tg:"", img:"milo.jpg" },
-    { ic:"🍦", ti:"Mixue strawberry sundae", no:"Wildly popular budget ice-cream & tea chain — the strawberry sundae is a fan favourite.", tg:"", img:"mixue.jpg" },
-    { ic:"🍗", ti:"Uncle Chin's Chicken Rice", no:"The cult AirAsia Santan in-flight meal — pre-book it before you fly.", tg:"In-flight", img:"uncle-chins.jpg" },
-    { ic:"☕", ti:"Santan Coconut Latte", no:"AirAsia's coconut latte and buko pandan — a fun onboard treat.", tg:"In-flight", img:"santan-drinks.jpg" },
-    { ic:"🍔", ti:"Ramly Burger", no:"Jalan Alor's legendary griddled street burger, wrapped in egg.", tg:"", img:"ramly-burger.jpg" },
+    { ic:"🍦", ti:"Mixue strawberry sundae", no:"Wildly popular budget ice-cream & tea chain — the strawberry sundae is a fan favourite.", tg:"", img:"mixue.jpg", map:"Mixue" },
+    { ic:"🍗", ti:"Uncle Chin's Chicken Rice", no:"The cult AirAsia Santan in-flight meal — pre-book it before you fly.", tg:"In-flight", img:"uncle-chins.jpg", flight:1 },
+    { ic:"☕", ti:"Santan Coconut Latte", no:"AirAsia's coconut latte and buko pandan — a fun onboard treat.", tg:"In-flight", img:"santan-drinks.jpg", flight:1 },
+    { ic:"🍔", ti:"Ramly Burger", no:"Jalan Alor's legendary griddled street burger, wrapped in egg.", tg:"", img:"ramly-burger.jpg", map:"Ramly Burger Jalan Alor Kuala Lumpur" },
     { ic:"🍮", ti:"Street Soufflé", no:"Jiggly torched soufflé from the night-market stalls (around RM20).", tg:"", img:"souffle.jpg" },
     { ic:"👑", ti:"Durian", no:"The king of fruits — bold, creamy and unforgettable. Try it once!", tg:"", img:"durian.jpg" },
     { ic:"🍖", ti:"Satay", no:"Char-grilled skewers with rich peanut sauce — a Malaysian classic.", tg:"", img:"satay.jpg" }
@@ -137,15 +145,18 @@ document.getElementById("tabs").innerHTML = EXPLORE.map((s,i)=>
 
 document.getElementById("sections").innerHTML = EXPLORE.map(s=>{
   const cards = s.items.map(m=>{
-    const photo = m.img
-      ? `<img src="${imgURL(m.img)}" alt="${m.ti}" onerror="this.remove()">`
-      : `<span>PHOTO · ${m.ti}</span>`;
+    const mapUrl = m.map ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.map)}` : "";
+    const chips = [
+      m.flight?`<span class="flight-badge">&#9992;&#65039; Pre-order before your flight</span>`:"",
+      m.tg?`<span class="tg">${m.tg}</span>`:"",
+      mapUrl?`<a class="xpill" href="${mapUrl}" target="_blank" rel="noopener">&#128205; Open in Maps</a>`:""
+    ].join("");
     return `<div class="xcard">
-      <div class="ph"><span>PHOTO · ${m.ti}</span>${m.img?`<img src="${imgURL(m.img)}" alt="${m.ti}" onerror="this.remove()">`:""}</div>
+      <div class="ph"><div class="ph-ph"><span class="ph-ic">${m.ic}</span><span class="ph-tt">${m.ti}</span></div>${m.img?`<img src="${imgURL(m.img)}" alt="${m.ti}" onerror="this.remove()">`:""}</div>
       <div class="bd">
         <div class="ti"><span class="ic">${m.ic}</span>${m.ti}</div>
         <div class="no">${m.no}</div>
-        ${m.tg?`<span class="tg">${m.tg}</span>`:""}
+        ${chips?`<div class="xmeta">${chips}</div>`:""}
       </div></div>`;
   }).join("");
   return `<section class="sec" id="sec-${s.key}"><h2>${s.title}</h2><p class="lead">${s.lead}</p><div class="grid">${cards}</div></section>`;
