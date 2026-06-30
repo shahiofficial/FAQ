@@ -101,6 +101,7 @@
    writing its name in `img`. Leave "" to show a placeholder.
    ============================================================ */
 const IMG_BASE = "images/";   // same as the main page (GitHub Pages: "images/" | jsDelivr URL)
+function imgURL(v){return v&&/^https?:\/\//.test(v)?v:(IMG_BASE+v);}
 
 const EXPLORE = [
   { key:"see", label:"See & do", title:"See & do", lead:"Beaches, islands and lively evenings.", items:[
@@ -133,10 +134,10 @@ document.getElementById("tabs").innerHTML = EXPLORE.map((s,i)=>
 document.getElementById("sections").innerHTML = EXPLORE.map(s=>{
   const cards = s.items.map(m=>{
     const photo = m.img
-      ? `<img src="${IMG_BASE+m.img}" alt="${m.ti}" onerror="this.remove()">`
+      ? `<img src="${imgURL(m.img)}" alt="${m.ti}" onerror="this.remove()">`
       : `<span>PHOTO · ${m.ti}</span>`;
     return `<div class="xcard">
-      <div class="ph"><span>PHOTO · ${m.ti}</span>${m.img?`<img src="${IMG_BASE+m.img}" alt="${m.ti}" onerror="this.remove()">`:""}</div>
+      <div class="ph"><span>PHOTO · ${m.ti}</span>${m.img?`<img src="${imgURL(m.img)}" alt="${m.ti}" onerror="this.remove()">`:""}</div>
       <div class="bd">
         <div class="ti"><span class="ic">${m.ic}</span>${m.ti}</div>
         <div class="no">${m.no}</div>

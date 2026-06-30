@@ -338,6 +338,7 @@
    keep the grey placeholder. Keys match each card's tag.
    ============================================================ */
 const IMG_BASE = "images/";  // GitHub Pages: "images/"  |  jsDelivr: "https://cdn.jsdelivr.net/gh/USER/REPO@main/images/"
+function imgURL(v){return v&&/^https?:\/\//.test(v)?v:(IMG_BASE+v);}
 
 const CONFIG = {
   logoDark:  "kt-logo.png",
@@ -347,7 +348,7 @@ const CONFIG = {
   guideName:    "Jemshi",
   guidePhone:   "+91 77364 70273",
   aiEndpoint:   "",
-  heroImage: "",  // country photo in images/ e.g. "phuket-hero.jpg"; blank shows the gradient
+  heroImage: "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/hero.jpg",  // auto: upload hero.jpg to this country's Supabase folder
   tz:        "Asia/Bangkok",
   tzCity:    "Phuket",
   destFlag:  "&#127481;&#127469;"
@@ -411,7 +412,7 @@ const QUESTIONS = [
 /* ===== engine ===== */
 // Logo (top): real PNG if provided, else on-brand text wordmark
 document.getElementById("brandLogo").innerHTML = CONFIG.logoDark
-  ? `<img src="${IMG_BASE+CONFIG.logoDark}" alt="Kairali Trails" style="height:38px;display:block">`
+  ? `<img src="${imgURL(CONFIG.logoDark)}" alt="Kairali Trails" style="height:38px;display:block">`
   : `<div class="logo">Kairali<b>.</b><span>Trails — Pre-trip companion</span></div>`;
 
 // Advisor name + avatar initial
@@ -419,13 +420,15 @@ document.getElementById("advisorNm").textContent = CONFIG.advisorName;
 document.getElementById("advisorAv").textContent = (CONFIG.advisorName||"A").trim().charAt(0).toUpperCase();
 
 // Footer: optional white logo + contacts
-document.getElementById("footLogo").innerHTML = CONFIG.logoWhite ? `<img src="${IMG_BASE+CONFIG.logoWhite}" alt="Kairali Trails">` : "";
+document.getElementById("footLogo").innerHTML = CONFIG.logoWhite ? `<img src="${imgURL(CONFIG.logoWhite)}" alt="Kairali Trails">` : "";
 
 // ----- hero background photo + live clocks -----
 (function(){
   if(CONFIG.heroImage){
-    const p=document.querySelector('.pass');
-    if(p){p.style.backgroundImage=`linear-gradient(140deg,rgba(5,42,48,.82),rgba(5,42,48,.5)),url('${IMG_BASE+CONFIG.heroImage}')`;p.style.backgroundSize="cover";p.style.backgroundPosition="center";p.classList.add('has-photo');}
+    const u=imgURL(CONFIG.heroImage);
+    const im=new Image();
+    im.onload=function(){const p=document.querySelector('.pass');if(p){p.style.backgroundImage=`linear-gradient(140deg,rgba(5,42,48,.82),rgba(5,42,48,.5)),url('${u}')`;p.style.backgroundSize="cover";p.style.backgroundPosition="center";p.classList.add('has-photo');}};
+    im.src=u;   // if the photo isn't uploaded yet, the gradient simply stays
   }
   const dc=document.getElementById('clkDestCity'); if(dc)dc.innerHTML=CONFIG.destFlag+' '+CONFIG.tzCity;
   function fmt(tz){try{return new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit',hour12:true}).format(new Date());}catch(e){return '--:--';}}
@@ -444,7 +447,7 @@ function renderPic(item){
   if(!src) return `<div class="pic">${item.pic}</div>`;
   const doc = DOC_IMAGES.includes(item.tag) ? " doc" : "";
   return `<div class="pic has-img${doc}" onclick="openLightbox('${item.tag}')">
-            <img src="${IMG_BASE+src}" alt="${item.tag}" loading="lazy" onload="recalc(this)">
+            <img src="${imgURL(src)}" alt="${item.tag}" loading="lazy" onload="recalc(this)">
             <span class="enlarge">&#9974; Tap to enlarge</span>
           </div>`;
 }
@@ -486,7 +489,7 @@ function recalc(img){
 // fullscreen image viewer
 function openLightbox(tag){
   const src=PHOTOS[tag]; if(!src) return;
-  document.getElementById("lbImg").src=IMG_BASE+src;
+  document.getElementById("lbImg").src=imgURL(src);
   document.getElementById("lb").classList.add("open");
   document.body.style.overflow="hidden";
 }
