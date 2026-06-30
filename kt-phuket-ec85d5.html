@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Kairali Trails · Malaysia Pre-Trip Companion</title>
+<title>Kairali Trails · Phuket Pre-Trip Companion</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
@@ -248,9 +248,9 @@
         <path d="M112 88V40l6-10 6 10v48M108 50h20M106 60h24M104 70h28M100 80h36"/>
         <path d="M0 88h200M30 88V62h16v26M150 88V58h18v30M178 88V70h12v18"/>
       </svg>
-      <div class="pass-eyebrow">&#127474;&#127486; Welcome to</div>
-      <h1 class="pass-dest">Malaysia</h1>
-      <div class="pass-sub">Kuala Lumpur &middot; your trip essentials, all in one place.</div>
+      <div class="pass-eyebrow">&#127481;&#127469; Welcome to</div>
+      <h1 class="pass-dest">Phuket</h1>
+      <div class="pass-sub">Patong &middot; Phi Phi &middot; James Bond Island &mdash; your trip essentials.</div>
       <div class="clocks">
         <div class="clk"><span class="city">&#127470;&#127475; India</span><span class="time" id="clkIN">--:--</span></div>
         <div class="clk"><span class="city" id="clkDestCity">Destination</span><span class="time" id="clkDEST">--:--</span></div>
@@ -258,9 +258,9 @@
     </div>
     <div class="perf"></div>
     <div class="pass-stub">
-      <div class="stat"><div class="k">Currency</div><div class="v">MYR<small>Ringgit</small></div></div>
-      <div class="stat"><div class="k">Plug</div><div class="v">Type G<small>240V</small></div></div>
-      <div class="stat"><div class="k">Baggage</div><div class="v">30 kg<small>check-in</small></div></div>
+      <div class="stat"><div class="k">Currency</div><div class="v">THB<small>Thai Baht</small></div></div>
+      <div class="stat"><div class="k">Plug</div><div class="v">A&middot;B&middot;C<small>220V</small></div></div>
+      <div class="stat"><div class="k">Baggage</div><div class="v">20 kg<small>check-in</small></div></div>
     </div>
   </div>
 
@@ -268,19 +268,18 @@
   <div class="advisor">
     <div class="av" id="advisorAv">A</div>
     <div>
-      <div class="nm" id="advisorNm">Afrin</div>
-      <div class="rl">Your Service Advisor</div>
-      <p>I'm managing every arrangement for your trip. As your dates approach I'll call you personally &mdash; and you can reach out anytime. Looking forward to making this smooth and enjoyable.</p>
+      <div class="nm" id="advisorNm">Jemshi</div>
+      <div class="rl">Your Tour Operator</div>
+      <p>I'll be assisting you throughout your Phuket trip &mdash; just WhatsApp me anytime. We're here to make your journey smooth, comfortable and enjoyable.</p>
     </div>
   </div>
 
   <!-- ===== TIMELINE ===== -->
   <div class="eyebrow">When your documents arrive</div>
   <div class="timeline">
-    <div class="tl"><div class="when">Once tickets are issued</div><div class="what">Flight tickets</div><div class="det">Sent across by our ticketing team.</div></div>
-    <div class="tl"><div class="when">2 days before arrival</div><div class="what">Hotel confirmation</div><div class="det">Confirmed accommodation details for Kuala Lumpur.</div></div>
-    <div class="tl"><div class="when">1 day before departure</div><div class="what">Accommodation voucher + deposit info</div><div class="det">Voucher, security deposit details, and any extra info you'll need.</div></div>
-    <div class="tl"><div class="when">Day of departure</div><div class="what">Malaysian pass</div><div class="det">Your entry pass, sent on the day you fly.</div></div>
+    <div class="tl"><div class="when">Once tickets are issued</div><div class="what">Round-trip flight tickets</div><div class="det">Sent across by our ticketing team.</div></div>
+    <div class="tl"><div class="when">Before you travel</div><div class="what">Hotel accommodation details</div><div class="det">Keep them handy on your phone.</div></div>
+    <div class="tl"><div class="when">1 day before arrival</div><div class="what">Thailand Pass</div><div class="det">Sent the day before you reach Phuket.</div></div>
   </div>
 
   <!-- ===== CHECKLIST ===== -->
@@ -297,11 +296,11 @@
   <div class="empty" id="empty">No match. Try another word, or just scroll the cards above.</div>
 
   <!-- ===== EXPLORE CTA ===== -->
-  <a class="explore-cta" href="kt-malaysia-50ec88-explore.html">
+  <a class="explore-cta" href="kt-phuket-ec85d5-explore.html">
     <div class="ex-txt">
       <span class="ex-eyebrow">Now for the fun part</span>
-      <span class="ex-title">Explore Malaysia</span>
-      <span class="ex-sub">Places to see, food to try &amp; souvenirs to take home</span>
+      <span class="ex-title">Explore Phuket</span>
+      <span class="ex-sub">Beaches, food to try &amp; souvenirs to take home</span>
     </div>
     <span class="ex-arrow">&#8594;</span>
   </a>
@@ -315,7 +314,7 @@
     </svg>
     <div id="footLogo" class="foot-logo"></div>
     <h3>Still have a doubt?</h3>
-    <p class="tag">Reach your Service Advisor anytime, or your on-ground guide once you land.</p>
+    <p class="tag">Reach your tour operator, Jemshi, anytime on WhatsApp.</p>
     <div class="contacts" id="contacts"></div>
   </footer>
 </div>
@@ -340,74 +339,72 @@
 const IMG_BASE = "images/";  // GitHub Pages: "images/"  |  jsDelivr: "https://cdn.jsdelivr.net/gh/USER/REPO@main/images/"
 
 const CONFIG = {
-  logoDark:  "kt-logo.png",   // embedded Kairali Trails logo
-  logoWhite: "kt-white.png",   // e.g. "kt-white.png" (shown in footer, on dark)
-  advisorName:  "Afrin",
-  advisorPhone: "+91 00000 00000",
-  guideName:    "Ragu",
-  guidePhone:   "+60 00 0000 0000",
+  logoDark:  "kt-logo.png",
+  logoWhite: "kt-white.png",
+  advisorName:  "Jemshi",
+  advisorPhone: "+91 77364 70273",
+  guideName:    "Jemshi",
+  guidePhone:   "+91 77364 70273",
   aiEndpoint:   "",
   heroImage: "",  // country photo in images/ e.g. "phuket-hero.jpg"; blank shows the gradient
-  tz:        "Asia/Kuala_Lumpur",
-  tzCity:    "Malaysia",
-  destFlag:  "&#127474;&#127486;"
+  tz:        "Asia/Bangkok",
+  tzCity:    "Phuket",
+  destFlag:  "&#127481;&#127469;"
 };
 const PHOTOS = {
-  "Baggage":      "baggage.jpg",   // AirAsia cabin baggage allowance
-  "Money":        "money.jpg",   // Ringgit + cards
-  "Power":        "plug.jpg",   // Type G socket + universal adapter
-  "Connectivity": "hotlink.jpg",   // Hotlink storefront photo
-  "Arrival":      "airport.jpg",   // rep + pillar B + name board
-  "Dress code":   "temple.jpg",   // temple dress-code banner
-  "Food":         "menu.jpg"    // breakfast menu
+  "Power":        "ph-adapter.jpg",
+  "Connectivity": "ph-sim.jpg"
 };
 
 /* ============================================================
-   CONTENT — all Malaysia info lives in these two lists.
+   CONTENT — all Phuket info lives in these two lists.
    ============================================================ */
 const CHECKLIST = [
-  "Passport (6+ mo validity)","MDAC arrival card done","Universal / Type G adapter",
-  "MYR cash + forex card","INR cash to convert at KLIA","Itinerary saved offline"
+  "Passport (6+ mo, 3 blank pages)","Thailand Pass ready","Universal travel adapter",
+  "THB cash + show money (USD 200)","Visa / Mastercard card","Itinerary saved offline"
 ];
 
 const QUESTIONS = [
-  { icon:"\uD83E\uDDF3", tag:"Baggage", q:"How much luggage can I carry?", pic:"PHOTO \u00b7 luggage / baggage allowance",
-    a:`<p>Check-in allowance is <span class="pill">30 kg</span> plus one cabin bag per person. Confirm your exact figure on the ticket once issued.</p>
-       <p>Keep liquids, aerosols and gels in containers <strong>100 ml or smaller</strong> unless they're in tamper-evident duty-free bags. Power banks go in <strong>cabin baggage only</strong>, never check-in.</p>` },
-  { icon:"\uD83D\uDCB1", tag:"Money", q:"How much cash should I carry, and how do I exchange it?", pic:"PHOTO \u00b7 MYR currency / forex card",
-    a:`<p>Please <strong>complete your currency exchange before you travel</strong>. As a guide, for 2 passengers the equivalent of <span class="pill">\u20b925,000</span> in MYR is advisable \u2014 adjust to your own preference.</p>
-       <p>Carry a mix: <strong>MYR cash</strong>, a <strong>forex card</strong>, and an <strong>international credit or debit card</strong> for hassle-free transactions. You can also carry some <strong>INR cash and convert it to MYR at the Indian airport</strong> before you fly.</p>` },
-  { icon:"\uD83D\uDD0C", tag:"Power", q:"What adapter / plug do I need?", pic:"PHOTO \u00b7 Type G plug (please confirm)",
-    a:`<p>Malaysia uses the <span class="pill">Type G</span> socket (UK-style, three rectangular pins) at <strong>240V</strong> \u2014 different from India.</p>
-       <p>Carry a <strong>universal travel adapter</strong> and you're covered. Most phone and laptop chargers handle 240V fine; double-check any hair dryer or shaver before plugging in.</p>` },
-  { icon:"\uD83D\uDCF6", tag:"Connectivity", q:"How do I get a SIM / internet?", pic:"PHOTO \u00b7 Hotlink SIM shop after immigration",
-    a:`<p>After arriving in Malaysia, you can buy a SIM from the official <strong>Hotlink</strong> SIM card shop located right after immigration. They offer convenient <strong>1-week data plans</strong>, so you stay connected throughout your trip.</p>` },
-  { icon:"\uD83D\uDEEC", tag:"Arrival", q:"Where do I meet the team at the airport?", pic:"PHOTO \u00b7 name board + Hotlink shop",
-    a:`<p>Your arrival point is <strong>KLIA Terminal 2 (klia2)</strong>. An airport representative will be waiting in the arrival area near the <strong>Hotlink SIM card shop</strong>, by <strong>pillar B</strong>, holding a &ldquo;Welcome Kairali Trails&rdquo; placard.</p>
-       <p>Our coordinator will also update you in advance about the receiving and pickup procedure, to ensure a smooth arrival. If you don't spot the board right away, don't worry &mdash; the coordinators are online to assist.</p>` },
-  { icon:"\uD83D\uDE90", tag:"Transfers", q:"How do pickups and transfers work?",
-    a:`<p>Guests arrive on different flights at different times. Freshen up, grab a snack, or explore KLIA \u2014 your transfer happens <strong>once all group members have arrived</strong>.</p>
-       <p>Itinerary and timings are fixed once booking is complete and can't be customised. Please follow the given timings \u2014 <strong>drivers cannot wait</strong>, and any missed pickup is the guest's responsibility.</p>` },
-  { icon:"\uD83D\uDED5", tag:"Dress code", q:"Is there a dress code for temples?", pic:"PHOTO \u00b7 Batu Caves / temple",
-    a:`<p>Dress modestly at temples and religious sites such as <strong>Batu Caves</strong>. Avoid sleeveless tops, short skirts and shorts; keep <strong>shoulders and knees covered</strong>.</p>
-       <p>A lightweight scarf or cover-up is highly recommended. If you arrive without one, wraps can usually be <strong>rented at the entrance</strong> for a small (often refundable) fee.</p>` },
-  { icon:"\uD83C\uDFE8", tag:"Hotels", q:"What's the security deposit at the hotel?",
-    a:`<p>Hotels collect a refundable <strong>security deposit</strong> in the lobby as assurance against property damage \u2014 returned to you at checkout:</p>
-       <ul><li>Deface \u2014 <span class="pill">300 RM</span> per room</li><li>Ceylonz \u2014 <span class="pill">300 RM</span> per room</li><li>Pacific Express \u2014 <span class="pill">300 RM</span> per room</li></ul>
-       <p>Please keep accommodation clean and well-maintained \u2014 any damage or rule violation may be charged by the property.</p>` },
-  { icon:"\uD83C\uDF73", tag:"Food", q:"Is breakfast included?", pic:"PHOTO \u00b7 breakfast menu",
-    a:`<p>Breakfast is included <strong>only with the Signature package</strong>. If you're on the Signature package, a breakfast menu has been shared with you.</p>` },
-  { icon:"\uD83D\uDDFA\uFE0F", tag:"Itinerary", q:"Where's my day-by-day plan?",
-    a:`<p>Your detailed <strong>4-day general itinerary</strong> has been shared as a PDF \u2014 please save it offline before you fly.</p>
-       <div class="note">Timings may change with the situation. Your coordinator will share updated timings before departure for each destination.</div>` },
-  { icon:"\uD83D\uDEC2", tag:"Airport", q:"When should I reach the airport?",
-    a:`<p>Check your flight timings and reach the airport <strong>at least 3 hours before departure</strong> for smooth boarding. Elderly passengers can request special assistance from airport ground staff for a comfortable, stress-free experience.</p>` },
-  { icon:"\uD83D\uDC8D", tag:"Gold", q:"Can I carry gold / jewellery?",
-    a:`<p>Yes \u2014 keep gold and jewellery in your <strong>cabin (carry-on) bag, never in check-in</strong>, to avoid loss or theft. It counts within your cabin weight allowance.</p>
-       <p>Carry your <strong>original purchase invoices</strong>. For high-value pieces, declare them at the <strong>Indian Customs counter before immigration</strong> when leaving and ask for an <strong>Export Certificate</strong> \u2014 this lets you bring them back to India duty-free.</p>
-       <div class="note">Duty-free limits on the way back depend on how long you were abroad and are set by Indian Customs. Anything above your allowance must be declared. Please confirm the current limits before you travel, or ask us.</div>` },
-  { icon:"\uD83D\uDC8E", tag:"Safety", q:"How do I keep my valuables safe?",
-    a:`<p>Keep money, jewellery, electronics and important documents <strong>safely with you at all times</strong>. Any loss of personal belongings is the passenger's responsibility, and the company is not liable.</p>` }
+  { icon:"\uD83E\uDDF3", tag:"Baggage", q:"How much luggage can I carry?", pic:"",
+    a:`<p>On <strong>Akasa Air</strong>: cabin baggage is <span class="pill">1 piece up to 7 kg</span> (max 115 cm), and check-in is <span class="pill">1 piece up to 20 kg</span> (max 158 cm).</p>
+       <p>Keep any liquids in containers <strong>under 100 ml</strong>. Always refer to your ticket for the exact allowance.</p>` },
+  { icon:"\uD83D\uDCB5", tag:"Money", q:"How much cash should I carry, and which cards work?", pic:"",
+    a:`<p>Carry <strong>Thai Baht (THB) converted before you travel</strong> for local expenses \u2014 this is the most important thing to sort out.</p>
+       <p>For card payments, carry an <strong>international Visa or Mastercard credit card</strong>.</p>` },
+  { icon:"\uD83D\uDCB0", tag:"Immigration", q:"What is the show money requirement?", pic:"",
+    a:`<p>Each traveller must carry <span class="pill">show money of about USD 200</span>, preferably converted to <strong>THB</strong>.</p>
+       <p>This is an immigration requirement \u2014 you may be asked to present it on arrival, so keep it ready for a smooth entry.</p>` },
+  { icon:"\uD83D\uDD0C", tag:"Power", q:"What adapter / plug do I need?", pic:"PHOTO \u00b7 universal travel adapter",
+    a:`<p>Thailand uses <span class="pill">Type A / B / C</span> sockets at <strong>220V</strong>. Carry a <strong>universal travel adapter</strong> like the one shown and you're covered.</p>
+       <p>Most phone and laptop chargers handle 220V \u2014 just check any hair dryer or shaver before plugging in.</p>` },
+  { icon:"\uD83D\uDCF6", tag:"Connectivity", q:"How do I get a SIM / internet?", pic:"PHOTO \u00b7 True/dtac travel SIM",
+    a:`<p>One SIM is provided <strong>complimentary per couple / family / booking</strong>, handed to you by your guide during the <strong>Day 1 night tour</strong> \u2014 <span class="pill">35 GB data, 6 days</span> validity.</p>
+       <p>On arrival, connect to the <strong>airport WiFi</strong> until you receive it. Need an extra SIM? It's <strong>350 THB</strong>, paid directly to the driver.</p>` },
+  { icon:"\uD83D\uDEEC", tag:"Arrival", q:"Where do I meet the team at the airport?", pic:"",
+    a:`<p>Our representative waits in the arrival area holding a <strong>placard with your name</strong>.</p>
+       <p>Head to <span class="pill">EXIT 2</span> and step outside \u2014 you'll spot the <strong>Kairali Trails board</strong>. Approach the coordinator, tell them you're our guest, and they'll guide you to your driver.</p>` },
+  { icon:"\uD83D\uDEC2", tag:"Documents", q:"Which travel documents do I need?", pic:"",
+    a:`<p>A passport with <strong>at least 6 months' validity</strong>, a minimum of <strong>3 blank pages</strong>, in good condition.</p>
+       <p>Keep these ready (digital copies on your phone are fine): <strong>hotel accommodation details</strong>, your <strong>Thailand Pass</strong> (sent a day before you reach Phuket), and <strong>round-trip tickets</strong>. Your passport is the only original you must carry.</p>` },
+  { icon:"\u23F0", tag:"Punctuality", q:"How important is the reporting time?", pic:"",
+    a:`<p>Very important. There's a <strong>fixed reporting time</strong> and tours run on a strict schedule \u2014 please be in the <strong>hotel lobby at the exact time</strong>.</p>
+       <p>Delays can't be accommodated, and the company isn't responsible for any tours missed due to late arrival.</p>` },
+  { icon:"\uD83D\uDEA4", tag:"Day 3", q:"What should I carry for the Day 3 island tour?", pic:"",
+    a:`<p>Be ready right at pickup \u2014 punctuality matters most on Day 3. Carry: <strong>swimwear, slippers, a waterproof phone cover, sunscreen, sunglasses</strong> and some <strong>cash</strong>.</p>
+       <p style="background:#fff5f0;border:1px solid rgba(243,121,42,.3);border-radius:10px;padding:10px 12px;margin-top:8px"><strong>Safety:</strong> for the speedboat journey, pregnant women and guests with heart conditions are advised <strong>not</strong> to join the Phi Phi Island or James Bond Island tours.</p>` },
+  { icon:"\uD83D\uDC55", tag:"Dress code", q:"Is there a dress code for temples?", pic:"",
+    a:`<p>Dress modestly at religious sites, especially <strong>Chalong Temple</strong> \u2014 <strong>shoulders and knees covered</strong>. Avoid sleeveless tops, short skirts and shorts.</p>
+       <p>If you buy local liquids like honey, keep each container <strong>under 100 ml</strong> in cabin baggage.</p>` },
+  { icon:"\uD83C\uDF34", tag:"Day 4", q:"What happens on Day 4?", pic:"",
+    a:`<p>Day 4 is a <strong>free day</strong> to relax or explore on your own.</p>
+       <p>Transfers on this day are provided for guests who took the <strong>5-star upgrade</strong>, as they're moved to the 5-star hotel.</p>` },
+  { icon:"\uD83D\uDE90", tag:"Day 1", q:"What's the plan for Day 1?", pic:"",
+    a:`<p>After airport pickup you'll visit <strong>Central Mall Phuket</strong> (~1 hour) for shopping and brunch, then head back to the hotel to rest until <strong>6:45 PM</strong>.</p>
+       <p>Be in the lobby at <span class="pill">7:00 PM</span> for the <strong>Patong night tour</strong> (on foot \u2014 street food and nightlife), returning to the vehicle parking by <strong>11:00 PM</strong>. Your complimentary SIM is handed out during this night tour.</p>` },
+  { icon:"\uD83D\uDCCB", tag:"Itinerary", q:"Will the itinerary timings change?", pic:"",
+    a:`<p>Tour timings may change depending on the situation. Your coordinator will share the <strong>updated timings before departure</strong> for each destination.</p>` },
+  { icon:"\u2708\uFE0F", tag:"Airport", q:"When should I reach the airport?", pic:"",
+    a:`<p>Check your flight timings and reach the airport <span class="pill">at least 3 hours before departure</span> for smooth boarding.</p>` }
 ];
 
 /* ===== engine ===== */
@@ -435,8 +432,7 @@ document.getElementById("footLogo").innerHTML = CONFIG.logoWhite ? `<img src="${
   tick(); setInterval(tick,1000);
 })();
 document.getElementById("contacts").innerHTML =
-  `<div class="contact"><div class="role">Service Advisor</div><div class="who">${CONFIG.advisorName} &middot; Kairali Trails</div><div class="num">${CONFIG.advisorPhone}</div></div>
-     <div class="contact"><div class="role">On-ground guide</div><div class="who">${CONFIG.guideName} &middot; in your WhatsApp group</div><div class="num">${CONFIG.guidePhone}</div></div>`;
+  `<div class="contact"><div class="role">Tour operator</div><div class="who">${CONFIG.advisorName} &middot; Kairali Trails</div><div class="num">${CONFIG.advisorPhone}</div></div>`;
 
 // Photo slot: real image if a filename is set in PHOTOS, else placeholder
 // Graphics that should be shown in full (not cropped) — menus, infographics, banners
@@ -502,31 +498,7 @@ function closeLightbox(e){
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeLightbox(); });
 
 /* ===== Kaity — FAQ chatbot (offline, matches your Q&A bank) ===== */
-const EXTRA_FAQ = [
-  { q:"What type of accommodation is provided?", tag:"Accommodation", keywords:"accommodation hotel apartment serviced stay where staying property", answer:"Serviced apartments are provided for most Malaysia packages. The exact apartment depends on your booking and availability at check-in." },
-  { q:"Is breakfast included?", tag:"Food", keywords:"breakfast meal signature menu morning", answer:"Breakfast is included only with the Signature package. If your package includes it, the breakfast menu is shared with you before travel." },
-  { q:"Is there a kitchen in the accommodation?", tag:"Accommodation", keywords:"kitchen cook stove cooking utensils", answer:"Not all serviced apartments have a kitchen — it depends on the property assigned." },
-  { q:"Will my room have a Twin Towers or city view?", tag:"Accommodation", keywords:"view twin towers city room infinity pool window", answer:"Room views are subject to availability and can't be guaranteed. Many properties offer a city view from the infinity pool." },
-  { q:"When will I receive my flight tickets?", tag:"Flights", keywords:"flight tickets ticket when receive issued", answer:"Flight tickets are shared as soon as the airline issues them. If your travel date is weeks away, they may be released closer to departure." },
-  { q:"Is daily housekeeping included?", tag:"Accommodation", keywords:"housekeeping cleaning clean room service maid", answer:"Most serviced apartments don't provide daily housekeeping. Cleaning depends on the property's policy." },
-  { q:"Will I have to wait at the airport?", tag:"Arrival", keywords:"wait airport group arrival delay other passengers", answer:"As this is a group tour, there may be a short wait if other passengers arrive on different flights or if flights are delayed." },
-  { q:"Are meals included on the flight?", tag:"Flights", keywords:"meals food flight water inflight eat drink", answer:"No. Meals and drinking water aren't included with the flight unless purchased separately." },
-  { q:"Can I choose my flight seat?", tag:"Flights", keywords:"seat selection choose flight preferred", answer:"Seats are usually assigned automatically by the airline. Preferred seat selection may be available for an extra charge." },
-  { q:"How much cabin baggage is included?", tag:"Baggage", keywords:"cabin baggage 7kg airasia hand bag luggage allowance", answer:"AirAsia normally includes one 7 kg cabin bag. Extra baggage can be purchased before departure." },
-  { q:"Where should I exchange currency?", tag:"Money", keywords:"exchange currency forex convert money hometown airport ringgit", answer:"You can exchange currency in your hometown if available, or at the departure airport before your flight." },
-  { q:"How much cash should I carry?", tag:"Money", keywords:"cash carry money ringgit budget spending 25000", answer:"For two travellers, around \u20b925,000 worth of Malaysian Ringgit is generally enough. Your spending may vary with shopping and personal expenses." },
-  { q:"Can I use credit or debit cards?", tag:"Money", keywords:"credit debit card visa mastercard forex payment", answer:"International Visa, Mastercard and Forex cards are widely accepted. Credit cards are recommended; debit card acceptance varies." },
-  { q:"Are Twin Towers tickets included?", tag:"Tickets", keywords:"twin towers petronas tickets entry booking included", answer:"No. Twin Towers tickets aren't included and must be booked in advance, as same-day availability is limited." },
-  { q:"Are KL Tower and Aquaria tickets included?", tag:"Tickets", keywords:"kl tower aquaria tickets attractions included", answer:"No. These can be arranged through our online coordinator before your visit if required." },
-  { q:"Do Indian citizens need a visa for Malaysia?", tag:"Visa", keywords:"visa indian entry immigration documents scheme", answer:"Eligible Indian travellers can travel under the applicable Malaysia entry scheme. Entry requirements and documents are shared before departure." },
-  { q:"Is there a tour guide?", tag:"Guide", keywords:"guide tour coordinator driver assistance local", answer:"An online coordinator assists throughout your trip. Depending on the itinerary, driver-guides may also provide local help." },
-  { q:"What should I wear?", tag:"Packing", keywords:"wear clothes dress modest swimwear temple pool lycra", answer:"Wear modest clothing at religious places. For pools, suitable swimwear such as lycra or nylon is recommended." },
-  { q:"Can I carry food on the flight?", tag:"Flights", keywords:"carry food snacks flight nuts chocolate sandwich", answer:"Yes. Light snacks like sandwiches, nuts or chocolates are usually allowed if packed properly." },
-  { q:"Can I carry medicines on the flight?", tag:"Health", keywords:"medicine medicines medication prescription tablets flight", answer:"Yes. Carry medicines in their original packaging. Prescription medicines should have a valid prescription and bill where applicable." },
-  { q:"Is the itinerary fixed?", tag:"Itinerary", keywords:"itinerary fixed timings change schedule traffic", answer:"Yes. Tour timings are fixed and may change slightly due to traffic or operational needs." },
-  { q:"Is the package refundable?", tag:"Booking", keywords:"refund refundable cancellation cancel policy money back", answer:"Unless stated otherwise, packages are generally non-refundable. Contact our team for the cancellation policy for your booking." },
-  { q:"Can I carry liquids in my hand baggage?", tag:"Baggage", keywords:"liquids hand baggage 100ml aerosol gel container", answer:"Yes, but each container must be 100 ml or less and comply with airline security rules." },
-];
+const EXTRA_FAQ = [];
 const BOT_STOP=new Set("a an the is are do does did i my me you your we our of to in on for at and or what how much many can should need will be it this that with as".split(" "));
 const BOT_SYN={adapter:["plug","charger","socket","converter","electricity","power"],plug:["adapter","socket","charger"],
   sim:["internet","data","network","wifi","hotlink","connect"],money:["cash","currency","exchange","ringgit","myr","forex","card"],
@@ -567,12 +539,12 @@ function botIntent(raw){
   if(/^(help|menu|options)$/.test(q)||/(your name|who are you|what are you|are you (a )?bot|what can you do|how can you help)/.test(q)) return "about";
   return null;
 }
-const CBOT_TOPICS=["Currency & cash","SIM card","Luggage","Visa","Airport pickup"];
+const CBOT_TOPICS=["Currency & cash","SIM card","Show money","Airport pickup","Day 3 tour"];
 function cbotIntentReply(it){
-  if(it==="greet"){cbotAdd("Hello! 😊 I'm <strong>Kaity</strong>, here to help with your Malaysia trip. What would you like to know?","bot");cbotChips(CBOT_TOPICS);}
+  if(it==="greet"){cbotAdd("Hello! 😊 I'm <strong>Kaity</strong>, here to help with your Phuket trip. What would you like to know?","bot");cbotChips(CBOT_TOPICS);}
   else if(it==="thanks"){cbotAdd("You're most welcome! 😊 Anything else I can help with?","bot");cbotChips(CBOT_TOPICS);}
   else if(it==="bye"){cbotAdd(`Safe travels! ✈️ Reach out anytime — and your Service Advisor <strong>${CONFIG.advisorName}</strong> is always available on ${CONFIG.advisorPhone}.`,"bot");}
-  else{cbotAdd("I'm <strong>Kaity</strong> 🤖 your virtual trip assistant. I can help with accommodation, currency, SIM, luggage, the airport, visa, tickets and more — tap a question or just type.","bot");cbotChips(CBOT_TOPICS);}
+  else{cbotAdd("I'm <strong>Kaity</strong> 🤖 your virtual trip assistant. I can help with currency, SIM, baggage, the airport, documents, your day-by-day plan and more — tap a question or just type.","bot");cbotChips(CBOT_TOPICS);}
 }
 
 /* ---- suggestion cards (home view) ---- */
@@ -580,15 +552,15 @@ const SUGGEST=[
   {cat:"Baggage",color:"var(--teal)",q:"How much luggage can I carry?"},
   {cat:"Money",color:"var(--orange)",q:"How much cash should I carry?"},
   {cat:"SIM",color:"var(--blue)",q:"How do I get a SIM card?"},
-  {cat:"Power",color:"var(--teal-d)",q:"What adapter do I need?"},
+  {cat:"Show money",color:"var(--teal-d)",q:"What is the show money requirement?"},
   {cat:"Airport",color:"var(--teal)",q:"Where do I meet the team at the airport?"},
-  {cat:"Visa",color:"var(--orange)",q:"Do I need a visa for Malaysia?"},
-  {cat:"Food",color:"var(--blue)",q:"Is breakfast included?"},
-  {cat:"Hotels",color:"var(--teal-d)",q:"What's the security deposit?"},
-  {cat:"Tickets",color:"var(--orange)",q:"Are Twin Towers tickets included?"},
-  {cat:"Dress code",color:"var(--teal)",q:"What should I wear at temples?"},
-  {cat:"Itinerary",color:"var(--blue)",q:"Where is my day-by-day plan?"},
-  {cat:"Valuables",color:"var(--teal-d)",q:"Can I carry gold jewellery?"}
+  {cat:"Documents",color:"var(--orange)",q:"Which travel documents do I need?"},
+  {cat:"Day 3",color:"var(--blue)",q:"What should I carry for the island tour?"},
+  {cat:"Dress code",color:"var(--teal-d)",q:"Is there a dress code for temples?"},
+  {cat:"Day 4",color:"var(--orange)",q:"What happens on Day 4?"},
+  {cat:"Power",color:"var(--teal)",q:"What adapter do I need?"},
+  {cat:"Punctuality",color:"var(--blue)",q:"How important is the reporting time?"},
+  {cat:"Day 1",color:"var(--teal-d)",q:"What is the plan for Day 1?"}
 ];
 const CBOT_ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2v.3h6V17c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg>';
 function cbotRefresh(){
@@ -689,13 +661,13 @@ function cbotVoice(){
 <div class="cbot" id="cbot" role="dialog" aria-label="Kaity chat">
   <div class="cbot-head">
     <div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3.5"/><path d="M12 5.5V8"/><circle cx="12" cy="4" r="1.4"/><circle cx="9.2" cy="13" r="1.2" fill="currentColor" stroke="none"/><circle cx="14.8" cy="13" r="1.2" fill="currentColor" stroke="none"/><path d="M9.5 16.3h5"/><path d="M2.5 11.5v3M21.5 11.5v3"/></svg></div>
-    <div class="t"><div class="nm"><b>Kaity</b><span class="ai-badge">AI</span></div><span class="sub">Your Malaysia trip assistant</span></div>
+    <div class="t"><div class="nm"><b>Kaity</b><span class="ai-badge">AI</span></div><span class="sub">Your Phuket trip assistant</span></div>
     <button class="cbot-x" onclick="cbotToggle(false)" aria-label="Close chat">&times;</button>
   </div>
   <div class="cbot-body" id="cbotBody">
     <div id="cbotHome">
       <div class="cbot-hi">Hi there! 👋</div>
-      <div class="cbot-hi-sub">I'm Kaity. Ask me anything about your Malaysia trip — or tap a question below.</div>
+      <div class="cbot-hi-sub">I'm Kaity. Ask me anything about your Phuket trip — or tap a question below.</div>
       <div class="sugg-grid" id="suggGrid"></div>
       <button class="refresh-q" onclick="cbotRefresh()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/></svg> Refresh questions</button>
     </div>

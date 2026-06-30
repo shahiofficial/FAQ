@@ -9,10 +9,21 @@ index.html                       # neutral landing — leaks no package links
 hub-3b6cf0d7.html      # PRIVATE owner hub — lists every country (never share this)
 kt-malaysia-50ec88.html     # Malaysia — the link you send the customer
 kt-malaysia-50ec88-explore.html  # Malaysia "Explore" page (opened by a button on the main page)
+kt-phuket-ec85d5.html      # Phuket, Thailand — the link you send the customer
+kt-phuket-ec85d5-explore.html  # Phuket "Explore" page
 images/                          # logo + photos (shared)
 server/worker.js                 # optional AI proxy for Kaity
 README.md
 ```
+
+## Hero background photo + live clocks
+Each country page shows a **destination name over a background photo**, plus a
+**live India clock and a live local clock**. To set the background:
+1. Put a wide photo in `images/` (e.g. `phuket-hero.jpg`, ~1200px wide).
+2. In that country page, set `CONFIG.heroImage = "phuket-hero.jpg"`.
+   Leave it `""` to keep the teal gradient.
+The clocks update automatically using `CONFIG.tz` (e.g. `"Asia/Bangkok"`) and
+`CONFIG.tzCity` — no setup needed.
 
 ## How the isolation works
 - Each country has a random, **unguessable** filename — customers can't guess another package.
