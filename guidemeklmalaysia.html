@@ -358,6 +358,7 @@ const CONFIG = {
 };
 const PHOTOS = {
   "Baggage":      "baggage.jpg",   // AirAsia cabin baggage allowance
+  "Cabin rules":  "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportmalaysia/cabin-restrictions.jpg",
   "Money":        "money.jpg",   // Ringgit + cards
   "Power":        "plug.jpg",   // Type G socket + universal adapter
   "Connectivity": "hotlink.jpg",   // Hotlink storefront photo
@@ -378,6 +379,9 @@ const QUESTIONS = [
   { icon:"\uD83E\uDDF3", tag:"Baggage", q:"How much luggage can I carry?", pic:"PHOTO \u00b7 luggage / baggage allowance",
     a:`<p>Everyone gets <span class="pill">one 7 kg cabin bag</span> per person. <strong>Check-in baggage (20 kg) is only included if it is listed on your flight ticket</strong> — please check your ticket to confirm.</p>
        <p>Keep liquids, aerosols and gels in containers <strong>100 ml or smaller</strong> unless they're in tamper-evident duty-free bags. Power banks go in <strong>cabin baggage only</strong>, never check-in.</p>` },
+  { icon:"\u26D4", tag:"Cabin rules", q:"What items are NOT allowed in cabin baggage?", pic:"PHOTO \u00b7 items not allowed in cabin baggage",
+    a:`<p>For airport security, <strong>sharp objects</strong> (knives, scissors, razors, blades), <strong>tools</strong>, lighters and any <strong>liquid, gel or aerosol over 100 ml</strong> must go in <strong>check-in baggage</strong> &mdash; not your cabin bag.</p>
+       <p>Check the full list below before you pack.</p>` },
   { icon:"\uD83D\uDCB1", tag:"Money", q:"How much cash should I carry, and how do I exchange it?", pic:"PHOTO \u00b7 MYR currency / forex card",
     a:`<p>Please <strong>complete your currency exchange before you travel</strong>. We recommend carrying around <span class="pill">\u20b925,000</span> (equivalent in MYR) for 2 adults \u2014 you may adjust the amount based on your personal spending preferences.</p>
        <p>Carry a mix: <strong>MYR cash</strong>, a <strong>forex card</strong>, and an <strong>international credit or debit card</strong> for hassle-free transactions. You can also carry some <strong>INR cash and convert it to MYR at the Indian airport</strong> before you fly.</p>` },
@@ -442,7 +446,7 @@ document.getElementById("contacts").innerHTML =
 
 // Photo slot: real image if a filename is set in PHOTOS, else placeholder
 // Graphics that should be shown in full (not cropped) — menus, infographics, banners
-const DOC_IMAGES = ["Baggage","Dress code","Food"];
+const DOC_IMAGES = ["Baggage","Cabin rules","Dress code","Food"];
 function renderPic(item){
   if(!item.pic) return "";
   const src=PHOTOS[item.tag];

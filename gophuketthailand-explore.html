@@ -65,6 +65,11 @@
   .xcard .ti .ic{font-size:18px}
   .xcard .no{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.5}
   .xcard .tg{display:inline-block;font-family:var(--f-label);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal-d);background:rgba(4,150,165,.1);padding:3px 8px;border-radius:6px;margin-top:9px}
+  .xmeta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:11px}
+  .xmeta .tg{margin-top:0}
+  .xpill{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-label);font-size:10px;letter-spacing:.03em;font-weight:500;color:var(--teal-d);background:rgba(4,150,165,.1);border:1px solid rgba(4,150,165,.22);padding:5px 10px;border-radius:999px;text-decoration:none}
+  .xpill:active,.xpill:hover{background:rgba(4,150,165,.18)}
+  .flight-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-label);font-size:9px;letter-spacing:.05em;font-weight:600;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,var(--orange),#ff9d4d);padding:5px 11px;border-radius:999px;box-shadow:0 4px 12px rgba(243,121,42,.32)}
 
   footer{margin-top:42px;background:linear-gradient(135deg,var(--dark),var(--teal-d));border-radius:var(--r-l);padding:26px;color:#eafcfb;text-align:center}
   footer img{height:30px;margin:0 auto 12px;display:block}
@@ -108,11 +113,11 @@ function imgURL(v){return v&&/^https?:\/\//.test(v)?v:(IMG_BASE+v);}
 
 const EXPLORE = [
   { key:"see", label:"See & do", title:"See & do", lead:"Nightlife, markets and sunset views.", items:[
-    { ic:"🏪", ti:"Pop into a 7-Eleven", no:"You're never far from a 7-Eleven in Phuket \u2014 grab drinks, toasties, snacks and travel bits at any hour.", tg:"Everywhere", img:"7-eleven.jpg" },
-    { ic:"🪩", ti:"Illuzion Nightclub", no:"One of the world's top-ranked nightclubs (9th globally) \u2014 a huge multi-level club on Bangla Road, Patong.", tg:"Nightlife", img:"illuzion.jpg" },
-    { ic:"💆", ti:"Traditional Thai massage", no:"Treat yourself to an hour of Thai massage \u2014 inexpensive, blissful and found on almost every street.", tg:"Relax", img:"thai-massage.jpg" },
-    { ic:"🛍️", ti:"Chillva Market", no:"A trendy night market of colourful container shops, street food and live music \u2014 a fun evening out.", tg:"Night market", img:"chillva-market.jpg" },
-    { ic:"🌅", ti:"Promthep Cape sunset", no:"Phuket's most famous sunset viewpoint, at the island's southern tip \u2014 arrive before dusk.", tg:"Sunset", img:"promthep-cape.jpg" }
+    { ic:"🏪", ti:"Pop into a 7-Eleven", no:"You're never far from a 7-Eleven in Phuket \u2014 grab drinks, toasties, snacks and travel bits at any hour.", tg:"Everywhere", img:"7-eleven.jpg", map:"7-Eleven" },
+    { ic:"🪩", ti:"Illuzion Nightclub", no:"One of the world's top-ranked nightclubs (9th globally) \u2014 a huge multi-level club on Bangla Road, Patong.", tg:"Nightlife", img:"illuzion.jpg", map:"Illuzion Phuket Patong" },
+    { ic:"💆", ti:"Traditional Thai massage", no:"Treat yourself to an hour of Thai massage \u2014 inexpensive, blissful and found on almost every street.", tg:"Relax", img:"thai-massage.jpg", map:"Thai massage Phuket" },
+    { ic:"🛍️", ti:"Chillva Market", no:"A trendy night market of colourful container shops, street food and live music \u2014 a fun evening out.", tg:"Night market", img:"chillva-market.jpg", map:"Chillva Market Phuket" },
+    { ic:"🌅", ti:"Promthep Cape sunset", no:"Phuket's most famous sunset viewpoint, at the island's southern tip \u2014 arrive before dusk.", tg:"Sunset", img:"promthep-cape.jpg", map:"Promthep Cape Phuket" }
   ]},
   { key:"eat", label:"Eat", title:"Eat & drink", lead:"Flavours and treats you shouldn't miss.", items:[
     { ic:"🍜", ti:"Pad Thai", no:"Thailand's signature stir-fried noodles.", tg:"", img:"pad-thai.jpg" },
@@ -120,16 +125,16 @@ const EXPLORE = [
     { ic:"🥭", ti:"Mango sticky rice", no:"Sweet mango with coconut sticky rice \u2014 a must.", tg:"", img:"mango-sticky-rice.jpg" },
     { ic:"🥥", ti:"Fresh coconut", no:"Cool coconut water straight from the shell.", tg:"", img:"coconut.jpg" },
     { ic:"🍢", ti:"Street food", no:"Skewers, satay and snacks along the Patong streets.", tg:"", img:"street-food.jpg" },
-    { ic:"🥤", ti:"Iced Milo", no:"The iconic thick, ice-cold Milo \u2014 a Southeast Asian classic.", tg:"Drink", img:"iced-milo.jpg" },
-    { ic:"🍦", ti:"Mixue strawberry sundae", no:"Mixue's famous cheap-and-cheerful strawberry sundae and soft serve.", tg:"Dessert", img:"mixue.jpg" },
-    { ic:"🍗", ti:"Uncle Chin's Chicken Rice", no:"A Santan in-flight favourite on AirAsia \u2014 Hainanese-style chicken rice; pre-order with your meal.", tg:"In-flight", img:"uncle-chins.jpg" },
-    { ic:"☕", ti:"Santan Coconut Latte", no:"Santan's creamy coconut latte \u2014 a signature in-flight drink.", tg:"In-flight", img:"santan-latte.jpg" },
-    { ic:"🍔", ti:"Prime Burger", no:"A popular quick burger stop \u2014 juicy and wallet-friendly.", tg:"", img:"prime-burger.jpg" },
+    { ic:"🥤", ti:"Iced Milo", no:"The iconic thick, ice-cold Milo \u2014 a Southeast Asian classic.", tg:"Drink", img:"iced-milo.jpg", flight:1 },
+    { ic:"🍦", ti:"Mixue strawberry sundae", no:"Mixue's famous cheap-and-cheerful strawberry sundae and soft serve.", tg:"Dessert", img:"mixue.jpg", map:"Mixue" },
+    { ic:"🍗", ti:"Uncle Chin's Chicken Rice", no:"A Santan in-flight favourite on AirAsia \u2014 Hainanese-style chicken rice; pre-order with your meal.", tg:"In-flight", img:"uncle-chins.jpg", flight:1 },
+    { ic:"☕", ti:"Santan Coconut Latte", no:"Santan's creamy coconut latte \u2014 a signature in-flight drink.", tg:"In-flight", img:"santan-latte.jpg", flight:1 },
+    { ic:"🍔", ti:"Prime Burger", no:"A popular quick burger stop \u2014 juicy and wallet-friendly.", tg:"", img:"prime-burger.jpg", map:"Prime Burger Central Patong Phuket" },
     { ic:"🦑", ti:"Squid Lay's", no:"Thai Lay's in a wild local squid flavour \u2014 grab from any 7-Eleven.", tg:"Snack", img:"squid-lays.jpg" },
     { ic:"🦐", ti:"Shrimp Lay's", no:"Lay's in a Thai shrimp flavour \u2014 a moreish local snack.", tg:"Snack", img:"shrimp-lays.jpg" },
-    { ic:"🥭", ti:"Hey Mango Phuket", no:"Hey Mango \u2014 fresh mango drinks and desserts, a sweet Phuket treat.", tg:"Dessert", img:"hey-mango.jpg" },
-    { ic:"🍛", ti:"Cairo Restaurant", no:"Hearty lamb or chicken tomato rice, Middle-Eastern style.", tg:"Must-try", img:"cairo-restaurant.jpg" },
-    { ic:"🍛", ti:"Amritsr Restaurant", no:"Comforting North-Indian food when you crave a desi meal.", tg:"Indian", img:"amritsr.jpg" }
+    { ic:"🥭", ti:"Hey Mango Phuket", no:"Hey Mango \u2014 fresh mango drinks and desserts, a sweet Phuket treat.", tg:"Dessert", img:"hey-mango.jpg", map:"Hey Mango Old Phuket Town" },
+    { ic:"🍛", ti:"Cairo Restaurant", no:"Hearty lamb or chicken tomato rice, Middle-Eastern style.", tg:"Must-try", img:"cairo-restaurant.jpg", map:"Cairo Restaurant Patong Phuket" },
+    { ic:"🍛", ti:"Amritsr Restaurant", no:"Comforting North-Indian food when you crave a desi meal.", tg:"Indian", img:"amritsr.jpg", map:"Amritsr" }
   ]},
   { key:"buy", label:"Take home", title:"Take home", lead:"Easy-to-pack souvenirs and gifts.", items:[
     { ic:"🧲", ti:"Phuket fridge magnet", no:"A fun magnet souvenir \u2014 light and easy to pack.", tg:"", img:"magnet.jpg" },
@@ -145,12 +150,18 @@ document.getElementById("tabs").innerHTML = EXPLORE.map((s,i)=>
 
 document.getElementById("sections").innerHTML = EXPLORE.map(s=>{
   const cards = s.items.map(m=>{
+    const mapUrl = m.map ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.map)}` : "";
+    const chips = [
+      m.flight?`<span class="flight-badge">&#9992;&#65039; Pre-order on your flight</span>`:"",
+      m.tg?`<span class="tg">${m.tg}</span>`:"",
+      mapUrl?`<a class="xpill" href="${mapUrl}" target="_blank" rel="noopener">&#128205; Open in Maps</a>`:""
+    ].join("");
     return `<div class="xcard">
       <div class="ph"><div class="ph-ph"><span class="ph-ic">${m.ic}</span><span class="ph-tt">${m.ti}</span></div>${m.img?`<img src="${imgURL(m.img)}" alt="${m.ti}" onerror="this.remove()">`:""}</div>
       <div class="bd">
         <div class="ti"><span class="ic">${m.ic}</span>${m.ti}</div>
         <div class="no">${m.no}</div>
-        ${m.tg?`<span class="tg">${m.tg}</span>`:""}
+        ${chips?`<div class="xmeta">${chips}</div>`:""}
       </div></div>`;
   }).join("");
   return `<section class="sec" id="sec-${s.key}"><h2>${s.title}</h2><p class="lead">${s.lead}</p><div class="grid">${cards}</div></section>`;

@@ -354,6 +354,7 @@ const CONFIG = {
 };
 const PHOTOS = {
   "Baggage":      "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/baggage.jpg",   // Akasa cabin + check-in allowance
+  "Cabin rules":  "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/cabin-restrictions.jpg",
   "Money":        "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/money.jpg",     // THB notes + cards
   "Power":        "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/adapter.jpg",   // universal travel adapter
   "Connectivity": "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/sim.jpg",       // True/dtac SIM
@@ -373,6 +374,9 @@ const QUESTIONS = [
   { icon:"\uD83E\uDDF3", tag:"Baggage", q:"How much luggage can I carry?", pic:"PHOTO \u00b7 baggage allowance",
     a:`<p>On <strong>Akasa Air</strong>: cabin baggage is <span class="pill">1 piece up to 7 kg</span> (max 115 cm), and check-in is <span class="pill">1 piece up to 20 kg</span> (max 158 cm).</p>
        <p>Keep any liquids in containers <strong>under 100 ml</strong>. Always refer to your ticket for the exact allowance.</p>` },
+  { icon:"\u26D4", tag:"Cabin rules", q:"What items are NOT allowed in cabin baggage?", pic:"PHOTO \u00b7 items not allowed in cabin baggage",
+    a:`<p>For airport security, <strong>sharp objects</strong> (knives, scissors, razors, blades), <strong>tools</strong>, lighters and any <strong>liquid, gel or aerosol over 100 ml</strong> must go in <strong>check-in baggage</strong> &mdash; not your cabin bag.</p>
+       <p>Check the full list below before you pack.</p>` },
   { icon:"\uD83D\uDCB5", tag:"Money", q:"How much cash should I carry, and which cards work?", pic:"PHOTO \u00b7 THB currency / cards",
     a:`<p>Carry <strong>Thai Baht (THB) converted before you travel</strong> for local expenses \u2014 this is the most important thing to sort out.</p>
        <p>For card payments, carry an <strong>international Visa or Mastercard credit card</strong>.</p>` },
@@ -433,7 +437,7 @@ document.getElementById("contacts").innerHTML =
 
 // Photo slot: real image if a filename is set in PHOTOS, else placeholder
 // Graphics that should be shown in full (not cropped) — menus, infographics, banners
-const DOC_IMAGES = ["Baggage","Money","Power","Connectivity","Arrival","Day 3"];
+const DOC_IMAGES = ["Baggage","Cabin rules","Money","Power","Connectivity","Arrival","Day 3"];
 function renderPic(item){
   if(!item.pic) return "";
   const src=PHOTOS[item.tag];
