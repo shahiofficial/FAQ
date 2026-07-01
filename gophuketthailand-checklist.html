@@ -72,6 +72,14 @@
   .phr .e{font-size:19px;line-height:1}
   .phr .en{font-weight:600;color:var(--ink);font-size:13.5px;margin-top:6px}
   .phr .ms{color:var(--teal-d);font-size:13.5px;margin-top:1px;font-weight:500}
+  .phr{position:relative;cursor:pointer;transition:transform .12s,box-shadow .12s}
+  .phr:hover{box-shadow:var(--sh-h)}
+  .phr:active{transform:scale(.98)}
+  .phr.speaking{box-shadow:0 0 0 2px var(--teal)}
+  .phr .spk{position:absolute;top:8px;right:8px;width:30px;height:30px;border:none;border-radius:50%;background:rgba(4,150,165,.1);color:var(--teal-d);font-size:15px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+  .phr .spk:hover{background:rgba(4,150,165,.2)}
+  .phr .en,.phr .ms{padding-right:30px}
+  .spk-hint{font-size:10.5px;color:var(--muted);margin-top:6px;line-height:1.3}
 
   footer{margin-top:42px;background:linear-gradient(135deg,var(--dark),var(--teal-d));border-radius:var(--r-l);padding:26px;color:#eafcfb;text-align:center}
   footer img{height:30px;margin:0 auto 12px;display:block}
@@ -126,21 +134,21 @@ const CHECKLIST_DATA = [
 ];
 
 const PHRASES = [
-  { e:"\uD83D\uDC4B", en:"Hello / Goodbye", ms:"Sawasdee kha / khrap" },
-  { e:"\uD83D\uDE4F", en:"Thank you", ms:"Khop khun kha / khrap" },
-  { e:"\uD83D\uDC4D", en:"Yes / No", ms:"Chai / Mai chai" },
-  { e:"\uD83D\uDE0A", en:"How are you?", ms:"Sabai dee mai?" },
-  { e:"\uD83D\uDCB0", en:"How much?", ms:"Tao rai?" },
-  { e:"\uD83D\uDCB8", en:"Too expensive", ms:"Phaeng pai" },
-  { e:"\uD83D\uDE0B", en:"Delicious", ms:"Aroy" },
-  { e:"\uD83C\uDF36\uFE0F", en:"Not spicy, please", ms:"Mai phet" },
-  { e:"\uD83D\uDE14", en:"Excuse me / Sorry", ms:"Kho thot" },
-  { e:"\uD83D\uDEBB", en:"Where's the toilet?", ms:"Hong nam yu thi nai?" },
-  { e:"\uD83E\uDD14", en:"I don't understand", ms:"Mai khao jai" },
-  { e:"\uD83D\uDC4C", en:"No problem", ms:"Mai pen rai" },
-  { e:"\uD83E\uDDFE", en:"Bill, please", ms:"Kep tang / Chek bin" },
-  { e:"\u2728", en:"Beautiful", ms:"Suay" },
-  { e:"\uD83C\uDD98", en:"Help!", ms:"Chuay duay!" }
+  { e:"\uD83D\uDC4B", en:"Hello / Goodbye", ms:"Sawasdee kha / khrap", th:"สวัสดี" },
+  { e:"\uD83D\uDE4F", en:"Thank you", ms:"Khop khun kha / khrap", th:"ขอบคุณ" },
+  { e:"\uD83D\uDC4D", en:"Yes / No", ms:"Chai / Mai chai", th:"ใช่ ไม่ใช่" },
+  { e:"\uD83D\uDE0A", en:"How are you?", ms:"Sabai dee mai?", th:"สบายดีไหม" },
+  { e:"\uD83D\uDCB0", en:"How much?", ms:"Tao rai?", th:"เท่าไหร่" },
+  { e:"\uD83D\uDCB8", en:"Too expensive", ms:"Phaeng pai", th:"แพงไป" },
+  { e:"\uD83D\uDE0B", en:"Delicious", ms:"Aroy", th:"อร่อย" },
+  { e:"\uD83C\uDF36\uFE0F", en:"Not spicy, please", ms:"Mai phet", th:"ไม่เผ็ด" },
+  { e:"\uD83D\uDE14", en:"Excuse me / Sorry", ms:"Kho thot", th:"ขอโทษ" },
+  { e:"\uD83D\uDEBB", en:"Where's the toilet?", ms:"Hong nam yu thi nai?", th:"ห้องน้ำอยู่ที่ไหน" },
+  { e:"\uD83E\uDD14", en:"I don't understand", ms:"Mai khao jai", th:"ไม่เข้าใจ" },
+  { e:"\uD83D\uDC4C", en:"No problem", ms:"Mai pen rai", th:"ไม่เป็นไร" },
+  { e:"\uD83E\uDDFE", en:"Bill, please", ms:"Kep tang / Chek bin", th:"เก็บเงิน" },
+  { e:"\u2728", en:"Beautiful", ms:"Suay", th:"สวย" },
+  { e:"\uD83C\uDD98", en:"Help!", ms:"Chuay duay!", th:"ช่วยด้วย" }
 ];
 
 const STORE_KEY = "kt-checklist-phuket";
@@ -160,8 +168,33 @@ document.getElementById("lists").innerHTML = CHECKLIST_DATA.map((cat,ci)=>{
   return `<div class="cat-h"><div class="nm">${cat.icon} ${cat.title}</div><div class="ct" id="ct-${ci}"></div></div><div class="ck-grid">${rows}</div>`;
 }).join("");
 
-document.getElementById("phrases").innerHTML = PHRASES.map(p=>
-  `<div class="phr"><span class="e">${p.e}</span><div class="en">${p.en}</div><div class="ms">${p.ms}</div></div>`).join("");
+document.getElementById("phrases").innerHTML = PHRASES.map(function(p){
+  var say=p.th||p.ms;
+  return '<div class="phr" data-say="'+encodeURIComponent(say)+'" data-lang="th-TH" onclick="speak(this)" role="button" tabindex="0">'
+   +'<button class="spk" type="button" aria-label="Play pronunciation" onclick="event.stopPropagation();speak(this.parentNode)">&#128266;</button>'
+   +'<span class="e">'+p.e+'</span><div class="en">'+p.en+'</div><div class="ms">'+p.ms+'</div></div>';
+}).join("");
+
+var TTS_VOICES=[];
+function ttsLoad(){ try{ TTS_VOICES=window.speechSynthesis?window.speechSynthesis.getVoices():[]; }catch(e){ TTS_VOICES=[]; } }
+if(window.speechSynthesis){ ttsLoad(); try{ window.speechSynthesis.onvoiceschanged=ttsLoad; }catch(e){} }
+function speak(card){
+  if(!('speechSynthesis' in window)){ ttsHint(card,'Voice not supported on this device'); return; }
+  var text=decodeURIComponent(card.getAttribute('data-say')||''); var lang=card.getAttribute('data-lang')||'en-US';
+  if(!text) return;
+  try{
+    window.speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(text); u.lang=lang; u.rate=0.85;
+    var base=lang.split('-')[0];
+    var v=TTS_VOICES.find(function(x){return x.lang===lang;})||TTS_VOICES.find(function(x){return x.lang&&x.lang.toLowerCase().indexOf(base)===0;});
+    if(v){ u.voice=v; } else { ttsHint(card,'Tip: add the '+(base==='th'?'Thai':'Malay')+' voice in your phone settings for the best pronunciation.'); }
+    card.classList.add('speaking');
+    u.onend=function(){ card.classList.remove('speaking'); };
+    u.onerror=function(){ card.classList.remove('speaking'); };
+    window.speechSynthesis.speak(u);
+  }catch(e){ ttsHint(card,'Could not play on this device'); }
+}
+function ttsHint(card,msg){ var h=card.querySelector('.spk-hint'); if(!h){ h=document.createElement('div'); h.className='spk-hint'; card.appendChild(h); } h.textContent=msg; }
 
 function toggle(id){
   checked[id] = !checked[id];
