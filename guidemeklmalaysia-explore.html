@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Kairali Trails · Explore Malaysia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/nyght-serif" rel="stylesheet">
+<style>
+  :root{
+    --teal:#0496a5; --teal-d:#037885; --green:#24fbaa; --cyan:#29ffff;
+    --blue:#1e98f7; --orange:#f3792a; --yellow:#fefdbb;
+    --dark:#052a30; --dark-2:#0a3a42; --off:#f4fcfd; --muted:#5a9aa5;
+    --ink:#0e2e34; --line:#d7eef1; --card:#ffffff;
+    --r-s:8px; --r-m:16px; --r-l:24px;
+    --sh:0 4px 24px rgba(4,150,165,.12); --sh-h:0 14px 40px rgba(4,150,165,.22);
+    --f-display:'Tanker','Poppins',system-ui,sans-serif;
+    --f-serif:'Nyght Serif',Georgia,serif;
+    --f-body:'Poppins',system-ui,sans-serif;
+    --f-label:'DM Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:var(--f-body);color:var(--ink);background:var(--off);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%}
+  .wrap{max-width:780px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left)) calc(70px + env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-right))}
+
+  /* top bar */
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0 12px}
+  .back{display:inline-flex;align-items:center;gap:7px;font-family:var(--f-body);font-weight:600;font-size:13.5px;color:var(--teal-d);text-decoration:none;border:1.5px solid var(--line);padding:8px 14px;border-radius:999px;transition:.15s}
+  .back:hover{border-color:var(--teal);background:var(--card)}
+  .back svg{width:15px;height:15px}
+  .topbar img.logo{height:34px;display:block}
+
+  /* hero */
+  .hero{position:relative;border-radius:var(--r-l);overflow:hidden;margin-top:6px;box-shadow:var(--sh-h);background:linear-gradient(135deg,var(--dark),var(--teal-d) 60%,var(--teal));color:#eafcfb;padding:30px 26px}
+  .hero::before{content:"";position:absolute;inset:0;opacity:.10;background-image:linear-gradient(135deg,transparent 46%,#fff 47% 48%,transparent 49%),linear-gradient(45deg,transparent 46%,#fff 47% 48%,transparent 49%);background-size:36px 36px}
+  .hero .eb{position:relative;font-family:var(--f-label);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+  .hero h1{position:relative;font-family:var(--f-display);font-size:38px;margin:0;letter-spacing:.01em;color:#fff}
+  .hero p{position:relative;font-family:var(--f-serif);font-style:italic;color:rgba(234,252,251,.82);font-size:16px;margin:4px 0 0;max-width:80%}
+
+  /* sticky tabs */
+  .tabs{position:sticky;top:0;z-index:20;display:flex;gap:8px;padding:12px 0;background:var(--off);margin-top:6px}
+  .tab{flex:1;text-align:center;border:1.5px solid var(--line);background:var(--card);color:var(--teal-d);font-family:var(--f-body);font-weight:600;font-size:13.5px;padding:10px 8px;border-radius:999px;cursor:pointer;transition:.15s}
+  .tab.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+  /* sections */
+  .sec{padding-top:14px;scroll-margin-top:64px}
+  .sec h2{font-family:var(--f-display);font-size:23px;color:var(--ink);letter-spacing:.01em;margin:18px 0 4px}
+  .sec .lead{color:var(--muted);font-size:13.5px;margin:0 0 14px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .xcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;box-shadow:var(--sh);transition:.15s}
+  .xcard:hover{transform:translateY(-2px);box-shadow:var(--sh-h)}
+  .xcard .ph{position:relative;aspect-ratio:1/1;background:linear-gradient(140deg,var(--teal-d),var(--teal));display:grid;place-items:center;overflow:hidden}
+  .xcard .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 28% 22%,rgba(36,251,170,.38),transparent 60%);pointer-events:none}
+  .ph-ph{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:9px;padding:14px;text-align:center}
+  .ph-ic{font-size:44px;line-height:1;filter:drop-shadow(0 3px 8px rgba(0,0,0,.28))}
+  .ph-tt{font-family:var(--f-label);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.92);font-weight:500;max-width:90%}
+  .xcard .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+  .xmeta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:11px}
+  .xmeta .tg{margin-top:0}
+  .xpill{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-label);font-size:10px;letter-spacing:.03em;font-weight:500;color:var(--teal-d);background:rgba(4,150,165,.1);border:1px solid rgba(4,150,165,.22);padding:5px 10px;border-radius:999px;text-decoration:none}
+  .xpill:active,.xpill:hover{background:rgba(4,150,165,.18)}
+  .flight-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-label);font-size:9px;letter-spacing:.05em;font-weight:600;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,var(--orange),#ff9d4d);padding:5px 11px;border-radius:999px;box-shadow:0 4px 12px rgba(243,121,42,.32)}
+  .xcard .bd{padding:14px}
+  .xcard .ti{font-family:var(--f-display);font-size:17px;color:var(--ink);letter-spacing:.01em;display:flex;align-items:center;gap:8px}
+  .xcard .ti .ic{font-size:18px}
+  .xcard .no{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.5}
+  .xcard .tg{display:inline-block;font-family:var(--f-label);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal-d);background:rgba(4,150,165,.1);padding:3px 8px;border-radius:6px;margin-top:9px}
+
+  footer{margin-top:42px;background:linear-gradient(135deg,var(--dark),var(--teal-d));border-radius:var(--r-l);padding:26px;color:#eafcfb;text-align:center}
+  footer img{height:30px;margin:0 auto 12px;display:block}
+  footer p{margin:0 0 14px;font-family:var(--f-serif);font-style:italic;color:rgba(234,252,251,.78);font-size:14.5px}
+  footer .home{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;text-decoration:none;font-weight:600;font-size:13.5px;padding:10px 18px;border-radius:999px}
+
+  @media(max-width:560px){.grid{grid-template-columns:1fr}.hero h1{font-size:30px}.hero p{max-width:100%}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <img class="logo" src="images/kt-logo.png" alt="Kairali Trails">
+  </div>
+
+  <div class="hero">
+    <div class="eb">🇲🇾 Your free time</div>
+    <h1>Explore Malaysia</h1>
+    <p>Places to see, food to try, and souvenirs to take home.</p>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div id="sections"></div>
+
+  <footer>
+    <img src="images/kt-white.png" alt="Kairali Trails">
+    <p>Have a wonderful trip with Kairali Trails.</p>
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   EDIT HERE — add photos by putting the file in images/ and
+   writing its name in `img`. Leave "" to show a placeholder.
+   ============================================================ */
+const IMG_BASE = "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportmalaysia/";   // this country's Supabase folder
+function imgURL(v){return v&&/^https?:\/\//.test(v)?v:(IMG_BASE+v);}
+
+const EXPLORE = [
+  { key:"see", label:"See & do", title:"See & do", lead:"Great ways to spend your free time and evenings.", items:[
+    { ic:"🏊", ti:"Swim in the infinity pool", no:"Most serviced apartments have a rooftop infinity pool with a city view — lovely at sunset.", tg:"Free time", img:"pool.jpg" },
+    { ic:"🌃", ti:"KLCC Park fountain show", no:"Free Lake Symphony water-and-light show by the Twin Towers each evening.", tg:"Night · Free", img:"klcc.jpg", map:"KLCC Park Lake Symphony Fountain Kuala Lumpur" },
+    { ic:"🍢", ti:"Jalan Alor food street", no:"Buzzing open-air street-food lane in Bukit Bintang after dark.", tg:"Night", img:"jalan-alor.jpg", map:"Jalan Alor Food Street Kuala Lumpur" },
+    { ic:"🛍️", ti:"Bukit Bintang", no:"Shopping, cafes and nightlife — easy to explore on foot.", tg:"Free time", img:"bukit-bintang.jpg", map:"Bukit Bintang Kuala Lumpur" },
+    { ic:"🏪", ti:"Pop into a 7-Eleven", no:"Malaysia's 24/7 corner store — snacks, drinks and travel bits on every street.", tg:"Anytime", img:"7-eleven.jpg", map:"7-Eleven" },
+    { ic:"☕", ti:"Hole-in-the-Wall café", no:"Hidden alley café in KL — order your drink through a literal hole in the wall.", tg:"Free time", img:"hole-in-the-wall.jpg", map:"Hole in the Wall cafe Kuala Lumpur" },
+    { ic:"🛒", ti:"Don Don Donki, Lot 10", no:"Japan's 24/7 megastore — 3 floors of snacks, beauty and groceries at Bukit Bintang.", tg:"24/7", img:"don-don-donki.jpg", map:"Don Don Donki Lot 10 Bukit Bintang" }
+  ]},
+  { key:"eat", label:"Eat", title:"Must-try food", lead:"Flavours you shouldn't leave Malaysia without.", items:[
+    { ic:"🍚", ti:"Nasi Lemak", no:"Malaysia's beloved coconut-rice dish with sambal.", tg:"", img:"nasi-lemak.jpg" },
+    { ic:"🥤", ti:"Iced Milo", no:"Malaysia's beloved iced chocolate-malt drink, topped with extra Milo powder — cold and sweet.", tg:"", img:"milo.jpg" },
+    { ic:"🍦", ti:"Mixue strawberry sundae", no:"Wildly popular budget ice-cream & tea chain — the strawberry sundae is a fan favourite.", tg:"", img:"mixue.jpg", map:"Mixue" },
+    { ic:"🍗", ti:"Uncle Chin's Chicken Rice", no:"The cult AirAsia Santan in-flight meal — pre-book it before you fly.", tg:"In-flight", img:"uncle-chins.jpg", flight:1 },
+    { ic:"☕", ti:"Santan Coconut Latte", no:"AirAsia's coconut latte and buko pandan — a fun onboard treat.", tg:"In-flight", img:"santan-drinks.jpg", flight:1 },
+    { ic:"🍔", ti:"Ramly Burger", no:"Jalan Alor's legendary griddled street burger, wrapped in egg.", tg:"", img:"ramly-burger.jpg", map:"Ramly Burger Jalan Alor Kuala Lumpur" },
+    { ic:"🍮", ti:"Street Soufflé", no:"Jiggly torched soufflé from the night-market stalls (around RM20).", tg:"", img:"souffle.jpg" },
+    { ic:"👑", ti:"Durian", no:"The king of fruits — bold, creamy and unforgettable. Try it once!", tg:"", img:"durian.jpg" },
+    { ic:"🍖", ti:"Satay", no:"Char-grilled skewers with rich peanut sauce — a Malaysian classic.", tg:"", img:"satay.jpg" }
+  ]},
+  { key:"buy", label:"Take home", title:"Take home", lead:"Easy-to-pack souvenirs and gifts.", items:[
+    { ic:"🍫", ti:"Beryl's Chocolates", no:"A beloved Malaysian brand — try the tiramisu and almond varieties.", tg:"", img:"beryls.jpg" },
+    { ic:"🧲", ti:"Malaysia fridge magnet", no:"A fun, light souvenir — landmark magnets are everywhere.", tg:"", img:"magnet.jpg" },
+    { ic:"☕", ti:"White coffee sachets", no:"Famous Ipoh-style white coffee to brew back home.", tg:"", img:"white-coffee.jpg" }
+  ]}
+];
+
+/* ===== render ===== */
+document.getElementById("tabs").innerHTML = EXPLORE.map((s,i)=>
+  `<button class="tab${i===0?' active':''}" data-k="${s.key}" onclick="goTab('${s.key}')">${s.label}</button>`).join("");
+
+document.getElementById("sections").innerHTML = EXPLORE.map(s=>{
+  const cards = s.items.map(m=>{
+    const mapUrl = m.map ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.map)}` : "";
+    const chips = [
+      m.flight?`<span class="flight-badge">&#9992;&#65039; Pre-order before your flight</span>`:"",
+      m.tg?`<span class="tg">${m.tg}</span>`:"",
+      mapUrl?`<a class="xpill" href="${mapUrl}" target="_blank" rel="noopener">&#128205; Open in Maps</a>`:""
+    ].join("");
+    return `<div class="xcard">
+      <div class="ph"><div class="ph-ph"><span class="ph-ic">${m.ic}</span><span class="ph-tt">${m.ti}</span></div>${m.img?`<img src="${imgURL(m.img)}" alt="${m.ti}" onerror="this.remove()">`:""}</div>
+      <div class="bd">
+        <div class="ti"><span class="ic">${m.ic}</span>${m.ti}</div>
+        <div class="no">${m.no}</div>
+        ${chips?`<div class="xmeta">${chips}</div>`:""}
+      </div></div>`;
+  }).join("");
+  return `<section class="sec" id="sec-${s.key}"><h2>${s.title}</h2><p class="lead">${s.lead}</p><div class="grid">${cards}</div></section>`;
+}).join("");
+
+function goTab(k){
+  document.getElementById("sec-"+k).scrollIntoView({behavior:"smooth",block:"start"});
+}
+/* highlight active tab on scroll */
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){
+    const k=e.target.id.replace("sec-","");
+    document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.k===k));
+  }});
+},{rootMargin:"-50% 0px -45% 0px"});
+EXPLORE.forEach(s=>obs.observe(document.getElementById("sec-"+s.key)));
+</script>
+</body>
+</html>
