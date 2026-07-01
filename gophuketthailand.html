@@ -353,8 +353,12 @@ const CONFIG = {
   destFlag:  "&#127481;&#127469;"
 };
 const PHOTOS = {
-  "Power":        "ph-adapter.jpg",
-  "Connectivity": "ph-sim.jpg"
+  "Baggage":      "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/baggage.jpg",   // Akasa cabin + check-in allowance
+  "Money":        "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/money.jpg",     // THB notes + cards
+  "Power":        "ph-adapter.jpg",   // universal travel adapter (in repo)
+  "Connectivity": "ph-sim.jpg",       // True/dtac SIM (in repo)
+  "Arrival":      "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/airport.jpg",   // rep + name board at Exit 2
+  "Dress code":   "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/temple.jpg"      // temple dress-code
 };
 
 /* ============================================================
@@ -366,10 +370,10 @@ const CHECKLIST = [
 ];
 
 const QUESTIONS = [
-  { icon:"\uD83E\uDDF3", tag:"Baggage", q:"How much luggage can I carry?", pic:"",
+  { icon:"\uD83E\uDDF3", tag:"Baggage", q:"How much luggage can I carry?", pic:"PHOTO \u00b7 baggage allowance",
     a:`<p>On <strong>Akasa Air</strong>: cabin baggage is <span class="pill">1 piece up to 7 kg</span> (max 115 cm), and check-in is <span class="pill">1 piece up to 20 kg</span> (max 158 cm).</p>
        <p>Keep any liquids in containers <strong>under 100 ml</strong>. Always refer to your ticket for the exact allowance.</p>` },
-  { icon:"\uD83D\uDCB5", tag:"Money", q:"How much cash should I carry, and which cards work?", pic:"",
+  { icon:"\uD83D\uDCB5", tag:"Money", q:"How much cash should I carry, and which cards work?", pic:"PHOTO \u00b7 THB currency / cards",
     a:`<p>Carry <strong>Thai Baht (THB) converted before you travel</strong> for local expenses \u2014 this is the most important thing to sort out.</p>
        <p>For card payments, carry an <strong>international Visa or Mastercard credit card</strong>.</p>` },
   { icon:"\uD83D\uDCB0", tag:"Immigration", q:"What is the show money requirement?", pic:"",
@@ -381,7 +385,7 @@ const QUESTIONS = [
   { icon:"\uD83D\uDCF6", tag:"Connectivity", q:"How do I get a SIM / internet?", pic:"PHOTO \u00b7 True/dtac travel SIM",
     a:`<p>One SIM is provided <strong>complimentary per couple / family / booking</strong>, handed to you by your guide during the <strong>Day 1 night tour</strong> \u2014 <span class="pill">35 GB data, 6 days</span> validity.</p>
        <p>On arrival, connect to the <strong>airport WiFi</strong> until you receive it. Need an extra SIM? It's <strong>350 THB</strong>, paid directly to the driver.</p>` },
-  { icon:"\uD83D\uDEEC", tag:"Arrival", q:"Where do I meet the team at the airport?", pic:"",
+  { icon:"\uD83D\uDEEC", tag:"Arrival", q:"Where do I meet the team at the airport?", pic:"PHOTO \u00b7 name board at Exit 2",
     a:`<p>Our representative waits in the arrival area holding a <strong>placard with your name</strong>.</p>
        <p>Head to <span class="pill">EXIT 2</span> and step outside \u2014 you'll spot the <strong>Kairali Trails board</strong>. Approach the coordinator, tell them you're our guest, and they'll guide you to your driver.</p>` },
   { icon:"\uD83D\uDEC2", tag:"Documents", q:"Which travel documents do I need?", pic:"",
@@ -393,7 +397,7 @@ const QUESTIONS = [
   { icon:"\uD83D\uDEA4", tag:"Day 3", q:"What should I carry for the Day 3 island tour?", pic:"",
     a:`<p>Be ready right at pickup \u2014 punctuality matters most on Day 3. Carry: <strong>swimwear, slippers, a waterproof phone cover, sunscreen, sunglasses</strong> and some <strong>cash</strong>.</p>
        <p style="background:#fff5f0;border:1px solid rgba(243,121,42,.3);border-radius:10px;padding:10px 12px;margin-top:8px"><strong>Safety:</strong> for the speedboat journey, pregnant women and guests with heart conditions are advised <strong>not</strong> to join the Phi Phi Island or James Bond Island tours.</p>` },
-  { icon:"\uD83D\uDC55", tag:"Dress code", q:"Is there a dress code for temples?", pic:"",
+  { icon:"\uD83D\uDC55", tag:"Dress code", q:"Is there a dress code for temples?", pic:"PHOTO \u00b7 temple dress code",
     a:`<p>Dress modestly at religious sites, especially <strong>Chalong Temple</strong> \u2014 <strong>shoulders and knees covered</strong>. Avoid sleeveless tops, short skirts and shorts.</p>
        <p>If you buy local liquids like honey, keep each container <strong>under 100 ml</strong> in cabin baggage.</p>` },
   { icon:"\uD83C\uDF34", tag:"Day 4", q:"What happens on Day 4?", pic:"",
