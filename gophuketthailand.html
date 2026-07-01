@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Kairali Trails · Phuket Pre-Trip Companion</title>
+<title>kairalitrails · Phuket Pre-Trip Companion</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 <link href="https://fonts.cdnfonts.com/css/nyght-serif" rel="stylesheet">
 <style>
   :root{
-    /* ----- official Kairali Trails tokens ----- */
+    /* ----- official kairalitrails tokens ----- */
     --teal:#0496a5; --teal-d:#037885; --green:#24fbaa; --cyan:#29ffff;
     --blue:#1e98f7; --orange:#f3792a; --yellow:#fefdbb;
     --dark:#052a30; --dark-2:#0a3a42; --off:#f4fcfd; --muted:#5a9aa5;
@@ -196,6 +196,14 @@
   .ex-arrow{font-size:28px;flex:0 0 auto;line-height:1;animation:arrowSlide 1.4s ease-in-out infinite}
   /* ---------- Kaity chatbot ---------- */
   .cbot-launch{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:900;display:flex;align-items:center;gap:10px}
+  .cbot-btn{animation:botFloat 3.2s ease-in-out infinite}
+  @keyframes botFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .bot-eye{transform-box:fill-box;transform-origin:center;animation:botBlink 4.5s ease-in-out infinite}
+  .bot-eye.r{animation-delay:.14s}
+  @keyframes botBlink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.12)}}
+  .pts{margin:8px 0 0;padding-left:18px}
+  .pts li{margin:4px 0}
+  @media (prefers-reduced-motion:reduce){.cbot-btn,.bot-eye{animation:none}}
   .cbot-label{background:var(--card);border:1px solid var(--line);color:var(--teal-d);font-family:var(--f-body);font-weight:600;font-size:13px;padding:8px 13px;border-radius:999px;box-shadow:0 6px 18px rgba(5,42,48,.16);white-space:nowrap;cursor:pointer}
   .cbot-btn{position:relative;width:62px;height:62px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(140deg,var(--teal),var(--green));color:#fff;box-shadow:0 10px 26px rgba(4,150,165,.45);display:grid;place-items:center;transition:transform .15s;flex:0 0 auto}
   .cbot-btn:hover{transform:scale(1.05)}
@@ -255,7 +263,6 @@
 
   <div class="brandbar">
     <div id="brandLogo"></div>
-    <button class="printbtn" onclick="window.print()">Save as PDF</button>
   </div>
 
   <!-- ===== HERO ===== -->
@@ -325,7 +332,7 @@
     </svg>
     <div id="footLogo" class="foot-logo"></div>
     <h3>Still have a doubt?</h3>
-    <p class="tag">Reach your tour operator, Jemshi, anytime on WhatsApp.</p>
+    <p class="tag">Reach your tour operator, kairalitrails, anytime on WhatsApp.</p>
     <div class="contacts" id="contacts"></div>
   </footer>
 </div>
@@ -353,9 +360,9 @@ function imgURL(v){return v&&/^https?:\/\//.test(v)?v:(IMG_BASE+v);}
 const CONFIG = {
   logoDark:  "kt-logo.png",
   logoWhite: "kt-white.png",
-  advisorName:  "Jemshi",
+  advisorName:  "kairalitrails",
   advisorPhone: "+91 77364 70273",
-  guideName:    "Jemshi",
+  guideName:    "kairalitrails",
   guidePhone:   "+91 77364 70273",
   aiEndpoint:   "",
   heroImage: "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/hero.jpg",  // auto: upload hero.jpg to this country's Supabase folder
@@ -378,19 +385,20 @@ const PHOTOS = {
    ============================================================ */
 const CHECKLIST = [
   "Passport (6+ mo, 3 blank pages)","Thailand Pass ready","Universal travel adapter",
-  "THB cash + show money (USD 200)","Visa / Mastercard card","Itinerary saved offline"
+  "Thai Baht & Visa card / Forex card","Itinerary saved offline"
 ];
 
 const QUESTIONS = [
   { icon:"\uD83E\uDDF3", tag:"Baggage", q:"How much luggage can I carry?", pic:"PHOTO \u00b7 baggage allowance",
-    a:`<p>On <strong>Akasa Air</strong>: cabin baggage is <span class="pill">1 piece up to 7 kg</span> (max 115 cm), and check-in is <span class="pill">1 piece up to 20 kg</span> (max 158 cm).</p>
-       <p>Keep any liquids in containers <strong>under 100 ml</strong>. Always refer to your ticket for the exact allowance.</p>` },
+    a:`<p>You can carry <span class="pill">7 kg cabin baggage</span> as standard.</p>
+       <p>Please check your flight ticket to see if additional check-in baggage is included.</p>` },
   { icon:"\u26D4", tag:"Cabin rules", q:"What items are NOT allowed in cabin baggage?", pic:"PHOTO \u00b7 items not allowed in cabin baggage",
     a:`<p>For airport security, <strong>sharp objects</strong> (knives, scissors, razors, blades), <strong>tools</strong>, lighters and any <strong>liquid, gel or aerosol over 100 ml</strong> must go in <strong>check-in baggage</strong> &mdash; not your cabin bag.</p>
        <p>Check the full list below before you pack.</p>` },
   { icon:"\uD83D\uDCB5", tag:"Money", q:"How much cash should I carry, and which cards work?", pic:"PHOTO \u00b7 THB currency / cards",
-    a:`<p>Carry <strong>Thai Baht (THB) converted before you travel</strong> for local expenses \u2014 this is the most important thing to sort out.</p>
-       <p>For card payments, carry an <strong>international Visa or Mastercard credit card</strong>.</p>` },
+    a:`<p>Carry cash equivalent to <strong>&#8377;25,000 per couple</strong>, converted into <strong>Thai Baht (THB)</strong>.</p>
+       <p>For card payments, carry an <strong>international Visa / Mastercard or forex card</strong>.</p>
+       <p><strong>Show money:</strong> showing funds equivalent to <strong>USD 200</strong> is an official Thailand requirement. It is usually not checked strictly \u2014 if asked, you can also show sufficient funds through your online banking.</p>` },
   { icon:"\uD83D\uDCB0", tag:"Immigration", q:"What is the show money requirement?", pic:"",
     a:`<p>Each traveller must carry <span class="pill">show money of about USD 200</span>, preferably converted to <strong>THB</strong>.</p>
        <p>This is an immigration requirement \u2014 you may be asked to present it on arrival, so keep it ready for a smooth entry.</p>` },
@@ -402,13 +410,12 @@ const QUESTIONS = [
        <p>On arrival, connect to the <strong>airport WiFi</strong> until you receive it. Need an extra SIM? It's <strong>350 THB</strong>, paid directly to the driver.</p>` },
   { icon:"\uD83D\uDEEC", tag:"Arrival", q:"Where do I meet the team at the airport?", pic:"PHOTO \u00b7 name board at Exit 2",
     a:`<p>Our representative waits in the arrival area holding a <strong>placard with your name</strong>.</p>
-       <p>Head to <span class="pill">EXIT 2</span> and step outside \u2014 you'll spot the <strong>Kairali Trails board</strong>. Approach the coordinator, tell them you're our guest, and they'll guide you to your driver.</p>` },
+       <p>Head to <span class="pill">EXIT 2</span> and step outside \u2014 you'll spot the <strong>kairalitrails board</strong>. Approach the coordinator, tell them you're our guest, and they'll guide you to your driver.</p>` },
   { icon:"\uD83C\uDFE8", tag:"Hotel", q:"What's the standard hotel check-in & check-out time?", pic:"",
     a:`<p>Standard check-in is from <span class="pill">2:00 PM</span> and check-out is by <span class="pill">12:00 noon</span>.</p>
        <p>Early check-in or a late check-out depends on room availability that day and can't be guaranteed \u2014 if you land early or fly out late, let your coordinator know in advance.</p>` },
-  { icon:"\uD83D\uDEC2", tag:"Documents", q:"Which travel documents do I need?", pic:"",
-    a:`<p>A passport with <strong>at least 6 months' validity</strong>, a minimum of <strong>3 blank pages</strong>, in good condition.</p>
-       <p>Keep these ready (digital copies on your phone are fine): <strong>hotel accommodation details</strong>, your <strong>Thailand Pass</strong> (sent a day before you reach Phuket), and <strong>round-trip tickets</strong>. Your passport is the only original you must carry.</p>` },
+  { icon:"\uD83D\uDEC2", tag:"Documents", q:"What documents should I carry to the airport for departure?", pic:"",
+    a:`<ul class="pts"><li>Passport with at least <strong>6 months validity</strong></li><li>Return flight ticket</li><li>Thailand Arrival Pass</li><li>Hotel booking voucher</li></ul>` },
   { icon:"\u23F0", tag:"Punctuality", q:"How important is the reporting time?", pic:"",
     a:`<p>Very important. There's a <strong>fixed reporting time</strong> and tours run on a strict schedule \u2014 please be in the <strong>hotel lobby at the exact time</strong>.</p>
        <p>Delays can't be accommodated, and the company isn't responsible for any tours missed due to late arrival.</p>` },
@@ -417,6 +424,9 @@ const QUESTIONS = [
        <p style="background:#fff5f0;border:1px solid rgba(243,121,42,.3);border-radius:10px;padding:10px 12px;margin-top:8px"><strong>Safety:</strong> for the speedboat journey, pregnant women and guests with heart conditions are advised <strong>not</strong> to join the Phi Phi Island or James Bond Island tours.</p>` },
   { icon:"\uD83D\uDCCB", tag:"Itinerary", q:"Will the itinerary timings change?", pic:"",
     a:`<p>Tour timings may change depending on the situation. Your coordinator will share the <strong>updated timings before departure</strong> for each destination.</p>` },
+  { icon:"\uD83D\uDDD3\uFE0F", tag:"Itinerary", q:"Where is my day-wise itinerary?", pic:"",
+    a:`<p>View your selected day-wise itinerary here: <a href="https://thailand.kairalitrails.com" target="_blank" rel="noopener"><strong>thailand.kairalitrails.com</strong></a></p>
+       <p><strong>Note:</strong> multiple itineraries are available \u2014 please refer only to the itinerary you have booked.</p>` },
   { icon:"\u2708\uFE0F", tag:"Airport", q:"When should I reach the airport?", pic:"",
     a:`<p>Check your flight timings and reach the airport <span class="pill">at least 3 hours before departure</span> for smooth boarding.</p>` }
 ];
@@ -424,11 +434,11 @@ const QUESTIONS = [
 /* ===== engine ===== */
 // Logo (top): real PNG if provided, else on-brand text wordmark
 document.getElementById("brandLogo").innerHTML = CONFIG.logoDark
-  ? `<img src="${imgURL(CONFIG.logoDark)}" alt="Kairali Trails" style="height:38px;display:block">`
+  ? `<img src="${imgURL(CONFIG.logoDark)}" alt="kairalitrails" style="height:38px;display:block">`
   : `<div class="logo">Kairali<b>.</b><span>Trails — Pre-trip companion</span></div>`;
 
 // Footer: optional white logo + contacts
-document.getElementById("footLogo").innerHTML = CONFIG.logoWhite ? `<img src="${imgURL(CONFIG.logoWhite)}" alt="Kairali Trails">` : "";
+document.getElementById("footLogo").innerHTML = CONFIG.logoWhite ? `<img src="${imgURL(CONFIG.logoWhite)}" alt="kairalitrails">` : "";
 
 // ----- hero background photo + live clocks -----
 (function(){
@@ -444,7 +454,7 @@ document.getElementById("footLogo").innerHTML = CONFIG.logoWhite ? `<img src="${
   tick(); setInterval(tick,1000);
 })();
 document.getElementById("contacts").innerHTML =
-  `<div class="contact"><div class="role">Tour operator</div><div class="who">${CONFIG.advisorName} &middot; Kairali Trails</div><div class="num">${CONFIG.advisorPhone}</div></div>`;
+  `<div class="contact"><div class="role">Tour operator</div><div class="who">${CONFIG.advisorName} &middot; kairalitrails</div><div class="num">${CONFIG.advisorPhone}</div></div>`;
 
 // Photo slot: real image if a filename is set in PHOTOS, else placeholder
 // Graphics that should be shown in full (not cropped) — menus, infographics, banners
@@ -664,15 +674,14 @@ function cbotVoice(){
 
 <!-- FAQ chatbot (offline) -->
 <div class="cbot-launch" id="cbotLaunch">
-  <span class="cbot-label" onclick="cbotToggle(true)">Chat with Kaity</span>
-  <button class="cbot-btn" id="cbotBtn" onclick="cbotToggle(true)" aria-label="Chat with Kaity">
+  <button class="cbot-btn" id="cbotBtn" onclick="cbotToggle(true)" aria-label="Open chat assistant">
     <span class="badge">AI</span>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3.5"/><path d="M12 5.5V8"/><circle cx="12" cy="4" r="1.4"/><circle cx="9.2" cy="13" r="1.2" fill="currentColor" stroke="none"/><circle cx="14.8" cy="13" r="1.2" fill="currentColor" stroke="none"/><path d="M9.5 16.3h5"/><path d="M2.5 11.5v3M21.5 11.5v3"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3.5"/><path d="M12 5.5V8"/><circle cx="12" cy="4" r="1.4"/><circle class="bot-eye" cx="9.2" cy="13" r="1.2" fill="currentColor" stroke="none"/><circle class="bot-eye r" cx="14.8" cy="13" r="1.2" fill="currentColor" stroke="none"/><path d="M9.5 16.3h5"/><path d="M2.5 11.5v3M21.5 11.5v3"/></svg>
   </button>
 </div>
 <div class="cbot" id="cbot" role="dialog" aria-label="Kaity chat">
   <div class="cbot-head">
-    <div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3.5"/><path d="M12 5.5V8"/><circle cx="12" cy="4" r="1.4"/><circle cx="9.2" cy="13" r="1.2" fill="currentColor" stroke="none"/><circle cx="14.8" cy="13" r="1.2" fill="currentColor" stroke="none"/><path d="M9.5 16.3h5"/><path d="M2.5 11.5v3M21.5 11.5v3"/></svg></div>
+    <div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3.5"/><path d="M12 5.5V8"/><circle cx="12" cy="4" r="1.4"/><circle class="bot-eye" cx="9.2" cy="13" r="1.2" fill="currentColor" stroke="none"/><circle class="bot-eye r" cx="14.8" cy="13" r="1.2" fill="currentColor" stroke="none"/><path d="M9.5 16.3h5"/><path d="M2.5 11.5v3M21.5 11.5v3"/></svg></div>
     <div class="t"><div class="nm"><b>Kaity</b><span class="ai-badge">AI</span></div><span class="sub">Your Phuket trip assistant</span></div>
     <button class="cbot-x" onclick="cbotToggle(false)" aria-label="Close chat">&times;</button>
   </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>kairalitrails · Explore Phuket</title>
+<title>kairalitrails · Explore Vietnam</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
@@ -89,7 +89,7 @@
 
   <div class="hero">
     <div class="eb">🇹🇭 Your free time</div>
-    <h1>Explore Phuket</h1>
+    <h1>Explore Vietnam</h1>
     <p>Beaches, islands, food to try and souvenirs to take home.</p>
   </div>
 
@@ -108,40 +108,31 @@
    EDIT HERE — add photos by putting the file in images/ and
    writing its name in `img`. Leave "" to show a placeholder.
    ============================================================ */
-const IMG_BASE = "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/";   // this country's Supabase folder
+const IMG_BASE = "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportvietnam/";   // this country's Supabase folder
 function imgURL(v){return v&&/^https?:\/\//.test(v)?v:(IMG_BASE+v);}
 
 const EXPLORE = [
-  { key:"see", label:"See & do", title:"See & do", lead:"Nightlife, markets and sunset views.", items:[
-    { ic:"🏪", ti:"Pop into a 7-Eleven", no:"You're never far from a 7-Eleven in Phuket \u2014 grab drinks, toasties, snacks and travel bits at any hour.", tg:"Everywhere", img:"7-eleven.jpg", map:"7-Eleven" },
-    { ic:"🪩", ti:"Illuzion Nightclub", no:"One of the world's top-ranked nightclubs (9th globally) \u2014 a huge multi-level club on Bangla Road, Patong.", tg:"Nightlife", img:"illuzion.jpg", map:"Illuzion Phuket Patong" },
-    { ic:"💆", ti:"Traditional Thai massage", no:"Treat yourself to an hour of Thai massage \u2014 inexpensive, blissful and found on almost every street.", tg:"Relax", img:"thai-massage.jpg", map:"Thai massage Phuket" },
-    { ic:"🛍️", ti:"Chillva Market", no:"A trendy night market of colourful container shops, street food and live music \u2014 a fun evening out.", tg:"Night market", img:"chillva-market.jpg", map:"Chillva Market Phuket" },
-    { ic:"🌅", ti:"Promthep Cape sunset", no:"Phuket's most famous sunset viewpoint, at the island's southern tip \u2014 arrive before dusk.", tg:"Sunset", img:"promthep-cape.jpg", map:"Promthep Cape Phuket" }
-  ]},
-  { key:"eat", label:"Eat", title:"Eat & drink", lead:"Flavours and treats you shouldn't miss.", items:[
-    { ic:"🍜", ti:"Pad Thai", no:"Thailand's signature stir-fried noodles.", tg:"", img:"pad-thai.jpg" },
-    { ic:"🍲", ti:"Tom Yum soup", no:"Hot-and-sour shrimp soup, bursting with flavour.", tg:"", img:"tom-yum.jpg" },
-    { ic:"🥭", ti:"Mango sticky rice", no:"Sweet mango with coconut sticky rice \u2014 a must.", tg:"", img:"mango-sticky-rice.jpg" },
-    { ic:"🥥", ti:"Fresh coconut", no:"Cool coconut water straight from the shell.", tg:"", img:"coconut.jpg" },
-    { ic:"🍢", ti:"Street food", no:"Skewers, satay and snacks along the Patong streets.", tg:"", img:"street-food.jpg" },
-    { ic:"🥤", ti:"Iced Milo", no:"The iconic thick, ice-cold Milo \u2014 a Southeast Asian classic.", tg:"Drink", img:"iced-milo.jpg", flight:1 },
-    { ic:"🍦", ti:"Mixue strawberry sundae", no:"Mixue's famous cheap-and-cheerful strawberry sundae and soft serve.", tg:"Dessert", img:"mixue.jpg", map:"Mixue" },
-    { ic:"🍗", ti:"Uncle Chin's Chicken Rice", no:"A Santan in-flight favourite on AirAsia \u2014 Hainanese-style chicken rice; pre-order with your meal.", tg:"In-flight", img:"uncle-chins.jpg", flight:1 },
-    { ic:"☕", ti:"Santan Coconut Latte", no:"Santan's creamy coconut latte \u2014 a signature in-flight drink.", tg:"In-flight", img:"santan-latte.jpg", flight:1 },
-    { ic:"🍔", ti:"Prime Burger", no:"A popular quick burger stop \u2014 juicy and wallet-friendly.", tg:"", img:"prime-burger.jpg", map:"Prime Burger Central Patong Phuket" },
-    { ic:"🦑", ti:"Squid Lay's", no:"Thai Lay's in a wild local squid flavour \u2014 grab from any 7-Eleven.", tg:"Snack", img:"squid-lays.jpg" },
-    { ic:"🦐", ti:"Shrimp Lay's", no:"Lay's in a Thai shrimp flavour \u2014 a moreish local snack.", tg:"Snack", img:"shrimp-lays.jpg" },
-    { ic:"🥭", ti:"Hey Mango Phuket", no:"Hey Mango \u2014 fresh mango drinks and desserts, a sweet Phuket treat.", tg:"Dessert", img:"hey-mango.jpg", map:"Hey Mango Old Phuket Town" },
-    { ic:"🍛", ti:"Cairo Restaurant", no:"Hearty lamb or chicken tomato rice, Middle-Eastern style.", tg:"Must-try", img:"cairo-restaurant.jpg", map:"Cairo Restaurant Patong Phuket" },
-    { ic:"🍛", ti:"Amritsr Restaurant", no:"Comforting North-Indian food when you crave a desi meal.", tg:"Indian", img:"amritsr.jpg", map:"Amritsr" }
-  ]},
-  { key:"buy", label:"Take home", title:"Take home", lead:"Easy-to-pack souvenirs and gifts.", items:[
-    { ic:"🧲", ti:"Phuket fridge magnet", no:"A fun magnet souvenir \u2014 light and easy to pack.", tg:"", img:"magnet.jpg" },
-    { ic:"🎁", ti:"Thailand souvenir", no:"Pick up a classic Thailand keepsake to remember the trip.", tg:"", img:"souvenir.jpg" },
-    { ic:"👖", ti:"Elephant pants", no:"Comfy printed trousers \u2014 a classic Thailand buy.", tg:"", img:"elephant-pants.jpg" },
-    { ic:"🧴", ti:"Thai herbal balm", no:"Tiger balm and herbal inhalers, popular take-homes.", tg:"", img:"herbal-balm.jpg" }
-  ]}
+ { key:"see", label:"See & do", title:"Top things to see & do in Hanoi", lead:"Iconic sights around Hanoi & the north.", items:[
+   { ic:"\uD83C\uDF04", ti:"Hoan Kiem Lake & Ngoc Son Temple", no:"The heart of Hanoi \u2014 a scenic lake with a red bridge to a temple island.", tg:"Old Quarter", img:"hoan-kiem.jpg", map:"Hoan Kiem Lake Hanoi" },
+   { ic:"\uD83D\uDE82", ti:"Old Quarter & Train Street", no:"Buzzing lanes, street food and the railway that runs right between the cafes.", tg:"Hanoi", img:"train-street.jpg", map:"Hanoi Train Street" },
+   { ic:"\u26F0\uFE0F", ti:"Ha Long Bay cruise", no:"Emerald water and limestone karsts \u2014 a day or overnight cruise.", tg:"Day trip", img:"halong-bay.jpg", map:"Ha Long Bay" },
+   { ic:"\uD83C\uDFEF", ti:"Temple of Literature", no:"Vietnam's first university \u2014 peaceful courtyards and classic architecture.", tg:"Hanoi", img:"temple-literature.jpg", map:"Temple of Literature Hanoi" },
+   { ic:"\uD83C\uDFAD", ti:"Water puppet show", no:"A charming traditional art form performed on water, with live music.", tg:"Evening", img:"water-puppet.jpg", map:"Thang Long Water Puppet Theatre Hanoi" }
+ ]},
+ { key:"eat", label:"Eat", title:"Must-try food & drink", lead:"Don't leave without trying these.", items:[
+   { ic:"\uD83C\uDF5C", ti:"Pho", no:"Vietnam's iconic noodle soup \u2014 have it for breakfast like the locals.", tg:"Must try", img:"pho.jpg" },
+   { ic:"\uD83E\uDD6A", ti:"Banh mi", no:"Crispy baguette stuffed with meats, pate and pickled veg.", tg:"Street food", img:"banh-mi.jpg" },
+   { ic:"\u2615", ti:"Egg coffee", no:"Hanoi's famous creamy egg-yolk coffee \u2014 try it at Giang Cafe.", tg:"Hanoi classic", img:"egg-coffee.jpg", map:"Giang Cafe Hanoi" },
+   { ic:"\uD83C\uDF72", ti:"Bun cha", no:"Grilled pork with noodles and herbs \u2014 a true Hanoi speciality.", tg:"Lunch", img:"bun-cha.jpg", map:"Bun Cha Huong Lien Hanoi" },
+   { ic:"\uD83C\uDF65", ti:"Fresh spring rolls", no:"Light rice-paper rolls with herbs, shrimp and a tangy dip.", tg:"Light bite", img:"spring-rolls.jpg" },
+   { ic:"\uD83C\uDF66", ti:"Mixue", no:"Cheap, hugely popular ice-cream & tea chain \u2014 great in the heat.", tg:"Near you", img:"mixue.jpg", map:"Mixue" }
+ ]},
+ { key:"buy", label:"Take home", title:"Souvenirs to take home", lead:"Little bits of Vietnam for family & friends.", items:[
+   { ic:"\u2615", ti:"Vietnamese coffee", no:"Robusta beans and a phin filter \u2014 a classic, easy gift.", tg:"Gift", img:"coffee-beans.jpg" },
+   { ic:"\uD83E\uDDF5", ti:"Silk & handicrafts", no:"Hanoi is known for silk scarves, lacquerware and embroidery.", tg:"Souvenir", img:"silk.jpg" },
+   { ic:"\uD83D\uDC52", ti:"Conical hat (non la)", no:"The iconic Vietnamese hat \u2014 light and very photogenic.", tg:"Keepsake", img:"conical-hat.jpg" },
+   { ic:"\uD83E\uDDF2", ti:"Fridge magnet", no:"Grab a Hanoi or Ha Long magnet as a little memory.", tg:"Keepsake", img:"magnet.jpg" }
+ ]}
 ];
 
 /* ===== render ===== */

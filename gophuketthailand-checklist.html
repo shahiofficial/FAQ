@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Kairali Trails · Phuket Packing Checklist</title>
+<title>kairalitrails · Phuket Packing Checklist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
@@ -68,6 +68,7 @@
   .sec-h{font-family:var(--f-display);font-size:23px;color:var(--ink);letter-spacing:.01em;margin:34px 0 4px}
   .sec-lead{color:var(--muted);font-size:13.5px;margin:0 0 14px}
   .ph-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .ph-grid .phr:last-child:nth-child(odd){grid-column:1 / -1}
   .phr{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:var(--sh)}
   .phr .e{font-size:19px;line-height:1}
   .phr .en{font-weight:600;color:var(--ink);font-size:13.5px;margin-top:6px}
@@ -93,13 +94,17 @@
 <body>
 <div class="wrap">
 
-  <div class="topbar"><img class="logo" src="images/kt-logo.png" alt="Kairali Trails"></div>
+  <div class="topbar"><img class="logo" src="images/kt-logo.png" alt="kairalitrails"></div>
 
   <div class="hero">
     <div class="eb">&#127481;&#127469; Pack smart</div>
     <h1>Packing Checklist</h1>
     <p>Tick things off as you pack — your progress is saved on this device.</p>
   </div>
+
+  <h2 class="sec-h">Handy Thai phrases</h2>
+  <p class="sec-lead">A few words that go a long way with the locals.</p>
+  <div class="ph-grid" id="phrases"></div>
 
   <div class="prog">
     <div class="row">
@@ -112,13 +117,11 @@
 
   <div id="lists"></div>
 
-  <h2 class="sec-h">Handy Thai phrases</h2>
-  <p class="sec-lead">A few words that go a long way with the locals.</p>
-  <div class="ph-grid" id="phrases"></div>
+
 
   <footer>
-    <img src="images/kt-white.png" alt="Kairali Trails">
-    <p>Have a wonderful trip with Kairali Trails.</p>
+    <img src="images/kt-white.png" alt="kairalitrails">
+    <p>Have a wonderful trip with kairalitrails.</p>
   </footer>
 </div>
 
@@ -243,7 +246,7 @@ function downloadJPG(){
   const dateStr=new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
   x.textBaseline='alphabetic'; x.textAlign='left';
   x.fillStyle='rgba(255,255,255,.78)'; x.font='600 13px Poppins, sans-serif';
-  x.fillText('K A I R A L I   T R A I L S', pad, 46);
+  x.fillText('kairalitrails', pad, 46);
   x.fillStyle='#ffffff'; x.font='700 31px Poppins, sans-serif';
   x.fillText('Phuket \u00b7 Packing List', pad, 86);
   x.fillStyle='rgba(255,255,255,.9)'; x.font='500 15px Poppins, sans-serif';
@@ -277,7 +280,7 @@ function downloadJPG(){
     });
   });
   x.textBaseline='alphabetic'; x.fillStyle='#5a9aa5'; x.font='500 13px Poppins, sans-serif'; x.textAlign='center';
-  x.fillText('Generated with Kairali Trails  \u00b7  Have a wonderful trip!', W/2, bodyBottom+40);
+  x.fillText('Generated with kairalitrails  \u00b7  Have a wonderful trip!', W/2, bodyBottom+40);
   x.textAlign='left';
   try{
     const url=cv.toDataURL('image/jpeg',0.92);
