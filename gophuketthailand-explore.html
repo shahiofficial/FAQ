@@ -107,25 +107,34 @@ const IMG_BASE = "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/pub
 function imgURL(v){return v&&/^https?:\/\//.test(v)?v:(IMG_BASE+v);}
 
 const EXPLORE = [
-  { key:"see", label:"See & do", title:"See & do", lead:"Beaches, islands and lively evenings.", items:[
-    { ic:"🏝️", ti:"Phi Phi Islands", no:"Iconic turquoise bays and snorkelling on the Day 3 speedboat tour.", tg:"Day tour", img:"phi-phi.jpg" },
-    { ic:"⛰️", ti:"James Bond Island", no:"The famous limestone karst in Phang Nga Bay.", tg:"Day tour", img:"james-bond.jpg" },
-    { ic:"🌃", ti:"Patong nightlife", no:"Buzzing streets, street food and shopping on the Day 1 night tour.", tg:"Night", img:"patong.jpg" },
-    { ic:"🛕", ti:"Chalong Temple", no:"Phuket's most revered temple — dress modestly to visit.", tg:"Free time", img:"chalong.jpg" },
-    { ic:"🧘", ti:"Big Buddha", no:"Hilltop marble statue with sweeping island views.", tg:"Free time", img:"big-buddha.jpg" },
-    { ic:"🏖️", ti:"Phuket beaches", no:"Relax at Patong, Kata or Karon between tours.", tg:"Free time", img:"beaches.jpg" }
+  { key:"see", label:"See & do", title:"See & do", lead:"Nightlife, markets and sunset views.", items:[
+    { ic:"🏪", ti:"Pop into a 7-Eleven", no:"You're never far from a 7-Eleven in Phuket \u2014 grab drinks, toasties, snacks and travel bits at any hour.", tg:"Everywhere", img:"7-eleven.jpg" },
+    { ic:"🪩", ti:"Illuzion Nightclub", no:"One of the world's top-ranked nightclubs (9th globally) \u2014 a huge multi-level club on Bangla Road, Patong.", tg:"Nightlife", img:"illuzion.jpg" },
+    { ic:"💆", ti:"Traditional Thai massage", no:"Treat yourself to an hour of Thai massage \u2014 inexpensive, blissful and found on almost every street.", tg:"Relax", img:"thai-massage.jpg" },
+    { ic:"🛍️", ti:"Chillva Market", no:"A trendy night market of colourful container shops, street food and live music \u2014 a fun evening out.", tg:"Night market", img:"chillva-market.jpg" },
+    { ic:"🌅", ti:"Promthep Cape sunset", no:"Phuket's most famous sunset viewpoint, at the island's southern tip \u2014 arrive before dusk.", tg:"Sunset", img:"promthep-cape.jpg" }
   ]},
-  { key:"eat", label:"Eat", title:"Must-try food", lead:"Flavours you shouldn't leave Thailand without.", items:[
+  { key:"eat", label:"Eat", title:"Eat & drink", lead:"Flavours and treats you shouldn't miss.", items:[
     { ic:"🍜", ti:"Pad Thai", no:"Thailand's signature stir-fried noodles.", tg:"", img:"pad-thai.jpg" },
     { ic:"🍲", ti:"Tom Yum soup", no:"Hot-and-sour shrimp soup, bursting with flavour.", tg:"", img:"tom-yum.jpg" },
-    { ic:"🥭", ti:"Mango sticky rice", no:"Sweet mango with coconut sticky rice — a must.", tg:"", img:"mango-sticky-rice.jpg" },
+    { ic:"🥭", ti:"Mango sticky rice", no:"Sweet mango with coconut sticky rice \u2014 a must.", tg:"", img:"mango-sticky-rice.jpg" },
     { ic:"🥥", ti:"Fresh coconut", no:"Cool coconut water straight from the shell.", tg:"", img:"coconut.jpg" },
-    { ic:"🍢", ti:"Street food", no:"Skewers, satay and snacks along the Patong streets.", tg:"", img:"street-food.jpg" }
+    { ic:"🍢", ti:"Street food", no:"Skewers, satay and snacks along the Patong streets.", tg:"", img:"street-food.jpg" },
+    { ic:"🥤", ti:"Iced Milo", no:"The iconic thick, ice-cold Milo \u2014 a Southeast Asian classic.", tg:"Drink", img:"iced-milo.jpg" },
+    { ic:"🍦", ti:"Mixue strawberry sundae", no:"Mixue's famous cheap-and-cheerful strawberry sundae and soft serve.", tg:"Dessert", img:"mixue.jpg" },
+    { ic:"🍗", ti:"Uncle Chin's Chicken Rice", no:"A Santan in-flight favourite on AirAsia \u2014 Hainanese-style chicken rice; pre-order with your meal.", tg:"In-flight", img:"uncle-chins.jpg" },
+    { ic:"☕", ti:"Santan Coconut Latte", no:"Santan's creamy coconut latte \u2014 a signature in-flight drink.", tg:"In-flight", img:"santan-latte.jpg" },
+    { ic:"🍔", ti:"Prime Burger", no:"A popular quick burger stop \u2014 juicy and wallet-friendly.", tg:"", img:"prime-burger.jpg" },
+    { ic:"🦑", ti:"Squid Lay's", no:"Thai Lay's in a wild local squid flavour \u2014 grab from any 7-Eleven.", tg:"Snack", img:"squid-lays.jpg" },
+    { ic:"🦐", ti:"Shrimp Lay's", no:"Lay's in a Thai shrimp flavour \u2014 a moreish local snack.", tg:"Snack", img:"shrimp-lays.jpg" },
+    { ic:"🥭", ti:"Hey Mango Phuket", no:"Hey Mango \u2014 fresh mango drinks and desserts, a sweet Phuket treat.", tg:"Dessert", img:"hey-mango.jpg" },
+    { ic:"🍛", ti:"Cairo Restaurant", no:"Hearty lamb or chicken tomato rice, Middle-Eastern style.", tg:"Must-try", img:"cairo-restaurant.jpg" },
+    { ic:"🍛", ti:"Amritsr Restaurant", no:"Comforting North-Indian food when you crave a desi meal.", tg:"Indian", img:"amritsr.jpg" }
   ]},
   { key:"buy", label:"Take home", title:"Take home", lead:"Easy-to-pack souvenirs and gifts.", items:[
-    { ic:"🧲", ti:"Phuket fridge magnet", no:"A fun magnet souvenir — light and easy to pack.", tg:"", img:"magnet.jpg" },
-    { ic:"🥥", ti:"Dried fruit & snacks", no:"Thai dried mango and local snacks make great gifts.", tg:"", img:"dried-fruit.jpg" },
-    { ic:"👖", ti:"Elephant pants", no:"Comfy printed trousers — a classic Thailand buy.", tg:"", img:"elephant-pants.jpg" },
+    { ic:"🧲", ti:"Phuket fridge magnet", no:"A fun magnet souvenir \u2014 light and easy to pack.", tg:"", img:"magnet.jpg" },
+    { ic:"🎁", ti:"Thailand souvenir", no:"Pick up a classic Thailand keepsake to remember the trip.", tg:"", img:"souvenir.jpg" },
+    { ic:"👖", ti:"Elephant pants", no:"Comfy printed trousers \u2014 a classic Thailand buy.", tg:"", img:"elephant-pants.jpg" },
     { ic:"🧴", ti:"Thai herbal balm", no:"Tiger balm and herbal inhalers, popular take-homes.", tg:"", img:"herbal-balm.jpg" }
   ]}
 ];
