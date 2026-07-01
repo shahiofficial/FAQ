@@ -182,6 +182,16 @@
   @keyframes arrowSlide{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
   @keyframes hintBlink{0%,100%{opacity:.72}50%{opacity:1}}
   @media (prefers-reduced-motion:reduce){.explore-cta,.ex-arrow,.ex-hint{animation:none}}
+  .cta-card{display:flex;align-items:center;gap:14px;margin-top:14px;padding:16px 18px;border-radius:var(--r-l);background:linear-gradient(135deg,var(--teal),var(--green));color:#fff;text-decoration:none;box-shadow:var(--sh-h);transition:transform .15s}
+  .cta-card:first-of-type{margin-top:24px}
+  .cta-card:hover{transform:translateY(-2px)}
+  .cta-card:active{transform:translateY(0)}
+  .cta-ic{flex:0 0 auto;width:54px;height:54px;border-radius:14px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:27px;line-height:1}
+  .cta-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+  .cta-title{font-family:var(--f-display);font-size:23px;line-height:1;letter-spacing:.5px;text-transform:uppercase}
+  .cta-sub{font-size:13px;color:rgba(255,255,255,.9);line-height:1.35}
+  .cta-arrow{flex:0 0 auto;font-size:26px;line-height:1;animation:arrowSlide 1.4s ease-in-out infinite}
+  @media (prefers-reduced-motion:reduce){.cta-arrow{animation:none}}
   .ex-txt{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
   .ex-eyebrow{font-family:var(--f-label);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82)}
   .ex-title{font-family:var(--f-display);font-size:25px;letter-spacing:.01em}
@@ -287,7 +297,18 @@
   <!-- ===== CHECKLIST ===== -->
   <div class="eyebrow">Before you zip the bag</div>
   <div class="checklist" id="checklist"></div>
-  <a class="list-cta" href="guidemeklmalaysia-checklist"><span>&#128203; Full packing checklist &amp; handy Malay phrases</span><span class="arr">&#8594;</span></a>
+
+  <!-- ===== ACTION CARDS ===== -->
+  <a class="cta-card" href="guidemeklmalaysia-checklist">
+    <span class="cta-ic">&#128203;</span>
+    <div class="cta-txt"><span class="cta-title">Check list</span><span class="cta-sub">Everything you need, before you go</span></div>
+    <span class="cta-arrow">&#8594;</span>
+  </a>
+  <a class="cta-card" href="guidemeklmalaysia-explore">
+    <span class="cta-ic">&#128506;&#65039;</span>
+    <div class="cta-txt"><span class="cta-title">Explore Malaysia</span><span class="cta-sub">Places to see, food to try &amp; souvenirs to take home</span></div>
+    <span class="cta-arrow">&#8594;</span>
+  </a>
 
   <!-- ===== FAQ ===== -->
   <div class="eyebrow">Everything you asked (and didn't)</div>
@@ -297,17 +318,6 @@
   </div>
   <div class="faq" id="faq"></div>
   <div class="empty" id="empty">No match. Try another word, or just scroll the cards above.</div>
-
-  <!-- ===== EXPLORE CTA ===== -->
-  <a class="explore-cta" href="guidemeklmalaysia-explore">
-    <div class="ex-txt">
-      <span class="ex-eyebrow">Now for the fun part</span>
-      <span class="ex-title">Explore Malaysia</span>
-      <span class="ex-sub">Places to see, food to try &amp; souvenirs to take home</span>
-      <span class="ex-hint">&#9755; Tap to open</span>
-    </div>
-    <span class="ex-arrow">&#8594;</span>
-  </a>
 
   <!-- ===== FOOTER ===== -->
   <footer>
