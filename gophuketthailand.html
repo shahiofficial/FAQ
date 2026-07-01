@@ -355,10 +355,10 @@ const CONFIG = {
 const PHOTOS = {
   "Baggage":      "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/baggage.jpg",   // Akasa cabin + check-in allowance
   "Money":        "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/money.jpg",     // THB notes + cards
-  "Power":        "ph-adapter.jpg",   // universal travel adapter (in repo)
-  "Connectivity": "ph-sim.jpg",       // True/dtac SIM (in repo)
+  "Power":        "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/adapter.jpg",   // universal travel adapter
+  "Connectivity": "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/sim.jpg",       // True/dtac SIM
   "Arrival":      "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/airport.jpg",   // rep + name board at Exit 2
-  "Dress code":   "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/temple.jpg"      // temple dress-code
+  "Day 3":        "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportphuket/island-tour.jpg" // Day 3 island-tour packing
 };
 
 /* ============================================================
@@ -388,24 +388,18 @@ const QUESTIONS = [
   { icon:"\uD83D\uDEEC", tag:"Arrival", q:"Where do I meet the team at the airport?", pic:"PHOTO \u00b7 name board at Exit 2",
     a:`<p>Our representative waits in the arrival area holding a <strong>placard with your name</strong>.</p>
        <p>Head to <span class="pill">EXIT 2</span> and step outside \u2014 you'll spot the <strong>Kairali Trails board</strong>. Approach the coordinator, tell them you're our guest, and they'll guide you to your driver.</p>` },
+  { icon:"\uD83C\uDFE8", tag:"Hotel", q:"What's the standard hotel check-in & check-out time?", pic:"",
+    a:`<p>Standard check-in is from <span class="pill">2:00 PM</span> and check-out is by <span class="pill">12:00 noon</span>.</p>
+       <p>Early check-in or a late check-out depends on room availability that day and can't be guaranteed \u2014 if you land early or fly out late, let your coordinator know in advance.</p>` },
   { icon:"\uD83D\uDEC2", tag:"Documents", q:"Which travel documents do I need?", pic:"",
     a:`<p>A passport with <strong>at least 6 months' validity</strong>, a minimum of <strong>3 blank pages</strong>, in good condition.</p>
        <p>Keep these ready (digital copies on your phone are fine): <strong>hotel accommodation details</strong>, your <strong>Thailand Pass</strong> (sent a day before you reach Phuket), and <strong>round-trip tickets</strong>. Your passport is the only original you must carry.</p>` },
   { icon:"\u23F0", tag:"Punctuality", q:"How important is the reporting time?", pic:"",
     a:`<p>Very important. There's a <strong>fixed reporting time</strong> and tours run on a strict schedule \u2014 please be in the <strong>hotel lobby at the exact time</strong>.</p>
        <p>Delays can't be accommodated, and the company isn't responsible for any tours missed due to late arrival.</p>` },
-  { icon:"\uD83D\uDEA4", tag:"Day 3", q:"What should I carry for the Day 3 island tour?", pic:"",
+  { icon:"\uD83D\uDEA4", tag:"Day 3", q:"What should I carry for the Day 3 island tour?", pic:"PHOTO \u00b7 island tour packing",
     a:`<p>Be ready right at pickup \u2014 punctuality matters most on Day 3. Carry: <strong>swimwear, slippers, a waterproof phone cover, sunscreen, sunglasses</strong> and some <strong>cash</strong>.</p>
        <p style="background:#fff5f0;border:1px solid rgba(243,121,42,.3);border-radius:10px;padding:10px 12px;margin-top:8px"><strong>Safety:</strong> for the speedboat journey, pregnant women and guests with heart conditions are advised <strong>not</strong> to join the Phi Phi Island or James Bond Island tours.</p>` },
-  { icon:"\uD83D\uDC55", tag:"Dress code", q:"Is there a dress code for temples?", pic:"PHOTO \u00b7 temple dress code",
-    a:`<p>Dress modestly at religious sites, especially <strong>Chalong Temple</strong> \u2014 <strong>shoulders and knees covered</strong>. Avoid sleeveless tops, short skirts and shorts.</p>
-       <p>If you buy local liquids like honey, keep each container <strong>under 100 ml</strong> in cabin baggage.</p>` },
-  { icon:"\uD83C\uDF34", tag:"Day 4", q:"What happens on Day 4?", pic:"",
-    a:`<p>Day 4 is a <strong>free day</strong> to relax or explore on your own.</p>
-       <p>Transfers on this day are provided for guests who took the <strong>5-star upgrade</strong>, as they're moved to the 5-star hotel.</p>` },
-  { icon:"\uD83D\uDE90", tag:"Day 1", q:"What's the plan for Day 1?", pic:"",
-    a:`<p>After airport pickup you'll visit <strong>Central Mall Phuket</strong> (~1 hour) for shopping and brunch, then head back to the hotel to rest until <strong>6:45 PM</strong>.</p>
-       <p>Be in the lobby at <span class="pill">7:00 PM</span> for the <strong>Patong night tour</strong> (on foot \u2014 street food and nightlife), returning to the vehicle parking by <strong>11:00 PM</strong>. Your complimentary SIM is handed out during this night tour.</p>` },
   { icon:"\uD83D\uDCCB", tag:"Itinerary", q:"Will the itinerary timings change?", pic:"",
     a:`<p>Tour timings may change depending on the situation. Your coordinator will share the <strong>updated timings before departure</strong> for each destination.</p>` },
   { icon:"\u2708\uFE0F", tag:"Airport", q:"When should I reach the airport?", pic:"",
@@ -439,7 +433,7 @@ document.getElementById("contacts").innerHTML =
 
 // Photo slot: real image if a filename is set in PHOTOS, else placeholder
 // Graphics that should be shown in full (not cropped) — menus, infographics, banners
-const DOC_IMAGES = ["Baggage","Dress code","Food"];
+const DOC_IMAGES = ["Baggage","Money","Power","Connectivity","Arrival","Day 3"];
 function renderPic(item){
   if(!item.pic) return "";
   const src=PHOTOS[item.tag];
