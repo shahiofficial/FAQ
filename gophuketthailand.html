@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>kairalitrails · Phuket Pre-Trip Companion</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -312,6 +312,7 @@
   .wf-shuf{background:var(--teal);color:#fff}.wf-cpy{background:rgba(4,150,165,.12);color:var(--teal-d)}.wf-cpy.wf-done{background:var(--green);color:var(--dark)}
   .wf-bhint{margin-top:16px;text-align:center;font-family:var(--f-label);font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px;justify-content:center}
   @media (prefers-reduced-motion:reduce){.wf-card{transition:none}.wf-rot{animation:none}.wf-flapc.wf-fl{animation:none}}
+  html{-webkit-text-size-adjust:100%;touch-action:manipulation}
 </style>
 </head>
 <body>
@@ -369,14 +370,19 @@
   <div class="checklist" id="checklist"></div>
 
   <!-- ===== ACTION CARDS ===== -->
-  <a class="cta-card" href="gophuketthailand-checklist">
-    <span class="cta-ic">&#128203;</span>
-    <div class="cta-txt"><span class="cta-title">Check list</span><span class="cta-sub">Everything you need, before you go</span></div>
-    <span class="cta-arrow">&#8594;</span>
-  </a>
   <a class="cta-card" href="gophuketthailand-explore">
     <span class="cta-ic">&#127965;&#65039;</span>
     <div class="cta-txt"><span class="cta-title">Explore Phuket</span><span class="cta-sub">Beaches, food to try &amp; souvenirs to take home</span></div>
+    <span class="cta-arrow">&#8594;</span>
+  </a>
+  <a class="cta-card" href="gophuketthailand-checklist#phrases">
+    <span class="cta-ic">&#128483;&#65039;</span>
+    <div class="cta-txt"><span class="cta-title">Thai phrases</span><span class="cta-sub">Handy words to speak like a local</span></div>
+    <span class="cta-arrow">&#8594;</span>
+  </a>
+  <a class="cta-card" href="gophuketthailand-checklist#lists">
+    <span class="cta-ic">&#128203;</span>
+    <div class="cta-txt"><span class="cta-title">Check list</span><span class="cta-sub">Everything you need, before you go</span></div>
     <span class="cta-arrow">&#8594;</span>
   </a>
 
@@ -781,5 +787,6 @@ function cbotVoice(){
     <button onclick="cbotAsk()" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
   </div>
 </div>
+<script>document.addEventListener("gesturestart",function(e){e.preventDefault();},{passive:false});document.addEventListener("gesturechange",function(e){e.preventDefault();},{passive:false});document.addEventListener("touchmove",function(e){if(e.touches.length>1)e.preventDefault();},{passive:false});</script>
 </body>
 </html>
