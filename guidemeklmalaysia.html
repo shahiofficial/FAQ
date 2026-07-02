@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>kairalitrails · Malaysia Pre-Trip Companion</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -259,6 +259,7 @@
   @media(max-width:480px){.cbot{width:calc(100vw - 20px);height:calc(100dvh - 84px)}}
   @media(max-width:360px){.cbot-label{display:none}}
   @media print{.cbot,.cbot-launch{display:none!important}}
+  html{-webkit-text-size-adjust:100%;touch-action:manipulation}
 </style>
 </head>
 <body>
@@ -732,5 +733,6 @@ function cbotVoice(){
     <button onclick="cbotAsk()" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
   </div>
 </div>
+<script>document.addEventListener("gesturestart",function(e){e.preventDefault();},{passive:false});document.addEventListener("gesturechange",function(e){e.preventDefault();},{passive:false});document.addEventListener("touchmove",function(e){if(e.touches.length>1)e.preventDefault();},{passive:false});</script>
 </body>
 </html>

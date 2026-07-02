@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>kairalitrails</title>
 <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
@@ -14,6 +14,7 @@
   .logo{font-family:'Tanker','Poppins',sans-serif;font-size:30px;
     background:linear-gradient(90deg,var(--teal),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.01em}
   p{color:var(--muted);font-size:14.5px;max-width:340px;line-height:1.6;margin:14px auto 0}
+  html{-webkit-text-size-adjust:100%;touch-action:manipulation}
 </style>
 </head>
 <body>
@@ -21,5 +22,6 @@
     <div class="logo">kairalitrails</div>
     <p>Please open the personal trip link shared with you on WhatsApp to view your travel details.</p>
   </div>
+<script>document.addEventListener("gesturestart",function(e){e.preventDefault();},{passive:false});document.addEventListener("gesturechange",function(e){e.preventDefault();},{passive:false});document.addEventListener("touchmove",function(e){if(e.touches.length>1)e.preventDefault();},{passive:false});</script>
 </body>
 </html>

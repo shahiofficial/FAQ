@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>kairalitrails · Trip Hub (private)</title>
 <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -29,6 +29,7 @@
   .st.soon{color:var(--muted)}
   .note{margin-top:22px;background:#fffdf0;border:1px solid #f0e6b8;border-radius:12px;padding:13px 15px;font-size:12.5px;color:#6b5d1e;line-height:1.55}
   @media(max-width:520px){.grid{grid-template-columns:1fr}}
+  html{-webkit-text-size-adjust:100%;touch-action:manipulation}
 </style>
 </head>
 <body>
@@ -50,5 +51,6 @@
 
   <div class="note">🔒 Each country link uses a random, unguessable address. Keep this hub link to yourself — it's the only page that lists every package. New countries get added here as you send their content.</div>
 </div>
+<script>document.addEventListener("gesturestart",function(e){e.preventDefault();},{passive:false});document.addEventListener("gesturechange",function(e){e.preventDefault();},{passive:false});document.addEventListener("touchmove",function(e){if(e.touches.length>1)e.preventDefault();},{passive:false});</script>
 </body>
 </html>
