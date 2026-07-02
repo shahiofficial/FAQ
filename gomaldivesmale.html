@@ -257,6 +257,61 @@
   @media(max-width:360px){.cbot-label{display:none}}
   @media print{.cbot,.cbot-launch{display:none!important}}
   html{-webkit-text-size-adjust:100%;touch-action:manipulation}
+  /* ===== welcome flip card ===== */
+  .wf-scene{max-width:440px;margin:0 auto}
+  .wf-card{position:relative;width:100%;min-height:648px;cursor:pointer;perspective:1500px}
+  .wf-face{position:absolute;inset:0;display:flex;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-origin:center;transition:transform .3s ease}
+  .wf-front{transform:rotateY(0deg)}
+  .wf-back{transform:rotateY(90deg);display:none}
+  .wf-wrap{position:absolute;inset:0;border-radius:22px;overflow:hidden;box-shadow:0 18px 40px -14px rgba(4,150,165,.45);display:flex;flex-direction:column}
+  .wf-frontwrap{color:#fff;background:linear-gradient(140deg,var(--teal),var(--teal-d));background-size:cover;background-position:center}
+  .wf-tint{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(3,55,66,.32),rgba(3,40,50,.62))}
+  .wf-content{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;padding:22px}
+  .wf-brow{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.95;text-shadow:0 1px 3px rgba(0,40,50,.5)}
+  .wf-brow .wf-dot{width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block;margin-right:6px}
+  .wf-welcome{margin-top:16px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--f-label);opacity:.9;text-align:center;text-shadow:0 1px 4px rgba(0,40,50,.55)}
+  .wf-flap{display:flex;gap:6px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+  .wf-flapc{width:33px;height:46px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:23px;color:#eafcff;background:#0b1c22;border-top:1px solid rgba(255,255,255,.08);box-shadow:inset 0 -2px 0 rgba(0,0,0,.55),0 4px 10px rgba(0,0,0,.3)}
+  .wf-flapc.wf-fl{animation:wf-fl .12s}@keyframes wf-fl{0%{transform:rotateX(0)}50%{transform:rotateX(-80deg)}100%{transform:rotateX(0)}}
+  .wf-flag{text-align:center;font-size:22px;margin-top:9px}
+  .wf-clocks{display:flex;gap:14px;margin-top:15px}
+  .wf-clock{flex:1;background:rgba(3,45,55,.5);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px}
+  .wf-clock .wf-lbl{font-family:var(--f-label);font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+  .wf-clock .wf-t{font-size:22px;font-weight:600;margin-top:3px;font-variant-numeric:tabular-nums}
+  .wf-mini{margin-top:12px;text-align:center;font-family:var(--f-label);font-size:11px;opacity:.9;text-shadow:0 1px 3px rgba(0,40,50,.5)}
+  .wf-fx{margin-top:12px;background:rgba(3,45,55,.5);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px 16px}
+  .wf-fxrow{display:flex;align-items:center;justify-content:center;gap:12px}
+  .wf-fxc{display:flex;align-items:baseline;gap:3px;font-size:15px}.wf-fxc b{font-size:19px;font-weight:600}
+  .wf-swap{width:34px;height:34px;border-radius:50%;border:none;background:rgba(255,255,255,.22);color:#fff;font-size:17px;cursor:pointer;flex:0 0 auto;transition:transform .3s}
+  .wf-swap:active{transform:rotate(180deg) scale(.92)}
+  .wf-fx input[type=range]{width:100%;margin-top:12px;accent-color:var(--green);height:22px}
+  .wf-fxrate{font-family:var(--f-label);font-size:10px;text-align:center;opacity:.85;margin-top:5px;text-transform:uppercase}
+  .wf-fhint{margin-top:auto;padding-top:12px;font-family:var(--f-label);font-size:11px;opacity:.95;display:flex;align-items:center;gap:6px;justify-content:center;text-shadow:0 1px 3px rgba(0,40,50,.5)}
+  .wf-rot{display:inline-block;animation:wf-spin 3.5s linear infinite}@keyframes wf-spin{to{transform:rotate(360deg)}}
+  .wf-backwrap{background:#fff;border:1px solid var(--line);padding:20px}
+  .wf-eyebrow{font-family:var(--f-label);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
+  .wf-eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+  .wf-ig{display:flex;gap:16px;align-items:center;margin-top:15px}
+  .wf-av{flex:0 0 auto;width:82px;height:82px;border-radius:50%;background:radial-gradient(120% 120% at 30% 25%,#2fd3c6,#0b7f8c 72%,#075c66);display:flex;align-items:center;justify-content:center}
+  .wf-av img{width:64%}
+  .wf-igm{flex:1;min-width:0}.wf-ign{font-weight:600;font-size:15.5px;display:flex;align-items:center;gap:6px;color:var(--dark)}
+  .wf-vb{width:16px;height:16px;flex:0 0 auto}
+  .wf-st{display:flex;gap:16px;margin-top:9px}.wf-st .wf-c{font-size:12px;color:var(--muted);font-family:var(--f-label)}
+  .wf-st .wf-c b{display:block;font-size:15px;color:var(--ink);font-weight:600;line-height:1.1}
+  .wf-bio{margin-top:13px;font-size:12px;line-height:1.6;color:var(--ink)}.wf-bio .wf-web{color:var(--teal-d);font-weight:500}
+  .wf-follow{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:14px;width:100%;padding:13px;border:none;border-radius:14px;cursor:pointer;text-decoration:none;font-weight:600;font-size:15px;color:#fff;background:linear-gradient(90deg,#f9a825,#f4511e,#d62976,#8e24aa);box-shadow:0 10px 24px -8px rgba(214,41,118,.55)}
+  .wf-follow svg{width:19px;height:19px;fill:#fff}.wf-follow:active{transform:scale(.99)}
+  .wf-collab{margin-top:14px;background:linear-gradient(135deg,rgba(4,150,165,.08),rgba(36,251,170,.12));border-radius:14px;padding:14px}
+  .wf-collab h3{font-size:14.5px;font-weight:600;color:var(--dark);display:flex;align-items:center;gap:8px}
+  .wf-collab p{font-size:12.5px;color:var(--ink);line-height:1.55;margin-top:6px}.wf-collab p b{color:var(--teal-d)}
+  .wf-cap{margin-top:13px;border:1px dashed var(--teal);border-radius:14px;padding:14px;text-align:center;background:#fff}
+  .wf-cap .wf-h{font-family:var(--f-label);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .wf-cap .wf-txt{font-size:14.5px;font-weight:500;color:var(--dark);line-height:1.45;margin-top:8px;min-height:44px;display:flex;align-items:center;justify-content:center}
+  .wf-crow{display:flex;gap:10px;margin-top:12px}
+  .wf-crow button{flex:1;padding:12px;border:none;border-radius:12px;cursor:pointer;font-weight:600;font-size:13.5px;display:flex;align-items:center;justify-content:center;gap:6px}
+  .wf-shuf{background:var(--teal);color:#fff}.wf-cpy{background:rgba(4,150,165,.12);color:var(--teal-d)}.wf-cpy.wf-done{background:var(--green);color:var(--dark)}
+  .wf-bhint{margin-top:16px;text-align:center;font-family:var(--f-label);font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px;justify-content:center}
+  @media (prefers-reduced-motion:reduce){.wf-card{transition:none}.wf-rot{animation:none}.wf-flapc.wf-fl{animation:none}}
 </style>
 </head>
 <body>
@@ -266,32 +321,41 @@
     <div id="brandLogo"></div>
   </div>
 
-  <!-- ===== HERO ===== -->
-  <div class="pass">
-    <div class="pass-top">
-      <svg class="skyline" viewBox="0 0 200 90" fill="none" stroke="#eafcfb" stroke-width="2">
-        <path d="M88 88V40l6-10 6 10v48M84 50h20M82 60h24M80 70h28M76 80h36"/>
-        <path d="M112 88V40l6-10 6 10v48M108 50h20M106 60h24M104 70h28M100 80h36"/>
-        <path d="M0 88h200M30 88V62h16v26M150 88V58h18v30M178 88V70h12v18"/>
-      </svg>
-      <div class="pass-eyebrow">&#127474;&#127483; Welcome to</div>
-      <h1 class="pass-dest">Maldives</h1>
-      <div class="pass-sub">Reefs &middot; Sandbanks &middot; Sunsets &mdash; your trip essentials.</div>
-      <div class="clocks">
-        <div class="clk"><span class="city">&#127470;&#127475; India</span><span class="time" id="clkIN">--:--</span></div>
-        <div class="clk"><span class="city" id="clkDestCity">Destination</span><span class="time" id="clkDEST">--:--</span></div>
+  <!-- ===== HERO (welcome flip card) ===== -->
+  <div class="wf-scene"><div class="wf-card" id="wfCard" onclick="wfFlip()">
+    <div class="wf-face wf-front"><div class="wf-wrap wf-frontwrap" id="wfFront">
+      <div class="wf-tint"></div>
+      <div class="wf-content">
+        <div class="wf-brow"><span><span class="wf-dot"></span>kairalitrails</span><span>Boarding pass</span></div>
+        <div class="wf-welcome">Welcome to</div>
+        <div class="wf-flap" id="wfFlap" data-word="MALDIVES"></div>
+        <div class="wf-flag">&#127474;&#127483;</div>
+        <div class="wf-clocks"><div class="wf-clock"><div class="wf-lbl">&#127470;&#127475; India</div><div class="wf-t" id="wfIN">--:--</div></div><div class="wf-clock"><div class="wf-lbl" id="wfDestCity">Maldives</div><div class="wf-t" id="wfDEST">--:--</div></div></div>
+        <div class="wf-mini">Plug A&middot;D&middot;G &middot; 230V &middot; 7 kg cabin &middot; ~1h 30m flight</div>
+        <div class="wf-fx" onclick="event.stopPropagation()" data-from="INR" data-to="MVR" data-fromsym="&#8377;" data-tosym="MVR" data-fallback="0.18" data-dir="0">
+          <div class="wf-fxrow"><span class="wf-fxc"><span id="wfFromCur">&#3647;</span><b id="wfFromVal">500</b></span><button class="wf-swap" onclick="event.stopPropagation();wfSwap()" aria-label="Swap">&#8646;</button><span class="wf-fxc"><span id="wfToCur">&#8377;</span><b id="wfToVal">--</b></span></div>
+          <input type="range" id="wfFxr" min="100" max="20000" step="100" value="500" oninput="wfFxUpd()">
+          <div class="wf-fxrate" id="wfFxRate">&nbsp;</div>
+        </div>
+        <div class="wf-fhint"><span class="wf-rot">&#8635;</span> tap to flip</div>
       </div>
-    </div>
-    <div class="perf"></div>
-    <div class="pass-stub">
-      <div class="stat"><div class="k">Currency</div><div class="v">MVR<small>Rufiyaa / USD</small></div></div>
-      <div class="stat"><div class="k">Plug</div><div class="v">A&middot;D&middot;G<small>230V</small></div></div>
-      <div class="stat"><div class="k">Baggage</div><div class="v">7 kg<small>cabin</small></div></div>
-      <div class="stat"><div class="k">Approx flight</div><div class="v">1h 30m<small>approx</small></div></div>
-    </div>
-  </div>
+    </div></div>
+    <div class="wf-face wf-back"><div class="wf-wrap wf-backwrap">
+      <div class="wf-eyebrow">Share your journey</div>
+      <div class="wf-ig"><div class="wf-av"><img alt="kairalitrails" src="images/kt-white.png"></div>
+        <div class="wf-igm"><div class="wf-ign">Kairalitrails India <svg class="wf-vb" viewBox="0 0 40 40"><path fill="#3897f0" d="M20 3l3 2.9 4.2-.9 2.1 3.7 4.2 1 .1 4.3 3.3 2.7-1.8 3.9 1.8 3.9-3.3 2.7-.1 4.3-4.2 1-2.1 3.7-4.2-.9L20 37l-3-2.9-4.2.9-2.1-3.7-4.2-1-.1-4.3L3.1 23l1.8-3.9L3.1 15l3.3-2.7.1-4.3 4.2-1L14.8 3l4.2.9z"/><path fill="#fff" d="M18 24.9l-4.3-4.3 1.9-1.9 2.4 2.4 6.1-6.1 1.9 1.9z"/></svg></div>
+        <div class="wf-st"><div class="wf-c"><b>1,378</b>posts</div><div class="wf-c"><b>232K</b>followers</div><div class="wf-c"><b>143</b>following</div></div></div>
+      </div>
+      <div class="wf-bio">Best International Tour Operator in India<br>&#128222; 24x7 Hotline: 800 800 4078 &middot; We make it Eazy!<br><span class="wf-web">&#128279; www.kairalitrails.com</span></div>
+      <a class="wf-follow" href="https://instagram.com/kairalitrails" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.1 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 5.6A4.2 4.2 0 1 0 16.2 12 4.2 4.2 0 0 0 12 7.8m0 6.9A2.7 2.7 0 1 1 14.7 12 2.7 2.7 0 0 1 12 14.7m4.4-8.1a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg> Follow us on Instagram</a>
+      <div class="wf-collab"><h3>&#129309; Collab us &amp; get featured</h3><p>Post your favourite <b>Maldives</b> moment, <b>collab @kairalitrails</b>, and we&rsquo;ll feature you to <b>232K travellers</b> &#10024;</p></div>
+      <div class="wf-cap"><div class="wf-h">Need a caption?</div><div class="wf-txt" id="wfCap"></div></div>
+      <div class="wf-crow"><button class="wf-shuf" onclick="event.stopPropagation();wfShuffle()">&#128256; New one</button><button class="wf-cpy" id="wfCpy" onclick="event.stopPropagation();wfCopy()"><span>&#128203; Copy</span></button></div>
+      <div class="wf-bhint"><span class="wf-rot">&#8635;</span> tap anywhere to flip back</div>
+    </div></div>
+  </div></div>
 
-  <!-- ===== TIMELINE ===== -->
+    <!-- ===== TIMELINE ===== -->
   <div class="eyebrow">When your documents arrive</div>
   <div class="timeline">
     <div class="tl"><div class="when">Once tickets are issued</div><div class="what">Round-trip flight tickets</div><div class="det">Sent across by our ticketing team.</div></div>
@@ -304,14 +368,19 @@
   <div class="checklist" id="checklist"></div>
 
   <!-- ===== ACTION CARDS ===== -->
+  <a class="cta-card" href="gomaldivesmale-explore">
+    <span class="cta-ic">&#127965;&#65039;</span>
+    <div class="cta-txt"><span class="cta-title">Explore Maldives</span><span class="cta-sub">Reefs, food to try &amp; souvenirs to take home</span></div>
+    <span class="cta-arrow">&#8594;</span>
+  </a>
+  <a class="cta-card" href="gomaldivesmale-phrases">
+    <span class="cta-ic">&#128483;&#65039;</span>
+    <div class="cta-txt"><span class="cta-title">Dhivehi phrases</span><span class="cta-sub">Handy words to speak like a local</span></div>
+    <span class="cta-arrow">&#8594;</span>
+  </a>
   <a class="cta-card" href="gomaldivesmale-checklist">
     <span class="cta-ic">&#128203;</span>
     <div class="cta-txt"><span class="cta-title">Check list</span><span class="cta-sub">Everything you need, before you go</span></div>
-    <span class="cta-arrow">&#8594;</span>
-  </a>
-  <a class="cta-card" href="gomaldivesmale-explore">
-    <span class="cta-ic">&#127965;&#65039;</span>
-    <div class="cta-txt"><span class="cta-title">Explore Maldives</span><span class="cta-sub">Beaches, food to try &amp; souvenirs to take home</span></div>
     <span class="cta-arrow">&#8594;</span>
   </a>
 
@@ -374,7 +443,7 @@ const CONFIG = {
 const PHOTOS = {
   "Baggage":      "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportmaldives/baggage.jpg",   // Akasa cabin + check-in allowance
   "Cabin rules":  "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportmaldives/cabin-restrictions.jpg",
-  "Money":        "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportmaldives/money.jpg",     // THB notes + cards
+  "Money":        "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportmaldives/money.jpg",     // currency notes + cards
   "Power":        "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportmaldives/adapter.jpg",   // universal travel adapter
   "Connectivity": "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportmaldives/sim.jpg",       // True/dtac SIM
   "Arrival":      "https://btulhnrguotqjkhyeazk.supabase.co/storage/v1/object/public/customer%20support/supportmaldives/airport.jpg",   // rep + name board at Exit 2
@@ -430,18 +499,32 @@ document.getElementById("brandLogo").innerHTML = CONFIG.logoDark
 // Footer: optional white logo + contacts
 document.getElementById("footLogo").innerHTML = CONFIG.logoWhite ? `<img src="${imgURL(CONFIG.logoWhite)}" alt="kairalitrails">` : "";
 
-// ----- hero background photo + live clocks -----
+// ----- welcome flip card -----
 (function(){
-  if(CONFIG.heroImage){
-    const u=imgURL(CONFIG.heroImage);
-    const im=new Image();
-    im.onload=function(){const p=document.querySelector('.pass');if(p){p.style.backgroundImage=`linear-gradient(140deg,rgba(5,42,48,.82),rgba(5,42,48,.5)),url('${u}')`;p.style.backgroundSize="cover";p.style.backgroundPosition="center";p.classList.add('has-photo');}};
-    im.src=u;   // if the photo isn't uploaded yet, the gradient simply stays
-  }
-  const dc=document.getElementById('clkDestCity'); if(dc)dc.innerHTML=CONFIG.destFlag+' '+CONFIG.tzCity;
+  if(CONFIG.heroImage){var u=imgURL(CONFIG.heroImage);var im=new Image();im.onload=function(){var p=document.getElementById('wfFront');if(p){p.style.backgroundImage="linear-gradient(140deg,rgba(5,42,48,.45),rgba(5,42,48,.3)),url('"+u+"')";}};im.src=u;}
+  var dc=document.getElementById('wfDestCity'); if(dc) dc.innerHTML=CONFIG.destFlag+' '+CONFIG.tzCity;
   function fmt(tz){try{return new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit',hour12:true}).format(new Date());}catch(e){return '--:--';}}
-  function tick(){const a=document.getElementById('clkIN');const b=document.getElementById('clkDEST');if(a)a.textContent=fmt('Asia/Kolkata');if(b)b.textContent=fmt(CONFIG.tz);}
+  function tick(){var a=document.getElementById('wfIN'),b=document.getElementById('wfDEST');if(a)a.textContent=fmt('Asia/Kolkata');if(b)b.textContent=fmt(CONFIG.tz);}
   tick(); setInterval(tick,1000);
+  window.wfSplit=function(){var el=document.getElementById('wfFlap');var target=(el.getAttribute('data-word')||'').toUpperCase();el.innerHTML='';var C='ABCDEFGHIJKLMNOPQRSTUVWXYZ';for(var i=0;i<target.length;i++){(function(i){var s=document.createElement('span');s.className='wf-flapc';el.appendChild(s);if(target[i]===' '){s.style.background='transparent';s.style.boxShadow='none';return;}var ticks=0,max=7+i*4;var iv=setInterval(function(){s.textContent=C[Math.floor(Math.random()*26)];s.classList.add('wf-fl');setTimeout(function(){s.classList.remove('wf-fl')},50);ticks++;if(ticks>=max){clearInterval(iv);s.textContent=target[i];}},70);})(i);}};
+  wfSplit();
+  var fxEl=document.querySelector('.wf-fx');var FROM=fxEl.getAttribute('data-from'),TO=fxEl.getAttribute('data-to'),FSYM=fxEl.getAttribute('data-fromsym'),TSYM=fxEl.getAttribute('data-tosym');var RATE=parseFloat(fxEl.getAttribute('data-fallback'))||0.42;var dir=+(fxEl.getAttribute('data-dir')||0);
+  function cfg(){return dir?{f:FSYM,t:TSYM,min:500,max:50000,step:500,mult:RATE}:{f:TSYM,t:FSYM,min:100,max:20000,step:100,mult:1/RATE};}
+  var fxLive=false;
+  window.wfFxUpd=function(){var c=cfg(),v=+document.getElementById('wfFxr').value;document.getElementById('wfFromCur').innerHTML=c.f;document.getElementById('wfToCur').innerHTML=c.t;document.getElementById('wfFromVal').textContent=v.toLocaleString('en-IN');document.getElementById('wfToVal').textContent=(v*c.mult).toLocaleString('en-IN',{maximumFractionDigits:0});var base=fxLive?'Live':'Approx';document.getElementById('wfFxRate').innerHTML=dir?(base+' &middot; '+FSYM+'1 = '+TSYM+RATE.toFixed(3)):(base+' &middot; '+TSYM+'1 = '+FSYM+(1/RATE).toFixed(2));};
+  window.wfSwap=function(){dir=dir?0:1;var c=cfg(),r=document.getElementById('wfFxr');r.min=c.min;r.max=c.max;r.step=c.step;r.value=dir?1000:500;wfFxUpd();};
+  (function(){var c=cfg(),r=document.getElementById('wfFxr');r.min=c.min;r.max=c.max;r.step=c.step;r.value=dir?1000:500;})();wfFxUpd();
+  (function(){function apply(v){RATE=v;fxLive=true;wfFxUpd();}
+   fetch('https://open.er-api.com/v6/latest/'+FROM).then(function(r){return r.json();}).then(function(d){if(d&&d.rates&&d.rates[TO]){apply(d.rates[TO]);}else{throw 0;}}).catch(function(){
+     fetch('https://api.frankfurter.app/latest?from='+FROM+'&to='+TO).then(function(r){return r.json();}).then(function(d){if(d&&d.rates&&d.rates[TO]){apply(d.rates[TO]);}}).catch(function(){});});})();
+  var CAPS=["\u2708\uFE0F Collecting memories, not things. \uD83C\uDF0D\u2764\uFE0F #Kairalitrails","Passport full, heart fuller. \uD83D\uDC99\uD83C\uDF0F","Every journey begins with a dream. \u2728\u2708\uFE0F","Lost in the right direction. \uD83D\uDDFA\uFE0F\uD83D\uDCAB","Wander often. Wonder always. \uD83C\uDF34\uD83C\uDF0A","Life is better with a boarding pass. \uD83C\uDF9F\uFE0F\u2708\uFE0F","Exploring the world, one destination at a time. \uD83C\uDF0D\uD83D\uDCF8","Sunsets, smiles & unforgettable memories. \uD83C\uDF05\u2764\uFE0F","Vacation mode: ON. \uD83D\uDE0E\uD83C\uDF34","Good vibes. Great views. Better memories. \uD83D\uDCF8\u2728","Adventure is calling, and I answered. \uD83C\uDFD4\uFE0F\uD83C\uDF0F","Travel. Explore. Repeat. \uD83D\uDD01\u2708\uFE0F","Making memories across the globe. \uD83C\uDF0E\uD83D\uDC99","Happiness is planning the next trip. \u2708\uFE0F\u2728","One more stamp, one more story. \uD83D\uDCD6\uD83C\uDF0D"];
+  var ci=Math.floor(Math.random()*CAPS.length);
+  function capShow(){document.getElementById('wfCap').textContent=CAPS[ci];}
+  window.wfShuffle=function(){var n;do{n=Math.floor(Math.random()*CAPS.length)}while(n===ci&&CAPS.length>1);ci=n;capShow();var b=document.getElementById('wfCpy');b.classList.remove('wf-done');b.querySelector('span').innerHTML='\uD83D\uDCCB Copy';};
+  window.wfCopy=function(){var t=CAPS[ci],b=document.getElementById('wfCpy');function ok(){b.classList.add('wf-done');b.querySelector('span').innerHTML='\u2714 Copied!';setTimeout(function(){b.classList.remove('wf-done');b.querySelector('span').innerHTML='\uD83D\uDCCB Copy';},1600);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok).catch(ok);}else{ok();}};
+  capShow();
+  var flipped=false,animating=false;
+  window.wfFlip=function(){if(animating)return;animating=true;var front=document.querySelector('.wf-front'),back=document.querySelector('.wf-back');var cur=flipped?back:front,nxt=flipped?front:back;cur.style.transition='transform .3s ease-in';cur.style.transform='rotateY(-90deg)';setTimeout(function(){cur.style.display='none';nxt.style.display='flex';nxt.style.transition='none';nxt.style.transform='rotateY(90deg)';void nxt.offsetWidth;nxt.style.transition='transform .3s ease-out';nxt.style.transform='rotateY(0deg)';flipped=!flipped;if(!flipped)wfSplit();setTimeout(function(){animating=false;},320);},300);};
 })();
 document.getElementById("contacts").innerHTML =
   `<div class="contact"><div class="role">Tour operator</div><div class="who">${CONFIG.advisorName} &middot; kairalitrails</div><div class="num">${CONFIG.advisorPhone}</div></div>`;
