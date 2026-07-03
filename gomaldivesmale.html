@@ -313,6 +313,12 @@
   .wf-shuf{background:var(--teal);color:#fff}.wf-cpy{background:rgba(4,150,165,.12);color:var(--teal-d)}.wf-cpy.wf-done{background:var(--green);color:var(--dark)}
   .wf-bhint{margin-top:16px;text-align:center;font-family:var(--f-label);font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px;justify-content:center}
   @media (prefers-reduced-motion:reduce){.wf-card{transition:none}.wf-rot{animation:none}.wf-flapc.wf-fl{animation:none}}
+  .humble{max-width:440px;margin:16px auto 0;border-radius:20px;overflow:hidden;box-shadow:0 12px 30px -18px rgba(4,150,165,.4)}
+  .humble-top{background:linear-gradient(135deg,var(--teal),var(--teal-d));color:#fff;padding:18px 20px}
+  .humble-top h2{font-family:var(--f-display,'Poppins',sans-serif);font-size:19px;font-weight:700;line-height:1.22;text-transform:uppercase;letter-spacing:.01em}
+  .humble-body{background:#fff;padding:18px 20px}
+  .humble-body p{font-size:13.5px;line-height:1.6;color:var(--ink)}
+  .humble-sign{margin-top:14px;background:linear-gradient(135deg,rgba(4,150,165,.1),rgba(36,251,170,.14));border-radius:12px;padding:12px 14px;font-weight:600;color:var(--teal-d)}
 </style>
 </head>
 <body>
@@ -355,7 +361,16 @@
     </div></div>
   </div></div>
 
-    <!-- ===== TIMELINE ===== -->
+    <!-- ===== HUMBLE REQUEST ===== -->
+  <section class="humble">
+    <div class="humble-top"><h2>A humble request from kairalitrails to all our valued travellers</h2></div>
+    <div class="humble-body">
+      <p>As you explore international destinations, we kindly request you to respect the <strong>culture, decorum, discipline and laws</strong> of the country you are visiting. Responsible travel not only reflects well on you but also represents our nation with pride. Let&rsquo;s travel thoughtfully and create positive memories everywhere we go.</p>
+      <p class="humble-sign">Wishing you safe journeys, beautiful experiences and unforgettable memories with kairalitrails &#10024;&#9992;&#65039;</p>
+    </div>
+  </section>
+
+  <!-- ===== TIMELINE ===== -->
   <div class="eyebrow">When your documents arrive</div>
   <div class="timeline">
     <div class="tl"><div class="when">Once tickets are issued</div><div class="what">Round-trip flight tickets</div><div class="det">Sent across by our ticketing team.</div></div>
@@ -771,5 +786,42 @@ function cbotVoice(){
   </div>
 </div>
 <script>document.addEventListener("gesturestart",function(e){e.preventDefault();},{passive:false});document.addEventListener("gesturechange",function(e){e.preventDefault();},{passive:false});document.addEventListener("touchmove",function(e){if(e.touches.length>1)e.preventDefault();},{passive:false});</script>
+<!-- ===== language switch (Style E) ===== -->
+<div id="google_translate_element" style="display:none"></div>
+<div class="ktlang">
+  <button class="ktlang-chip" onclick="event.stopPropagation();document.querySelector('.ktlang-dd').classList.toggle('open')"><span id="ktlangName">English</span> <span class="ktlang-car">&#9662;</span></button>
+  <div class="ktlang-dd">
+    <button data-lang="en" class="on">English</button>
+    <button data-lang="ml" class="mlx">&#3374;&#3378;&#3375;&#3390;&#3379;&#3330;</button>
+    <button data-lang="kn" class="knx">&#3221;&#3240;&#3277;&#3240;&#3233;</button>
+    <button data-lang="ta" class="tax">&#2980;&#2990;&#3007;&#2996;&#3021;</button>
+  </div>
+</div>
+<style>
+.ktlang{position:fixed;top:10px;right:12px;z-index:99999;font-family:'Poppins',sans-serif}
+.ktlang-chip{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:none;border-bottom:2px solid #0496a5;border-radius:5px 5px 0 0;padding:6px 10px;cursor:pointer;font-size:13px;font-weight:600;color:#037885;box-shadow:0 4px 12px rgba(4,60,70,.16)}
+.ktlang-car{font-size:9px;opacity:.7}
+.ktlang-dd{position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:1px solid #d7eef1;border-radius:12px;box-shadow:0 14px 30px -8px rgba(4,60,70,.28);padding:5px;display:none;min-width:150px}
+.ktlang-dd.open{display:block}
+.ktlang-dd button{display:block;width:100%;padding:10px 13px;border:none;background:transparent;border-radius:9px;cursor:pointer;font-size:14.5px;color:#0e2e34;text-align:left;font-family:'Poppins','Noto Sans Malayalam','Noto Sans Kannada','Noto Sans Tamil',sans-serif}
+.ktlang-dd button.on{background:rgba(4,150,165,.1);color:#037885;font-weight:600}
+.goog-te-banner-frame,.goog-te-gadget,.skiptranslate iframe{display:none!important}
+body{top:0!important}
+.goog-text-highlight{background:none!important;box-shadow:none!important}
+#goog-gt-tt,.goog-te-balloon-frame{display:none!important}
+</style>
+<script>
+function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'ml,kn,ta',autoDisplay:false},'google_translate_element');}
+(function(){var NAME={en:'English',ml:'\u0D2E\u0D32\u0D2F\u0D3E\u0D33\u0D02',kn:'\u0C95\u0CA8\u0CCD\u0CA8\u0CA1',ta:'\u0BA4\u0BAE\u0BBF\u0BB4\u0BCD'};
+ function apply(lang){var set=function(){var sel=document.querySelector('.goog-te-combo');if(sel){sel.value=(lang==='en'?'':lang);sel.dispatchEvent(new Event('change'));return true;}return false;};
+   if(!set()){var n=0,iv=setInterval(function(){if(set()||++n>24)clearInterval(iv);},250);}
+   var nm=document.getElementById('ktlangName');if(nm)nm.textContent=NAME[lang];
+   document.querySelectorAll('.ktlang-dd button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===lang);});
+   var d=document.querySelector('.ktlang-dd');if(d)d.classList.remove('open');}
+ document.querySelectorAll('.ktlang-dd button').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();apply(b.getAttribute('data-lang'));});});
+ document.addEventListener('click',function(){var d=document.querySelector('.ktlang-dd');if(d)d.classList.remove('open');});})();
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
