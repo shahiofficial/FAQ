@@ -330,10 +330,9 @@
         <div class="wf-brow"><span><span class="wf-dot"></span>kairalitrails</span><span>Boarding pass</span></div>
         <div class="wf-welcome">Welcome to</div>
         <div class="wf-flap" id="wfFlap" data-word="MALDIVES"></div>
-        <div class="wf-flag">&#127474;&#127483;</div>
         <div class="wf-clocks"><div class="wf-clock"><div class="wf-lbl">&#127470;&#127475; India</div><div class="wf-t" id="wfIN">--:--</div></div><div class="wf-clock"><div class="wf-lbl" id="wfDestCity">Maldives</div><div class="wf-t" id="wfDEST">--:--</div></div></div>
         <div class="wf-mini">Plug A&middot;D&middot;G &middot; 230V &middot; 7 kg cabin &middot; ~1h 30m flight</div>
-        <div class="wf-fx" onclick="event.stopPropagation()" data-from="INR" data-to="MVR" data-fromsym="&#8377;" data-tosym="MVR" data-fallback="0.18" data-dir="0">
+        <div class="wf-fx" onclick="event.stopPropagation()" data-from="INR" data-to="USD" data-fromsym="&#8377;" data-tosym="$" data-fallback="0.0117" data-dir="0">
           <div class="wf-fxrow"><span class="wf-fxc"><span id="wfFromCur">&#3647;</span><b id="wfFromVal">500</b></span><button class="wf-swap" onclick="event.stopPropagation();wfSwap()" aria-label="Swap">&#8646;</button><span class="wf-fxc"><span id="wfToCur">&#8377;</span><b id="wfToVal">--</b></span></div>
           <input type="range" id="wfFxr" min="100" max="20000" step="100" value="500" oninput="wfFxUpd()">
           <div class="wf-fxrate" id="wfFxRate">&nbsp;</div>
@@ -349,7 +348,7 @@
       </div>
       <div class="wf-bio">Best International Tour Operator in India<br>&#128222; 24x7 Hotline: 800 800 4078 &middot; We make it Eazy!<br><span class="wf-web">&#128279; www.kairalitrails.com</span></div>
       <a class="wf-follow" href="https://instagram.com/kairalitrails" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.1 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 5.6A4.2 4.2 0 1 0 16.2 12 4.2 4.2 0 0 0 12 7.8m0 6.9A2.7 2.7 0 1 1 14.7 12 2.7 2.7 0 0 1 12 14.7m4.4-8.1a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg> Follow us on Instagram</a>
-      <div class="wf-collab"><h3>&#129309; Collab us &amp; get featured</h3><p>Post your favourite <b>Maldives</b> moment, <b>collab @kairalitrails</b>, and we&rsquo;ll feature you to <b>232K travellers</b> &#10024;</p></div>
+      <div class="wf-collab"><h3>&#129309; Collab us &amp; get featured</h3><p>Post your favourite <b>Maldives</b> moment, <b>collab @kairalitrails</b> or tag us in your <b>Instagram story</b>, and we&rsquo;ll feature you to <b>232K travellers</b> &#10024;</p></div>
       <div class="wf-cap"><div class="wf-h">Need a caption?</div><div class="wf-txt" id="wfCap"></div></div>
       <div class="wf-crow"><button class="wf-shuf" onclick="event.stopPropagation();wfShuffle()">&#128256; New one</button><button class="wf-cpy" id="wfCpy" onclick="event.stopPropagation();wfCopy()"><span>&#128203; Copy</span></button></div>
       <div class="wf-bhint"><span class="wf-rot">&#8635;</span> tap anywhere to flip back</div>
@@ -455,7 +454,7 @@ const PHOTOS = {
    CONTENT — all Maldives info lives in these two lists.
    ============================================================ */
 const CHECKLIST = [
-  "Passport (6+ mo validity)","IMUGA declaration submitted","Universal travel adapter",
+  "Passport (6+ mo, 3 blank pages)","IMUGA declaration submitted","Universal travel adapter",
   "USD cash + Visa / forex card","Return flight ticket","Resort / hotel voucher"
 ];
 
@@ -475,15 +474,18 @@ const QUESTIONS = [
   { icon:"\uD83D\uDD0C", tag:"Power", q:"Do I need a power adapter?", pic:"PHOTO \u00b7 adapter / plug",
     a:`<p>The Maldives uses <strong>230V</strong> with mainly <strong>Type A, D and G</strong> sockets. A <strong>universal travel adapter</strong> covers you.</p>` },
   { icon:"\uD83D\uDCF6", tag:"Connectivity", q:"How do I get internet / a SIM?", pic:"PHOTO \u00b7 SIM card",
-    a:`<p>Grab a tourist SIM from <strong>Dhiraagu</strong> or <strong>Ooredoo</strong> at Male airport. Most resorts also offer <strong>free Wi-Fi</strong>.</p>` },
+    a:`<p>Grab a tourist SIM from <strong>Dhiraagu</strong> or <strong>Ooredoo</strong> at Male airport. Most resorts also offer <strong>free Wi-Fi</strong>.</p>
+       <p>Passengers from India can also activate <strong>international roaming with data</strong> \u2014 often a cheaper, simpler option.</p>` },
   { icon:"\uD83D\uDEEC", tag:"Arrival", q:"Where do I meet the representative?", pic:"PHOTO \u00b7 airport meeting point",
     a:`<p>After immigration and baggage at <strong>Male (MLE)</strong>, look for your <strong>resort / kairalitrails counter</strong> in the arrivals area. Your <strong>speedboat or seaplane transfer</strong> will be arranged from there.</p>` },
   { icon:"\uD83C\uDFE8", tag:"Hotel", q:"What's the standard resort check-in & check-out time?", pic:"",
     a:`<p>Standard <strong>check-in is 2:00 PM</strong> and <strong>check-out is 12:00 noon</strong>. Transfer timings depend on your resort and flight.</p>` },
   { icon:"\uD83D\uDEC2", tag:"Documents", q:"What documents should I carry to the airport for departure?", pic:"",
-    a:`<ul class="pts"><li>Passport with at least <strong>6 months validity</strong></li><li>Return flight ticket</li><li>IMUGA departure declaration (submitted)</li><li>Resort / hotel booking voucher</li></ul>` },
+    a:`<ul class="pts"><li>Passport with <strong>6 months validity &amp; 3 blank pages</strong></li><li>Return flight ticket</li><li>IMUGA departure declaration (submitted)</li><li>Resort / hotel booking voucher</li></ul>` },
   { icon:"\uD83D\uDCCB", tag:"Itinerary", q:"Will the itinerary timings change?", pic:"",
     a:`<p>Transfer and activity timings may change with weather and tides. Your coordinator will share the <strong>updated timings before departure</strong>.</p>` },
+  { icon:"\uD83C\uDFE8", tag:"Accommodation", q:"When will I receive my accommodation details?", pic:"",
+    a:`<p>Your <strong>accommodation details</strong> will be shared <strong>2 days before arrival</strong> into Mal\u00e9.</p>` },
   { icon:"\uD83D\uDDD3\uFE0F", tag:"Itinerary", q:"Where is my day-wise itinerary?", pic:"",
     a:`<p>View your selected day-wise itinerary here: <a href="https://deepintomaldives.kairalitrails.com" target="_blank" rel="noopener"><strong>deepintomaldives.kairalitrails.com</strong></a></p>
        <p><strong>Note:</strong> multiple itineraries are available \u2014 please refer only to the itinerary you have booked.</p>` },
