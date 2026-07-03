@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-<title>kairalitrails · Phuket Packing Checklist</title>
+<title>kairalitrails · Handy Vietnamese Phrases</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet">
@@ -98,22 +98,15 @@
   <div class="topbar"><img class="logo" src="images/kt-logo.png" alt="kairalitrails"></div>
 
   <div class="hero">
-    <div class="eb">&#127481;&#127469; Pack smart</div>
-    <h1>Packing Checklist</h1>
-    <p>Tick things off as you pack — your progress is saved on this device.</p>
+    <div class="eb">&#127483;&#127475; Speak like a local</div>
+    <h1>Handy Vietnamese phrases</h1>
+    <p>Tap any phrase to hear it spoken.</p>
   </div>
 
+  <div class="ph-grid" id="phrases"></div>
 
-  <div class="prog">
-    <div class="row">
-      <span class="txt" id="progTxt">0 of 0 packed</span>
-      <button class="reset" onclick="resetAll()">Reset</button>
-    </div>
-    <div class="bar"><div class="fill" id="progFill"></div></div>
-    <button class="dl-btn" onclick="downloadJPG()">&#11015;&#65039; Download my list (JPG)</button>
-  </div>
 
-  <div id="lists"></div>
+
 
 
 
@@ -125,34 +118,33 @@
 
 <script>
 const CHECKLIST_DATA = [
-  { icon:"\uD83D\uDC55", title:"Clothing", items:["Light summer clothes","Swimwear","Beach flip-flops","Walking shoes","Hat / cap","Sunglasses","Light rain poncho"] },
-  { icon:"\uD83E\uDDF4", title:"Toiletries", items:["Sunscreen SPF 50+ (reef-safe)","After-sun / aloe gel","Toothbrush & paste","Insect repellent","Personal toiletries"] },
+  { icon:"\uD83D\uDC55", title:"Clothing", items:["Comfortable clothes","Light jacket / layers","Walking shoes","Sandals","Hat / cap","Sunglasses","Light rain jacket"] },
+  { icon:"\uD83E\uDDF4", title:"Toiletries", items:["Sunscreen","Toothbrush & paste","Insect repellent","Personal toiletries","Hand sanitizer"] },
   { icon:"\uD83D\uDC8A", title:"Health & Medicines", items:["Prescription medicines","Motion-sickness tablets","Basic first-aid","Paracetamol / stomach meds"] },
-  { icon:"\uD83D\uDCF1", title:"Electronics", items:["Phone + charger","Universal adapter (A/B/C)","Power bank (cabin only)","Camera / GoPro"] },
-  { icon:"\uD83D\uDCC4", title:"Documents & Money", items:["Passport (6+ months)","Air tickets / itinerary","Show money (~USD 200 in THB)","THB cash + forex / credit card","Travel insurance"] },
-  { icon:"\uD83C\uDFDD\uFE0F", title:"Beach & Island Day", items:["Dry bag for phone","Quick-dry towel","Reusable water bottle","Snorkel gear (optional)"] },
-  { icon:"\uD83C\uDF92", title:"Daily Essentials", items:["Day backpack","Umbrella","Tissues / wipes / sanitizer"] }
+  { icon:"\uD83D\uDCF1", title:"Electronics", items:["Phone + charger","Universal adapter (A/C/F)","Power bank (cabin only)","Camera"] },
+  { icon:"\uD83D\uDCC4", title:"Documents & Money", items:["Passport (6+ months)","Vietnam e-visa (printed)","Air tickets / itinerary","VND cash + forex / card","Travel insurance"] },
+  { icon:"\uD83C\uDF92", title:"Daily Essentials", items:["Day backpack","Umbrella","Tissues / wipes / sanitizer","Reusable water bottle"] }
 ];
 
 const PHRASES = [
-  { e:"\uD83D\uDC4B", en:"Hello / Goodbye", ms:"Sawasdee kha / khrap", th:"สวัสดี" },
-  { e:"\uD83D\uDE4F", en:"Thank you", ms:"Khop khun kha / khrap", th:"ขอบคุณ" },
-  { e:"\uD83D\uDC4D", en:"Yes / No", ms:"Chai / Mai chai", th:"ใช่ ไม่ใช่" },
-  { e:"\uD83D\uDE0A", en:"How are you?", ms:"Sabai dee mai?", th:"สบายดีไหม" },
-  { e:"\uD83D\uDCB0", en:"How much?", ms:"Tao rai?", th:"เท่าไหร่" },
-  { e:"\uD83D\uDCB8", en:"Too expensive", ms:"Phaeng pai", th:"แพงไป" },
-  { e:"\uD83D\uDE0B", en:"Delicious", ms:"Aroy", th:"อร่อย" },
-  { e:"\uD83C\uDF36\uFE0F", en:"Not spicy, please", ms:"Mai phet", th:"ไม่เผ็ด" },
-  { e:"\uD83D\uDE14", en:"Excuse me / Sorry", ms:"Kho thot", th:"ขอโทษ" },
-  { e:"\uD83D\uDEBB", en:"Where's the toilet?", ms:"Hong nam yu thi nai?", th:"ห้องน้ำอยู่ที่ไหน" },
-  { e:"\uD83E\uDD14", en:"I don't understand", ms:"Mai khao jai", th:"ไม่เข้าใจ" },
-  { e:"\uD83D\uDC4C", en:"No problem", ms:"Mai pen rai", th:"ไม่เป็นไร" },
-  { e:"\uD83E\uDDFE", en:"Bill, please", ms:"Kep tang / Chek bin", th:"เก็บเงิน" },
-  { e:"\u2728", en:"Beautiful", ms:"Suay", th:"สวย" },
-  { e:"\uD83C\uDD98", en:"Help!", ms:"Chuay duay!", th:"ช่วยด้วย" }
+  { e:"\uD83D\uDC4B", en:"Hello", ms:"Xin chào" },
+  { e:"\uD83D\uDE4F", en:"Thank you", ms:"Cảm ơn" },
+  { e:"\uD83D\uDC4D", en:"Yes / No", ms:"Vâng / Không" },
+  { e:"\uD83D\uDE0A", en:"How are you?", ms:"Bạn khỏe không?" },
+  { e:"\uD83D\uDCB0", en:"How much?", ms:"Bao nhiêu?" },
+  { e:"\uD83D\uDCB8", en:"Too expensive", ms:"Đắt quá" },
+  { e:"\uD83D\uDE0B", en:"Delicious", ms:"Ngon" },
+  { e:"\uD83C\uDF36\uFE0F", en:"Not spicy", ms:"Không cay" },
+  { e:"\uD83D\uDE14", en:"Sorry / Excuse me", ms:"Xin lỗi" },
+  { e:"\uD83D\uDEBB", en:"Where's the toilet?", ms:"Nhà vệ sinh ở đâu?" },
+  { e:"\uD83E\uDD14", en:"I don't understand", ms:"Tôi không hiểu" },
+  { e:"\uD83D\uDC4C", en:"No problem", ms:"Không sao" },
+  { e:"\uD83E\uDDFE", en:"Bill, please", ms:"Tính tiền" },
+  { e:"\u2728", en:"Beautiful", ms:"Đẹp" },
+  { e:"\uD83C\uDD98", en:"Help!", ms:"Cứu với!" }
 ];
 
-const STORE_KEY = "kt-checklist-phuket";
+const STORE_KEY = "kt-checklist-vietnam";
 let checked = {};
 try { checked = JSON.parse(localStorage.getItem(STORE_KEY) || "{}") || {}; } catch(e) { checked = {}; }
 function save(){ try { localStorage.setItem(STORE_KEY, JSON.stringify(checked)); } catch(e){} }
@@ -170,8 +162,8 @@ var _ls=document.getElementById("lists"); if(_ls) _ls.innerHTML = CHECKLIST_DATA
 }).join("");
 
 var _ph=document.getElementById("phrases"); if(_ph) _ph.innerHTML = PHRASES.map(function(p){
-  var say=p.th||p.ms;
-  return '<div class="phr" data-say="'+encodeURIComponent(say)+'" data-lang="th-TH" onclick="speak(this)" role="button" tabindex="0">'
+  var say=p.ms;
+  return '<div class="phr" data-say="'+encodeURIComponent(say)+'" data-lang="vi-VN" onclick="speak(this)" role="button" tabindex="0">'
    +'<button class="spk" type="button" aria-label="Play pronunciation" onclick="event.stopPropagation();speak(this.parentNode)">&#128266;</button>'
    +'<span class="e">'+p.e+'</span><div class="en">'+p.en+'</div><div class="ms">'+p.ms+'</div></div>';
 }).join("");
@@ -188,7 +180,7 @@ function speak(card){
     var u=new SpeechSynthesisUtterance(text); u.lang=lang; u.rate=0.85;
     var base=lang.split('-')[0];
     var v=TTS_VOICES.find(function(x){return x.lang===lang;})||TTS_VOICES.find(function(x){return x.lang&&x.lang.toLowerCase().indexOf(base)===0;});
-    if(v){ u.voice=v; } else { ttsHint(card,'Tip: add the '+(base==='th'?'Thai':'Malay')+' voice in your phone settings for the best pronunciation.'); }
+    if(v){ u.voice=v; } else { ttsHint(card,'Tip: add the '+'Vietnamese'+' voice in your phone settings for the best pronunciation.'); }
     card.classList.add('speaking');
     u.onend=function(){ card.classList.remove('speaking'); };
     u.onerror=function(){ card.classList.remove('speaking'); };
@@ -246,7 +238,7 @@ function downloadJPG(){
   x.fillStyle='rgba(255,255,255,.78)'; x.font='600 13px Poppins, sans-serif';
   x.fillText('kairalitrails', pad, 46);
   x.fillStyle='#ffffff'; x.font='700 31px Poppins, sans-serif';
-  x.fillText('Phuket \u00b7 Packing List', pad, 86);
+  x.fillText('Vietnam \u00b7 Packing List', pad, 86);
   x.fillStyle='rgba(255,255,255,.9)'; x.font='500 15px Poppins, sans-serif';
   x.fillText(done+' of '+total+' packed     \u00b7     '+dateStr, pad, 116);
   function rr(px,py,pw,ph,r){ x.beginPath(); x.moveTo(px+r,py); x.arcTo(px+pw,py,px+pw,py+ph,r); x.arcTo(px+pw,py+ph,px,py+ph,r); x.arcTo(px,py+ph,px,py,r); x.arcTo(px,py,px+pw,py,r); x.closePath(); }
@@ -282,7 +274,7 @@ function downloadJPG(){
   x.textAlign='left';
   try{
     const url=cv.toDataURL('image/jpeg',0.92);
-    const a2=document.createElement('a'); a2.href=url; a2.download='phuket-packing-list.jpg';
+    const a2=document.createElement('a'); a2.href=url; a2.download='vietnam-packing-list.jpg';
     document.body.appendChild(a2); a2.click(); a2.remove();
   }catch(e){ alert('Could not generate the image on this device.'); }
 }
