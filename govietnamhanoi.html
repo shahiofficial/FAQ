@@ -259,11 +259,12 @@
   html{-webkit-text-size-adjust:100%;touch-action:manipulation}
   /* ===== welcome flip card ===== */
   .wf-scene{max-width:440px;margin:0 auto}
-  .wf-card{position:relative;width:100%;min-height:648px;cursor:pointer;perspective:1500px}
-  .wf-face{position:absolute;inset:0;display:flex;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-origin:center;transition:transform .3s ease}
+  .wf-card{position:relative;width:100%;cursor:pointer;perspective:1500px}
+  .wf-face{position:relative;display:block;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-origin:center;transition:transform .3s ease}
   .wf-front{transform:rotateY(0deg)}
   .wf-back{transform:rotateY(90deg);display:none}
-  .wf-wrap{position:absolute;inset:0;border-radius:22px;overflow:hidden;box-shadow:0 18px 40px -14px rgba(4,150,165,.45);display:flex;flex-direction:column}
+  .wf-wrap{position:relative;border-radius:22px;overflow:hidden;box-shadow:0 18px 40px -14px rgba(4,150,165,.45);display:flex;flex-direction:column}
+  .wf-frontwrap .wf-content{min-height:560px}
   .wf-frontwrap{color:#fff;background:linear-gradient(140deg,var(--teal),var(--teal-d));background-size:cover;background-position:center}
   .wf-tint{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(3,55,66,.32),rgba(3,40,50,.62))}
   .wf-content{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;padding:22px}
@@ -506,7 +507,7 @@ document.getElementById("footLogo").innerHTML = CONFIG.logoWhite ? `<img src="${
   function fmt(tz){try{return new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit',hour12:true}).format(new Date());}catch(e){return '--:--';}}
   function tick(){var a=document.getElementById('wfIN'),b=document.getElementById('wfDEST');if(a)a.textContent=fmt('Asia/Kolkata');if(b)b.textContent=fmt(CONFIG.tz);}
   tick(); setInterval(tick,1000);
-  window.wfSplit=function(){var el=document.getElementById('wfFlap');var target=(el.getAttribute('data-word')||'').toUpperCase();el.innerHTML='';var C='ABCDEFGHIJKLMNOPQRSTUVWXYZ';for(var i=0;i<target.length;i++){(function(i){var s=document.createElement('span');s.className='wf-flapc';el.appendChild(s);if(target[i]===' '){s.style.background='transparent';s.style.boxShadow='none';return;}var ticks=0,max=7+i*4;var iv=setInterval(function(){s.textContent=C[Math.floor(Math.random()*26)];s.classList.add('wf-fl');setTimeout(function(){s.classList.remove('wf-fl')},50);ticks++;if(ticks>=max){clearInterval(iv);s.textContent=target[i];}},70);})(i);}};
+  window.wfSplit=function(){var el=document.getElementById('wfFlap');var target=(el.getAttribute('data-word')||'').toUpperCase();el.innerHTML='';var C='ABCDEFGHIJKLMNOPQRSTUVWXYZ';var n=target.length,gap=5,avail=el.clientWidth||el.offsetWidth||280,w=Math.max(20,Math.min(36,Math.floor((avail-(n-1)*gap)/n))),h=Math.round(w*1.38),fs=Math.round(w*0.66);el.style.gap=gap+'px';el.style.flexWrap='nowrap';for(var i=0;i<target.length;i++){(function(i){var s=document.createElement('span');s.className='wf-flapc';s.style.width=w+'px';s.style.height=h+'px';s.style.fontSize=fs+'px';el.appendChild(s);if(target[i]===' '){s.style.background='transparent';s.style.boxShadow='none';return;}var ticks=0,max=7+i*4;var iv=setInterval(function(){s.textContent=C[Math.floor(Math.random()*26)];s.classList.add('wf-fl');setTimeout(function(){s.classList.remove('wf-fl')},50);ticks++;if(ticks>=max){clearInterval(iv);s.textContent=target[i];}},70);})(i);}};
   wfSplit();
   var fxEl=document.querySelector('.wf-fx');var FROM=fxEl.getAttribute('data-from'),TO=fxEl.getAttribute('data-to'),FSYM=fxEl.getAttribute('data-fromsym'),TSYM=fxEl.getAttribute('data-tosym');var RATE=parseFloat(fxEl.getAttribute('data-fallback'))||0.42;var dir=+(fxEl.getAttribute('data-dir')||0);
   function cfg(){return dir?{f:FSYM,t:TSYM,min:500,max:50000,step:500,mult:RATE}:{f:TSYM,t:FSYM,min:100,max:20000,step:100,mult:1/RATE};}
@@ -524,7 +525,7 @@ document.getElementById("footLogo").innerHTML = CONFIG.logoWhite ? `<img src="${
   window.wfCopy=function(){var t=CAPS[ci],b=document.getElementById('wfCpy');function ok(){b.classList.add('wf-done');b.querySelector('span').innerHTML='\u2714 Copied!';setTimeout(function(){b.classList.remove('wf-done');b.querySelector('span').innerHTML='\uD83D\uDCCB Copy';},1600);}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok).catch(ok);}else{ok();}};
   capShow();
   var flipped=false,animating=false;
-  window.wfFlip=function(){if(animating)return;animating=true;var front=document.querySelector('.wf-front'),back=document.querySelector('.wf-back');var cur=flipped?back:front,nxt=flipped?front:back;cur.style.transition='transform .3s ease-in';cur.style.transform='rotateY(-90deg)';setTimeout(function(){cur.style.display='none';nxt.style.display='flex';nxt.style.transition='none';nxt.style.transform='rotateY(90deg)';void nxt.offsetWidth;nxt.style.transition='transform .3s ease-out';nxt.style.transform='rotateY(0deg)';flipped=!flipped;if(!flipped)wfSplit();setTimeout(function(){animating=false;},320);},300);};
+  window.wfFlip=function(){if(animating)return;animating=true;var front=document.querySelector('.wf-front'),back=document.querySelector('.wf-back');var cur=flipped?back:front,nxt=flipped?front:back;cur.style.transition='transform .3s ease-in';cur.style.transform='rotateY(-90deg)';setTimeout(function(){cur.style.display='none';nxt.style.display='block';nxt.style.transition='none';nxt.style.transform='rotateY(90deg)';void nxt.offsetWidth;nxt.style.transition='transform .3s ease-out';nxt.style.transform='rotateY(0deg)';flipped=!flipped;if(!flipped)wfSplit();setTimeout(function(){animating=false;},320);},300);};
 })();
 document.getElementById("contacts").innerHTML =
   `<div class="contact"><div class="role">Tour operator</div><div class="who">${CONFIG.advisorName} &middot; kairalitrails</div><div class="num">${CONFIG.advisorPhone}</div></div>`;
